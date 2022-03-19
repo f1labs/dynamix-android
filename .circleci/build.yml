@@ -30,6 +30,7 @@ jobs:
     executor:
       name: android/android-machine
     when: << pipeline.parameters.run-build-styles-job >>
+    resource_class: xlarge
     steps:
       - checkout
       - run: ./gradlew :styles:assembleRelease
@@ -38,6 +39,7 @@ jobs:
     executor:
       name: android/android-machine
     when: << pipeline.parameters.run-build-core-job >>
+    resource_class: xlarge
     steps:
       - checkout
       - run: ./gradlew :core:assembleRelease
@@ -46,6 +48,7 @@ jobs:
     executor:
       name: android/android-machine
     when: << pipeline.parameters.run-build-modsign-job >>
+    resource_class: xlarge
     steps:
       - checkout
       - run: ./gradlew :formbuilder:assembleRelease
@@ -54,6 +57,7 @@ jobs:
     executor:
       name: android/android-machine
     when: << pipeline.parameters.run-build-formbuilder-job >>
+    resource_class: xlarge
     steps:
       - checkout
       - run: ./gradlew :formbuilder:assembleRelease
@@ -64,12 +68,12 @@ workflows:
   sample: 
     jobs:
       - build-style
-      - build-core
+      - build-core:
         requires:
           - build-style
-      - build-modsign
+      - build-modsign:
         requires:
           - build-core
-      - build-formbuilder
+      - build-formbuilder:
         requires:
           - build-core
