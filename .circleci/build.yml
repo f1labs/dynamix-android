@@ -75,7 +75,7 @@ jobs:
 workflows:
   sample: 
     jobs:
-      - build_styles:
+      - build_styles
       - build_core:
         requires:
           - build_styles
