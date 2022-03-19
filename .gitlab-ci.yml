@@ -16,7 +16,7 @@ cache:
 
 styles:
   stage: build_styles
-  rules:
+  only:
     changes:
       - styles/**/*
   script:
@@ -24,7 +24,7 @@ styles:
 
 core:
   stage: build_core
-  rules:
+  only:
     changes:
       - core/**/*
   script:
@@ -32,7 +32,7 @@ core:
 
 modsign:
   stage: build_modules
-  rules:
+  only:
     changes:
       - modsign/**/*
   script:
@@ -40,7 +40,7 @@ modsign:
 
 formbuilder:
   stage: build_modules
-  rules:
+  only:
     changes:
       - formbuilder/**/*
   script:
