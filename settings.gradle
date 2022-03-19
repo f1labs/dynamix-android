@@ -1,4 +1,4 @@
-include ':dynamix:core'
-include ':dynamix:formbuilder'
-include ':dynamix:modsign'
-include ':dynamix:styles'
+include ':core'
+include ':formbuilder'
+include ':modsign'
+include ':styles'
