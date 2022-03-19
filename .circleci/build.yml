@@ -70,22 +70,20 @@ jobs:
             - checkout
             - run: ./gradlew :formbuilder:assembleRelease
 
-# Invoke jobs via workflows
-# See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
   sample: 
     jobs:
       - build_styles:
-        name: build_styles1
+          name: build_styles1
       - build_core:
-        name: build_core1
-        requires:
-          - build_styles1
+          name: build_core1
+          requires:
+            - build_styles1
       - build_modsign:
-        name: build_modsign
-        requires:
-          - build_core1
+          name: build_modsign
+          requires:
+            - build_core1
       - build_formbuilder:
-        name: build_formbuilder
-        requires:
-          - build_core1
+          name: build_formbuilder
+          requires:
+            - build_core1
