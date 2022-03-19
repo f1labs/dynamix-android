@@ -5,6 +5,7 @@ variables:
   GIT_DEPTH: "0"  # Tells git to fetch all the branches of the project, required by the analysis task
 
 stages:
+  - code_quality
   - build_styles
   - build_core
   - build_modules
@@ -51,6 +52,7 @@ formbuilder:
     - ./gradlew :formbuilder:assembleRelease
 
 sonarcloud-check:
+  stage: code_quality
   image: maven:3.6.3-jdk-11
   cache:
     key: "${CI_JOB_NAME}"
