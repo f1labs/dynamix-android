@@ -29,7 +29,7 @@ jobs:
   build_styles:
     executor:
       name: android/android-machine
-    resource_class: 2xlarge
+      resource_class: 2xlarge
     steps:
       - when:
           condition:
@@ -41,7 +41,7 @@ jobs:
   build_core:
     executor:
       name: android/android-machine
-    resource_class: 2xlarge
+      resource_class: 2xlarge
     steps:
       - when:
           condition:
@@ -53,7 +53,7 @@ jobs:
   build_modsign:
     executor:
       name: android/android-machine
-    resource_class: 2xlarge
+      resource_class: 2xlarge
     steps:
       - when:
           condition:
@@ -65,7 +65,7 @@ jobs:
   build_formbuilder:
     executor:
       name: android/android-machine
-    resource_class: 2xlarge
+      resource_class: 2xlarge
     steps:
       - when:
           condition:
