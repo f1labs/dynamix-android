@@ -5,6 +5,7 @@ plugins {
     id 'kotlin-parcelize'
     id 'maven-publish'
     id 'kotlin-kapt'
+    id "org.sonarqube" version "3.3"
 }
 //
 def dynamix_deps = rootProject.ext.dynamix_deps
@@ -45,6 +46,13 @@ android {
 
     buildFeatures {
         dataBinding true
+    }
+
+    sonarqube {
+        properties {
+            property "sonar.projectKey", "d7001_dynamix-android"
+            property "sonar.organization", "dynamix"
+        }
     }
 }
 
