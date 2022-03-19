@@ -21,9 +21,9 @@ workflows:
           # <regex path-to-test> <parameter-to-set> <value-of-pipeline-parameter>
           mapping: |
             styles/.* run-build-styles-job true
-            core/.* run-build-core-1-job true
-            modsign/.* run-build-modsign-2-job true
-            formbuilder/.* run-build-formbuilder-2-job true
+            core/.* run-build-core-job true
+            modsign/.* run-build-modsign-job true
+            formbuilder/.* run-build-formbuilder-job true
           base-revision: master
           # this is the path of the configuration we should trigger once
           # path filtering and pipeline parameter value updates are
