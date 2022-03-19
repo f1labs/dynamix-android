@@ -75,13 +75,17 @@ jobs:
 workflows:
   sample: 
     jobs:
-      - build_styles
+      - build_styles:
+        name: build_styles
       - build_core:
+        name: build_core
         requires:
           - build_styles
       - build_modsign:
+        name: build_modsign
         requires:
           - build_core
       - build_formbuilder:
+        name: build_formbuilder
         requires:
           - build_core
