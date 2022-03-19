@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?attr/mainBackground"
+        android:orientation="vertical"
+        tools:theme="@style/Theme.Dynamix.App.DayNight">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/dynamix_toolbar_main" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/llFormContainer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:nestedScrollingEnabled="false"
+                tools:ignore="Orientation" />
+
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+</layout>

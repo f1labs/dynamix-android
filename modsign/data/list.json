@@ -1,0 +1,19 @@
+{
+    "layout": {
+        
+        "type": "verticalContainer",
+        "width": "match_parent",
+        "height": "match_parent",
+        "childrens": [
+            {
+                "type": "recyclerView",
+                "width": "match_parent",
+                "height": "match_parent",
+                "id": "rv2",
+                "dataUrl": "http://10.0.2.2/dynamix/data.json",
+                "layoutUrl": "http://10.0.2.2/dynamix/recycler.json",
+                "dataObject": "data"
+            }
+        ]
+    }
+  }

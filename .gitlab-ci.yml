@@ -1,0 +1,54 @@
+image: shr3jn/android-fastlane:jdk11
+
+stages:
+  - sonarqube
+  - build
+  - publish
+
+variables:
+  FF_USE_FASTZIP: "true"
+  GIT_STRATEGY: clone
+  GIT_DEPTH: 10
+
+before_script:
+  - wget https://gitlab-01.f1soft.com/mobileapp-public/ci/raw/master/ci-builder.jar
+  - export GRADLE_USER_HOME=/gradle
+  - chmod +x ./gradlew
+
+cache:
+  key: ${CI_PROJECT_ID}
+  paths:
+    - .gradle
+
+sonarqube:
+  tags:
+    - android
+  stage: sonarqube
+  only:
+    - master
+  script:
+    - ./gradlew :modsign:sonarqube -Dsonar.projectKey=modsign -Dsonar.host.url=http://10.13.194.38:9001 -Dsonar.login=bba95aa173ef32855a00d3f2f0677113344faec4
+
+
+build:
+  tags:
+    - android_library
+  stage: build
+  only:
+    - merge_requests
+  script:
+    - git fetch --depth=1 origin master
+    - java -Dfile.encoding=UTF-8 -jar ci-builder.jar --target-branch master --build-only
+
+publish:
+  tags:
+    - android_library
+  stage: publish
+  only:
+    refs:
+      - develop
+      - /^release-.*$/
+      - future
+  script:
+    - git fetch --depth=25 origin master --tags
+    - java -Dfile.encoding=UTF-8 -jar ci-builder.jar --target-branch master --ignored-modules

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <item name="dynamix_img_txn_limit" type="id" />
+    <item name="dynamix_spinner_txn_limit" type="id" />
+    <item name="dynamix_text_input_layout" type="id" />
+    <item name="dynamix_text_input_edit_text" type="id" />
+    <item name="dynamix_amount_field" type="id" />
+    <item name="dynamix_label_value_label" type="id" />
+    <item name="dynamix_label_value_value" type="id" />
+
+    <item name="dynamix_menu_name_container" type="id" />
+    <item name="dynamix_menu_image" type="id" />
+    <item name="dynamix_menu_name" type="id" />
+</resources>

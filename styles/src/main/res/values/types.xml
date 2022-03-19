@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Typography Regular-->
+    <style name="TextAppearance.Core.Headline1.Regular" parent="TextAppearance.Core.Headline1">
+        <item name="fontFamily">@font/regular</item>
+        <item name="android:fontFamily">@font/regular</item>
+    </style>
+
+    <style name="TextAppearance.Core.Headline2.Regular" parent="TextAppearance.Core.Headline2">
+        <!--        <item name="fontFamily">@font/regular</item>-->
+        <item name="android:fontFamily">@font/regular</item>
+    </style>
+
+    <style name="TextAppearance.Core.Headline3.Regular" parent="TextAppearance.Core.Headline3">
+        <item name="fontFamily">@font/regular</item>
+        <item name="android:fontFamily">@font/regular</item>
+    </style>
+
+    <style name="TextAppearance.Core.Headline4.Regular" parent="TextAppearance.Core.Headline4">
+        <item name="fontFamily">@font/regular</item>
+        <item name="android:fontFamily">@font/regular</item>
+    </style>
+
+    <style name="TextAppearance.Core.Headline5.Regular" parent="TextAppearance.Core.Headline5">
+        <item name="fontFamily">@font/regular</item>
+        <item name="android:fontFamily">@font/regular</item>
+    </style>
+
+    <style name="TextAppearance.Core.Headline6.Regular" parent="TextAppearance.Core.Headline6">
+        <item name="fontFamily">@font/regular</item>
+        <item name="android:fontFamily">@font/regular</item>
+    </style>
+
+    <!--Typography Bold-->
+    <style name="TextAppearance.Core.Headline1" parent="TextAppearance.MaterialComponents.Headline1">
+        <item name="fontFamily">@font/bold</item>
+        <item name="android:fontFamily">@font/bold</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:textColor">@color/color_2a2f3d</item>
+    </style>
+
+    <style name="TextAppearance.Core.Headline2" parent="TextAppearance.MaterialComponents.Headline2">
+        <item name="fontFamily">@font/bold</item>
+        <item name="android:fontFamily">@font/bold</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/color_2a2f3d</item>
+    </style>
+
+    <style name="TextAppearance.Core.Headline3" parent="TextAppearance.MaterialComponents.Headline3">
+        <item name="fontFamily">@font/bold</item>
+        <item name="android:fontFamily">@font/bold</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/color_2a2f3d</item>
+    </style>
+
+    <style name="TextAppearance.Core.Headline4" parent="TextAppearance.MaterialComponents.Headline4">
+        <item name="fontFamily">@font/bold</item>
+        <item name="android:fontFamily">@font/bold</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/color_2a2f3d</item>
+    </style>
+
+    <style name="TextAppearance.Core.Headline5" parent="TextAppearance.MaterialComponents.Headline5">
+        <item name="fontFamily">@font/bold</item>
+        <item name="android:fontFamily">@font/bold</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/color_2a2f3d</item>
+    </style>
+
+    <style name="TextAppearance.Core.Headline6" parent="TextAppearance.MaterialComponents.Headline6">
+        <item name="fontFamily">@font/bold</item>
+        <item name="android:fontFamily">@font/bold</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/color_2a2f3d</item>
+    </style>
+
+
+    <style name="TextAppearance.Core.Subtitle1" parent="TextAppearance.MaterialComponents.Subtitle1">
+        <item name="fontFamily">@font/regular</item>
+        <item name="android:fontFamily">@font/regular</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/color_2a2f3d</item>
+    </style>
+
+    <style name="TextAppearance.Core.Subtitle2" parent="TextAppearance.MaterialComponents.Subtitle2">
+        <item name="fontFamily">@font/regular</item>
+        <item name="android:fontFamily">@font/regular</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/color_2a2f3d</item>
+    </style>
+
+    <style name="TextAppearance.Core.Body1" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="fontFamily">@font/regular</item>
+        <item name="android:fontFamily">@font/regular</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/color_2a2f3d</item>
+    </style>
+
+    <style name="TextAppearance.Core.Body2" parent="TextAppearance.MaterialComponents.Body2">
+        <item name="fontFamily">@font/regular</item>
+        <item name="android:fontFamily">@font/regular</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/color_2a2f3d</item>
+    </style>
+
+    <style name="TextAppearance.Core.Subtitle1.Bold" parent="TextAppearance.Core.Subtitle1">
+        <item name="fontFamily">@font/bold</item>
+        <item name="android:fontFamily">@font/bold</item>
+    </style>
+
+    <style name="TextAppearance.Core.Subtitle2.Bold" parent="TextAppearance.Core.Subtitle2">
+        <item name="fontFamily">@font/bold</item>
+        <item name="android:fontFamily">@font/bold</item>
+    </style>
+
+    <style name="TextAppearance.Core.Body1.Bold" parent="TextAppearance.Core.Body1">
+        <item name="fontFamily">@font/bold</item>
+        <item name="android:fontFamily">@font/bold</item>
+    </style>
+
+    <style name="TextAppearance.Core.Body2.Bold" parent="TextAppearance.Core.Body2">
+        <item name="fontFamily">@font/bold</item>
+        <item name="android:fontFamily">@font/bold</item>
+    </style>
+
+
+    <style name="TextAppearance.Core.Button" parent="TextAppearance.MaterialComponents.Button">
+        <item name="fontFamily">@font/bold</item>
+        <item name="android:fontFamily">@font/bold</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/color_2a2f3d</item>
+    </style>
+
+    <style name="TextAppearance.Core.Caption" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="fontFamily">@font/regular</item>
+        <item name="android:fontFamily">@font/regular</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/color_2a2f3d</item>
+    </style>
+
+    <style name="TextAppearance.Core.Overline" parent="TextAppearance.MaterialComponents.Overline">
+        <item name="fontFamily">@font/regular</item>
+        <item name="android:fontFamily">@font/regular</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:textColor">@color/color_2a2f3d</item>
+    </style>
+
+    <style name="TextAppearance.Core.Headline3.Bold" parent="TextAppearance.Core.Headline3">
+        <item name="fontFamily">@font/bold</item>
+    </style>
+
+    <style name="TextAppearance.App.Headline5.Row" parent="TextAppearance.Core.Headline5">
+        <item name="android:textColor">@color/material_on_surface_emphasis_high_type</item>
+        <item name="fontFamily">@font/bold</item>
+        <item name="android:fontFamily">@font/bold</item>
+    </style>
+
+    <style name="TextAppearance.App.Body2.Row" parent="TextAppearance.Core.Body2">
+        <item name="android:textColor">@color/material_on_surface_emphasis_medium</item>
+    </style>
+
+    <!--    Paragraph Light Bold-->
+    <style name="ParagraphBoldLargeLight">
+        <item name="android:textSize">18sp</item>
+        <item name="android:lineSpacingMultiplier">0</item>
+        <item name="android:lineSpacingExtra">26sp</item>
+        <item name="android:textColor">?attr/colorLight</item>
+        <item name="android:fontFamily">@font/regular_bold</item>
+        <item name="fontFamily">@font/regular_bold</item>
+    </style>
+
+    <style name="ParagraphBoldNormalLight" parent="ParagraphBoldLargeLight">
+        <item name="android:textSize">16sp</item>
+        <item name="android:lineSpacingMultiplier">0</item>
+        <item name="android:lineSpacingExtra">22sp</item>
+    </style>
+
+    <style name="ParagraphBoldSmallLight" parent="ParagraphBoldLargeLight">
+        <item name="android:textSize">14sp</item>
+        <item name="android:lineSpacingExtra">20sp</item>
+    </style>
+
+    <style name="ParagraphBoldExtraSmallLight" parent="ParagraphBoldLargeLight">
+        <item name="android:textSize">12sp</item>
+        <item name="android:lineSpacingExtra">18sp</item>
+    </style>
+</resources>

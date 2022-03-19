@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="dynamix_title_error">Error</string>
+    <string name="dynamix_title_success">Success</string>
+    <string name="dynamix_action_done">Done</string>
+
+    <string name="dynamix_error_permission_not_granted">Permission not granted</string>
+    <string name="dynamix_error_webview_download">Meanwhile, we are have trouble with this feature. Please try again later…</string>
+    <string name="dynamix_action_loading">Loading…</string>
+    <string name="dynamix_action_accept">Accept</string>
+    <string name="dynamix_label_decline">Decline</string>
+    <string name="dynamix_i_agree">I Agree</string>
+    <string name="dynamix_label_terms_and_conditions">Terms And Condition</string>
+</resources>

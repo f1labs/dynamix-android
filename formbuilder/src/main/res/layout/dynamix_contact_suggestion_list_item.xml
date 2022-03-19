@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingStart="16dp"
+        android:paddingTop="8dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="8dp"
+        tools:theme="@style/Theme.Dynamix.App.DayNight">
+
+        <TextView
+            android:id="@+id/cs_li_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="marquee"
+            android:textAppearance="?attr/textAppearanceSubtitle1"
+            android:textColor="?attr/colorPrimary"
+            tools:text="Susan Thapa" />
+
+        <TextView
+            android:id="@+id/cs_li_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="marquee"
+            android:textAppearance="?attr/textAppearanceHeadline3"
+            android:textColor="@color/material_on_surface_emphasis_high_type"
+            tools:text="9898635680" />
+
+    </LinearLayout>
+</layout>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp"
+        tools:theme="@style/Theme.Dynamix.App.DayNight">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_8dp"
+            android:layout_marginEnd="@dimen/dimen_8dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/lt_bs_btm_sh_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_weight="1"
+                android:text="@string/dynamix_label_terms_and_conditions"
+                android:textAllCaps="true"
+                android:textAppearance="?attr/textAppearanceHeadline5"
+                android:textColor="?attr/colorOnSurface"
+                android:theme="@style/ThemeOverlay.Core.BottomSheetDialog" />
+
+            <ImageButton
+                android:id="@+id/lt_bs_btm_sh_close"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:layout_gravity="bottom"
+                android:background="?attr/selectableItemBackground"
+                android:padding="6dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/dynamic_ic_clear"
+                android:visibility="gone"
+                app:tint="@color/material_on_surface_emphasis_medium"
+                tools:ignore="ContentDescription" />
+        </LinearLayout>
+
+
+        <im.delight.android.webview.AdvancedWebView
+            android:id="@+id/webViewContainer"
+            android:layout_width="match_parent"
+            android:layout_height="348dp" />
+
+        <CheckBox
+            android:id="@+id/cvAgreeTerms"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/dynamix_i_agree" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCancel"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="@dimen/dimen_8dp"
+            android:text="@string/dynamix_label_decline" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnContinue"
+            style="?attr/materialButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="@dimen/dimen_8dp"
+            android:layout_marginBottom="24dp"
+            android:enabled="false"
+            android:text="@string/dynamix_action_accept" />
+
+    </LinearLayout>
+</layout>

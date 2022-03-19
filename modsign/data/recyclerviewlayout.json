@@ -1,0 +1,19 @@
+{
+    "layout": {
+        
+        "type": "verticalContainer",
+        "width": "match_parent",
+        "height": "wrap_content",
+        "childrens": [
+            {
+                "type": "recyclerView",
+                "width": "match_parent",
+                "height": "match_parent",
+                "id": "rv1",
+                "dataUrl": "https://ibankxp.laxmibank.com/webbackend/v2/main/banners",
+                "layoutUrl": "http://10.0.2.2/dynamix/products.json",
+                "dataObject": "data.banners"
+            }
+        ]
+    }
+  }

@@ -1,0 +1,61 @@
+{
+    "layout": {
+        
+        "type": "verticalContainer",
+        "width": "match_parent",
+        "height": "wrap_content",
+
+        "childrens": [
+            {
+                "type": "cardView",
+                "width": "match_parent",
+                "height": "wrap_content",
+                "cardElevation": "4dp",
+                "cardRadius": "4dp",
+                "marginLeft": "16dp",
+                "marginRight": "16dp",
+                "marginTop": "8dp",
+                "marginBottom": "8dp",
+                "childrens": [
+                    {
+                        "type": "verticalContainer",
+                        "width": "match_parent",
+                        "height": "wrap_content",
+                        "paddingBottom": "16dp",
+                        "childrens": [
+                            {
+                                "type": "imageView",
+                                "margin": "0dp",
+                                "width": "match_parent",
+                                "height": "wrap_content",
+                                "imageUrl": "mobileImagePath",
+                                "id": "tv5"
+                            },
+                            {
+                                "type": "textView",
+                                "width": "wrap_content",
+                                "height": "wrap_content",
+                                "text": "name",
+                                "marginLeft": "16dp",
+                                "marginRight": "16dp",
+                                "style": "h1BoldDark",
+                                "marginTop": "12dp",
+                                "id": "tv1"
+                            },
+                            {
+                                "type": "textView",
+                                "marginLeft": "16dp",
+                                "width": "wrap_content",
+                                "height": "wrap_content",
+                                "style": "paragraph",
+                                "text": "shortDescription",
+                                "marginTop": "4dp",
+                                "id": "tv3"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+  }

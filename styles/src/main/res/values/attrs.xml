@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <attr name="mainBackground" format="reference" />
+    <attr name="colorOnMainBackground" format="color" />
+    <attr name="colorOnMainBackgroundSecondary" format="color" />
+
+    <!-- Content inset from the edges of the screen, this attributes are not meant to be
+            used within the layout itself but can be used if you plan to by using
+            theme overlay -->
+    <attr name="insetStart" format="dimension" />
+    <attr name="insetEnd" format="dimension" />
+    <attr name="insetTop" format="dimension" />
+    <attr name="insetBottom" format="dimension" />
+
+    <!--    Typography-->
+    <attr name="h1RegularDefault" format="reference" />
+    <attr name="h2RegularDefault" format="reference" />
+    <attr name="h3RegularDefault" format="reference" />
+    <attr name="h4RegularDefault" format="reference" />
+    <attr name="h5RegularDefault" format="reference" />
+    <attr name="h6RegularDefault" format="reference" />
+
+    <attr name="h1RegularDark" format="reference" />
+    <attr name="h2RegularDark" format="reference" />
+    <attr name="h3RegularDark" format="reference" />
+    <attr name="h4RegularDark" format="reference" />
+    <attr name="h5RegularDark" format="reference" />
+    <attr name="h6RegularDark" format="reference" />
+
+    <attr name="h1RegularLight" format="reference" />
+    <attr name="h2RegularLight" format="reference" />
+    <attr name="h3RegularLight" format="reference" />
+    <attr name="h4RegularLight" format="reference" />
+    <attr name="h5RegularLight" format="reference" />
+    <attr name="h6RegularLight" format="reference" />
+
+    <attr name="h1RegularPrimary" format="reference" />
+    <attr name="h2RegularPrimary" format="reference" />
+    <attr name="h3RegularPrimary" format="reference" />
+    <attr name="h4RegularPrimary" format="reference" />
+    <attr name="h5RegularPrimary" format="reference" />
+    <attr name="h6RegularPrimary" format="reference" />
+
+    <attr name="h1BoldDefault" format="reference" />
+    <attr name="h2BoldDefault" format="reference" />
+    <attr name="h3BoldDefault" format="reference" />
+    <attr name="h4BoldDefault" format="reference" />
+    <attr name="h5BoldDefault" format="reference" />
+    <attr name="h6BoldDefault" format="reference" />
+
+    <attr name="h1BoldDark" format="reference" />
+    <attr name="h2BoldDark" format="reference" />
+    <attr name="h3BoldDark" format="reference" />
+    <attr name="h4BoldDark" format="reference" />
+    <attr name="h5BoldDark" format="reference" />
+    <attr name="h6BoldDark" format="reference" />
+
+    <attr name="h1BoldLight" format="reference" />
+    <attr name="h2BoldLight" format="reference" />
+    <attr name="h3BoldLight" format="reference" />
+    <attr name="h4BoldLight" format="reference" />
+    <attr name="h5BoldLight" format="reference" />
+    <attr name="h6BoldLight" format="reference" />
+
+    <attr name="h1BoldPrimary" format="reference" />
+    <attr name="h2BoldPrimary" format="reference" />
+    <attr name="h3BoldPrimary" format="reference" />
+    <attr name="h4BoldPrimary" format="reference" />
+    <attr name="h5BoldPrimary" format="reference" />
+    <attr name="h6BoldPrimary" format="reference" />
+
+    <attr name="headingLargeRegularDefault" format="reference" />
+    <attr name="headingNormalRegularDefault" format="reference" />
+    <attr name="headingSmallRegularDefault" format="reference" />
+
+    <attr name="headingLargeRegularLight" format="reference" />
+    <attr name="headingNormalRegularLight" format="reference" />
+    <attr name="headingSmallRegularLight" format="reference" />
+
+    <attr name="headingLargeBoldDefault" format="reference" />
+    <attr name="headingNormalBoldDefault" format="reference" />
+    <attr name="headingSmallBoldDefault" format="reference" />
+
+    <attr name="headingLargeBoldLight" format="reference" />
+    <attr name="headingNormalBoldLight" format="reference" />
+    <attr name="headingSmallBoldLight" format="reference" />
+
+    <attr name="headingLargeRegularDark" format="reference" />
+    <attr name="headingNormalRegularDark" format="reference" />
+    <attr name="headingSmallRegularDark" format="reference" />
+
+    <attr name="headingLargeBoldDark" format="reference" />
+    <attr name="headingNormalBoldDark" format="reference" />
+    <attr name="headingSmallBoldDark" format="reference" />
+
+    <attr name="paragraphRegularLargeDefault" format="reference" />
+    <attr name="paragraphRegularNormalDefault" format="reference" />
+    <attr name="paragraphRegularNormalLight" format="reference" />
+    <attr name="paragraphRegularSmallDefault" format="reference" />
+    <attr name="paragraphRegularExtraSmallDefault" format="reference" />
+
+    <attr name="paragraphRegularLargeLight" format="reference" />
+    <attr name="paragraphRegularSmallLight" format="reference" />
+    <attr name="paragraphRegularExtraSmallLight" format="reference" />
+
+    <attr name="paragraphRegularLargeDark" format="reference" />
+    <attr name="paragraphRegularNormalDark" format="reference" />
+    <attr name="paragraphRegularSmallDark" format="reference" />
+    <attr name="paragraphRegularExtraSmallDark" format="reference" />
+
+    <attr name="paragraphBoldLargeDefault" format="reference" />
+    <attr name="paragraphBoldNormalDefault" format="reference" />
+    <attr name="paragraphBoldSmallDefault" format="reference" />
+
+    <attr name="paragraphBoldLargeDark" format="reference" />
+    <attr name="paragraphBoldNormalDark" format="reference" />
+    <attr name="paragraphBoldSmallDark" format="reference" />
+
+    <!--    Paragraph Bold Light-->
+    <attr name="paragraphBoldLargeLight" format="reference" />
+    <attr name="paragraphBoldNormalLight" format="reference" />
+    <attr name="paragraphBoldSmallLight" format="reference" />
+    <attr name="paragraphBoldExtraSmallLight" format="reference" />
+
+    <!--    Buttons-->
+    <attr name="buttonBackgroundColor" format="reference" />
+
+    <attr name="buttonPrimaryNormalDefault" format="reference" />
+    <attr name="buttonPrimaryLargeLight" format="reference" />
+    <attr name="buttonPrimarySmallLight" format="reference" />
+    <attr name="buttonPrimaryXSLight" format="reference" />
+
+    <attr name="buttonPrimaryOutlinedNormal" format="reference" />
+    <attr name="buttonPrimaryTextNormal" format="reference" />
+    <attr name="buttonPrimaryOutlinedSmall" format="reference" />
+
+    <attr name="buttonSecondaryLargeDefault" format="reference" />
+    <attr name="buttonSecondaryNormalDefault" format="reference" />
+    <attr name="buttonSecondarySmallDefault" format="reference" />
+    <attr name="buttonSecondaryXSDefault" format="reference" />
+
+    <attr name="buttonPrimaryTextLeadingIconNormal" format="reference" />
+    <attr name="buttonPrimaryTextTrailingIconNormal" format="reference" />
+
+    <attr name="buttonTextNormalPrimary" format="reference" />
+
+    <attr name="buttonLinkNormalPrimary" format="reference" />
+    <attr name="buttonLinkSmallPrimary" format="reference" />
+    <attr name="buttonLinkXSPrimary" format="reference" />
+
+    <attr name="buttonTextNormalDefault" format="reference" />
+    <attr name="buttonTextNormalLight" format="reference" />
+    <attr name="buttonTextSmallDefault" format="reference" />
+    <attr name="buttonTextSmallLight" format="reference" />
+    <attr name="buttonTextSmallDark" format="reference" />
+    <attr name="buttonSecondaryNormal" format="reference" />
+    <attr name="buttonSecondaryTextNormal" format="reference" />
+
+    <attr name="buttonTextExtraSmallDefault" format="reference" />
+    <attr name="buttonTextExtraSmallLight" format="reference" />
+    <attr name="buttonTextExtraSmallDark" format="reference" />
+
+    <attr name="colorLight" format="color" />
+    <attr name="colorDefault" format="color" />
+    <attr name="colorDark" format="color" />
+    <attr name="placeHolderColorDark" format="color" />
+
+    <attr name="buttonPrimaryLink" format="color" />
+    <attr name="buttonPrimaryLinkSmall" format="color" />
+    <attr name="buttonPrimaryLeadingIconNormal" format="color" />
+    <attr name="buttonPrimaryNormal" format="color" />
+
+    <!--    Text Colors-->
+    <attr name="textColor" format="color" />
+    <attr name="textColor400" format="color" />
+    <attr name="textColor300" format="color" />
+    <attr name="textColor200" format="color" />
+    <attr name="textColor100" format="color" />
+    <attr name="textColorWhite" format="color" />
+
+    <!--    Primary Colors-->
+    <attr name="primaryColor900" format="color" />
+    <attr name="primaryColor800" format="color" />
+    <attr name="primaryColor700" format="color" />
+    <attr name="primaryColor600" format="color" />
+    <attr name="primaryColor400" format="color" />
+    <attr name="primaryColor300" format="color" />
+    <attr name="primaryColor200" format="color" />
+    <attr name="primaryColor100" format="color" />
+
+    <!--    Secondary Colors-->
+    <attr name="secondaryColor900" format="color" />
+    <attr name="secondaryColor800" format="color" />
+    <attr name="secondaryColor700" format="color" />
+    <attr name="secondaryColor600" format="color" />
+    <attr name="secondaryColor400" format="color" />
+    <attr name="secondaryColor300" format="color" />
+    <attr name="secondaryColor200" format="color" />
+    <attr name="secondaryColor100" format="color" />
+
+    <!--    Border Color-->
+    <attr name="borderColor" format="color" />
+    <attr name="borderColor400" format="color" />
+    <attr name="borderColor300" format="color" />
+    <attr name="borderColor200" format="color" />
+    <attr name="borderColor100" format="color" />
+
+    <!--    State Color-->
+    <attr name="successStateColor" format="color" />
+    <attr name="successStateColor900" format="color" />
+    <attr name="successStateColor800" format="color" />
+    <attr name="successStateColor700" format="color" />
+    <attr name="successStateColor600" format="color" />
+    <attr name="successStateColor400" format="color" />
+    <attr name="successStateColor300" format="color" />
+    <attr name="successStateColor200" format="color" />
+    <attr name="successStateColor100" format="color" />
+
+    <attr name="errorStateColor" format="color" />
+    <attr name="errorStateColor900" format="color" />
+    <attr name="errorStateColor800" format="color" />
+    <attr name="errorStateColor700" format="color" />
+    <attr name="errorStateColor600" format="color" />
+    <attr name="errorStateColor400" format="color" />
+    <attr name="errorStateColor300" format="color" />
+    <attr name="errorStateColor200" format="color" />
+    <attr name="errorStateColor100" format="color" />
+
+    <attr name="infoStateColor" format="color" />
+    <attr name="infoStateColor900" format="color" />
+    <attr name="infoStateColor800" format="color" />
+    <attr name="infoStateColor700" format="color" />
+    <attr name="infoStateColor600" format="color" />
+    <attr name="infoStateColor400" format="color" />
+    <attr name="infoStateColor300" format="color" />
+    <attr name="infoStateColor200" format="color" />
+    <attr name="infoStateColor100" format="color" />
+
+    <attr name="warningStateColor" format="color" />
+    <attr name="warningStateColor900" format="color" />
+    <attr name="warningStateColor800" format="color" />
+    <attr name="warningStateColor700" format="color" />
+    <attr name="warningStateColor600" format="color" />
+    <attr name="warningStateColor400" format="color" />
+    <attr name="warningStateColor300" format="color" />
+    <attr name="warningStateColor200" format="color" />
+    <attr name="warningStateColor100" format="color" />
+
+    <attr name="defaultStateColor" format="color" />
+    <attr name="defaultStateColor900" format="color" />
+    <attr name="defaultStateColor800" format="color" />
+    <attr name="defaultStateColor700" format="color" />
+    <attr name="defaultStateColor600" format="color" />
+    <attr name="defaultStateColor400" format="color" />
+    <attr name="defaultStateColor300" format="color" />
+    <attr name="defaultStateColor200" format="color" />
+    <attr name="defaultStateColor100" format="color" />
+
+    <attr name="colorInputBorderFocus" format="color" />
+    <attr name="inputValuesDark" format="reference" />
+</resources>

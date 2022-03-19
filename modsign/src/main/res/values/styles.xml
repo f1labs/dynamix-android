@@ -1,0 +1,513 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="textColor">#555</item>
+        <item name="textColorWhite">#FFF</item>
+        <item name="colorDefault">#444</item>
+        <item name="colorLight">#333</item>
+        <item name="textColor400">#444</item>
+
+        <item name="h1RegularDefault">@style/H1RegularDefault</item>
+        <item name="h2RegularDefault">@style/H2RegularDefault</item>
+        <item name="h3RegularDefault">@style/H3RegularDefault</item>
+        <item name="h4RegularDefault">@style/H4RegularDefault</item>
+        <item name="h5RegularDefault">@style/H5RegularDefault</item>
+        <item name="h6RegularDefault">@style/H6RegularDefault</item>
+
+        <item name="h1RegularDark">@style/H1RegularDark</item>
+        <item name="h2RegularDark">@style/H2RegularDark</item>
+        <item name="h3RegularDark">@style/H3RegularDark</item>
+        <item name="h4RegularDark">@style/H4RegularDark</item>
+        <item name="h5RegularDark">@style/H5RegularDark</item>
+        <item name="h6RegularDark">@style/H6RegularDark</item>
+
+        <item name="h1RegularLight">@style/H1RegularLight</item>
+        <item name="h2RegularLight">@style/H2RegularLight</item>
+        <item name="h3RegularLight">@style/H3RegularLight</item>
+        <item name="h4RegularLight">@style/H4RegularLight</item>
+        <item name="h5RegularLight">@style/H5RegularLight</item>
+        <item name="h6RegularLight">@style/H6RegularLight</item>
+
+        <item name="h1RegularPrimary">@style/H1RegularPrimary</item>
+        <item name="h2RegularPrimary">@style/H2RegularPrimary</item>
+        <item name="h3RegularPrimary">@style/H3RegularPrimary</item>
+        <item name="h4RegularPrimary">@style/H4RegularPrimary</item>
+        <item name="h5RegularPrimary">@style/H5RegularPrimary</item>
+        <item name="h6RegularPrimary">@style/H6RegularPrimary</item>
+
+
+        <item name="h1BoldDefault">@style/H1BoldDefault</item>
+        <item name="h2BoldDefault">@style/H2BoldDefault</item>
+        <item name="h3BoldDefault">@style/H3BoldDefault</item>
+        <item name="h4BoldDefault">@style/H4BoldDefault</item>
+        <item name="h5BoldDefault">@style/H5BoldDefault</item>
+        <item name="h6BoldDefault">@style/H6BoldDefault</item>
+
+        <item name="h1BoldDark">@style/H1BoldDark</item>
+        <item name="h2BoldDark">@style/H2BoldDark</item>
+        <item name="h3BoldDark">@style/H3BoldDark</item>
+        <item name="h4BoldDark">@style/H4BoldDark</item>
+        <item name="h5BoldDark">@style/H5BoldDark</item>
+        <item name="h6BoldDark">@style/H6BoldDark</item>
+
+        <item name="h1BoldLight">@style/H1BoldLight</item>
+        <item name="h2BoldLight">@style/H2BoldLight</item>
+        <item name="h3BoldLight">@style/H3BoldLight</item>
+        <item name="h4BoldLight">@style/H4BoldLight</item>
+        <item name="h5BoldLight">@style/H5BoldLight</item>
+        <item name="h6BoldLight">@style/H6BoldLight</item>
+
+        <item name="h1BoldPrimary">@style/H1BoldPrimary</item>
+        <item name="h2BoldPrimary">@style/H2BoldPrimary</item>
+        <item name="h3BoldPrimary">@style/H3BoldPrimary</item>
+        <item name="h4BoldPrimary">@style/H4BoldPrimary</item>
+        <item name="h5BoldPrimary">@style/H5BoldPrimary</item>
+        <item name="h6BoldPrimary">@style/H6BoldPrimary</item>
+
+        <item name="headingLargeRegularDefault">@style/HeadingLargeRegularDefault</item>
+        <item name="headingNormalRegularDefault">@style/HeadingNormalRegularDefault</item>
+        <item name="headingSmallRegularDefault">@style/HeadingSmallRegularDefault</item>
+
+        <item name="headingLargeBoldDefault">@style/HeadingLargeBoldDefault</item>
+        <item name="headingNormalBoldDefault">@style/HeadingNormalBoldDefault</item>
+        <item name="headingSmallBoldDefault">@style/HeadingSmallBoldDefault</item>
+
+        <item name="headingLargeBoldLight">@style/HeadingLargeBoldLight</item>
+        <item name="headingNormalBoldLight">@style/HeadingNormalBoldLight</item>
+        <item name="headingSmallBoldLight">@style/HeadingSmallBoldLight</item>
+
+        <item name="headingLargeRegularLight">@style/HeadingLargeRegularLight</item>
+        <item name="headingNormalRegularLight">@style/HeadingNormalRegularLight</item>
+        <item name="headingSmallRegularLight">@style/HeadingSmallRegularLight</item>
+
+
+        <item name="headingLargeRegularDark">@style/HeadingLargeRegularDark</item>
+        <item name="headingNormalRegularDark">@style/HeadingNormalRegularDark</item>
+        <item name="headingSmallRegularDark">@style/HeadingSmallRegularDark</item>
+
+        <item name="headingLargeBoldDark">@style/HeadingLargeBoldDark</item>
+        <item name="headingNormalBoldDark">@style/HeadingNormalBoldDark</item>
+        <item name="headingSmallBoldDark">@style/HeadingSmallBoldDark</item>
+
+        <item name="paragraphRegularLargeDefault">@style/ParagraphRegularLargeDefault</item>
+        <item name="paragraphRegularNormalDefault">@style/ParagraphRegularNormalDefault</item>
+        <item name="paragraphRegularSmallDefault">@style/ParagraphRegularSmallDefault</item>
+        <item name="paragraphRegularExtraSmallDefault">@style/ParagraphRegularExtraSmallDefault</item>
+        <item name="paragraphRegularLargeLight">@style/ParagraphRegularLargeLight</item>
+        <item name="paragraphRegularExtraSmallLight">@style/ParagraphRegularExtraSmallLight</item>
+
+        <item name="paragraphRegularLargeDark">@style/ParagraphRegularLargeDark</item>
+        <item name="paragraphRegularNormalDark">@style/ParagraphRegularNormalDark</item>
+        <item name="paragraphRegularNormalLight">@style/ParagraphRegularNormalLight</item>
+        <item name="paragraphRegularSmallDark">@style/ParagraphRegularSmallDark</item>
+        <item name="paragraphRegularExtraSmallDark">@style/ParagraphRegularExtraSmallDark</item>
+
+
+        <item name="paragraphBoldLargeDefault">@style/ParagraphBoldLargeDefault</item>
+        <item name="paragraphBoldNormalDefault">@style/ParagraphBoldNormalDefault</item>
+        <item name="paragraphBoldSmallDefault">@style/ParagraphBoldSmallDefault</item>
+
+        <item name="paragraphBoldLargeDark">@style/ParagraphBoldLargeDark</item>
+        <item name="paragraphBoldNormalDark">@style/ParagraphBoldNormalDark</item>
+        <item name="paragraphBoldSmallDark">@style/ParagraphBoldSmallDark</item>
+        
+    </style>
+
+    <style name="H1RegularDefault" parent="">
+        <item name="fontFamily">@font/regular</item>
+        <item name="android:fontFamily">@font/regular</item>
+        <item name="android:textSize">36sp</item>
+        <item name="lineHeight">28dp</item>
+        <item name="android:textColor">?attr/textColor400</item>
+    </style>
+
+    <style name="HeadingLargeRegularDefault" parent="H1RegularDefault">
+        <item name="android:textSize">26sp</item>
+    </style>
+
+    <style name="HeadingNormalRegularDefault" parent="H1RegularDefault">
+        <item name="android:textSize">20sp</item>
+
+    </style>
+
+    <style name="HeadingSmallRegularDefault" parent="H1RegularDefault">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="HeadingLargeBoldDefault" parent="HeadingLargeRegularDefault">
+        <item name="fontFamily">@font/bold</item>
+        <item name="android:fontFamily">@font/bold</item>
+    </style>
+
+    <style name="HeadingNormalBoldDefault" parent="HeadingNormalRegularDefault">
+        <item name="fontFamily">@font/bold</item>
+        <item name="android:fontFamily">@font/bold</item>
+    </style>
+
+    <style name="HeadingSmallBoldDefault" parent="HeadingSmallRegularDefault">
+        <item name="fontFamily">@font/bold</item>
+        <item name="android:fontFamily">@font/bold</item>
+    </style>
+
+
+    <style name="HeadingLargeRegularDark" parent="HeadingLargeRegularDefault">
+        <item name="android:textColor">?attr/textColor</item>
+    </style>
+
+    <style name="HeadingNormalRegularDark" parent="HeadingNormalRegularDefault">
+        <item name="android:textColor">?attr/textColor</item>
+
+    </style>
+
+    <style name="HeadingSmallRegularDark" parent="HeadingSmallRegularDefault">
+        <item name="android:textColor">?attr/textColor</item>
+    </style>
+
+    <style name="HeadingLargeRegularLight" parent="HeadingLargeRegularDefault">
+        <item name="android:textColor">?attr/textColorWhite</item>
+    </style>
+
+    <style name="HeadingNormalRegularLight" parent="HeadingNormalRegularDefault">
+        <item name="android:textColor">?attr/textColorWhite</item>
+
+    </style>
+
+    <style name="HeadingSmallRegularLight" parent="HeadingSmallRegularDefault">
+        <item name="android:textColor">?attr/textColorWhite</item>
+    </style>
+
+    <style name="HeadingLargeBoldDark" parent="HeadingLargeBoldDefault">
+        <item name="android:textColor">?attr/textColor</item>
+    </style>
+
+    <style name="HeadingNormalBoldDark" parent="HeadingNormalBoldDefault">
+        <item name="android:textColor">?attr/textColor</item>
+    </style>
+
+    <style name="HeadingSmallBoldDark" parent="HeadingSmallBoldDefault">
+        <item name="android:textColor">?attr/textColor</item>
+    </style>
+
+    <style name="HeadingLargeBoldLight" parent="HeadingLargeBoldDefault">
+        <item name="android:textColor">?attr/textColorWhite</item>
+    </style>
+
+    <style name="HeadingNormalBoldLight" parent="HeadingNormalBoldDefault">
+        <item name="android:textColor">?attr/textColorWhite</item>
+    </style>
+
+    <style name="HeadingSmallBoldLight" parent="HeadingSmallBoldDefault">
+        <item name="android:textColor">?attr/textColorWhite</item>
+    </style>
+
+
+    <style name="H2RegularDefault" parent="">
+        <item name="fontFamily">@font/regular</item>
+        <item name="android:fontFamily">@font/regular</item>
+        <item name="android:textSize">32sp</item>
+        <item name="android:textColor">?attr/textColor400</item>
+    </style>
+
+    <style name="H3RegularDefault" parent="">
+        <item name="fontFamily">@font/regular</item>
+        <item name="android:fontFamily">@font/regular</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:textColor">?attr/textColor400</item>
+    </style>
+
+    <style name="H4RegularDefault" parent="">
+        <item name="fontFamily">@font/regular</item>
+        <item name="android:fontFamily">@font/regular</item>
+        <item name="android:textSize">26sp</item>
+        <item name="android:textColor">?attr/textColor400</item>
+    </style>
+
+    <style name="H5RegularDefault" parent="">
+        <item name="fontFamily">@font/regular</item>
+        <item name="android:fontFamily">@font/regular</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:textColor">?attr/textColor400</item>
+    </style>
+
+    <style name="H6RegularDefault" parent="">
+        <item name="fontFamily">@font/regular</item>
+        <item name="android:fontFamily">@font/regular</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">?attr/textColor400</item>
+        <item name="android:lineSpacingMultiplier">0</item>
+        <item name="android:lineSpacingExtra">26sp</item>
+    </style>
+
+
+    <style name="H1RegularDark" parent="H1RegularDefault">
+        <item name="android:textColor">?attr/textColor</item>
+    </style>
+
+    <style name="H2RegularDark" parent="H2RegularDefault">
+        <item name="android:textColor">?attr/textColor</item>
+    </style>
+
+    <style name="H3RegularDark" parent="H3RegularDefault">
+        <item name="android:textColor">?attr/textColor</item>
+    </style>
+
+    <style name="H4RegularDark" parent="H4RegularDefault">
+        <item name="android:textColor">?attr/textColor</item>
+    </style>
+
+    <style name="H5RegularDark" parent="H5RegularDefault">
+        <item name="android:textColor">?attr/textColor</item>
+    </style>
+
+    <style name="H6RegularDark" parent="H6RegularDefault">
+        <item name="android:textColor">?attr/textColor</item>
+    </style>
+
+    <style name="H1RegularLight" parent="H1RegularDefault">
+        <item name="android:textColor">?attr/textColorWhite</item>
+    </style>
+
+    <style name="H2RegularLight" parent="H2RegularDefault">
+        <item name="android:textColor">?attr/textColorWhite</item>
+    </style>
+
+    <style name="H3RegularLight" parent="H3RegularDefault">
+        <item name="android:textColor">?attr/textColorWhite</item>
+    </style>
+
+    <style name="H4RegularLight" parent="H4RegularDefault">
+        <item name="android:textColor">?attr/textColorWhite</item>
+    </style>
+
+    <style name="H5RegularLight" parent="H5RegularDefault">
+        <item name="android:textColor">?attr/textColorWhite</item>
+    </style>
+
+    <style name="H6RegularLight" parent="H6RegularDefault">
+        <item name="android:textColor">?attr/textColorWhite</item>
+    </style>
+
+
+    <style name="H1RegularPrimary" parent="H1RegularDefault">
+        <item name="android:textColor">?attr/colorPrimary</item>
+    </style>
+
+    <style name="H2RegularPrimary" parent="H2RegularDefault">
+        <item name="android:textColor">?attr/colorPrimary</item>
+    </style>
+
+    <style name="H3RegularPrimary" parent="H3RegularDefault">
+        <item name="android:textColor">?attr/colorPrimary</item>
+    </style>
+
+    <style name="H4RegularPrimary" parent="H4RegularDefault">
+        <item name="android:textColor">?attr/colorPrimary</item>
+    </style>
+
+    <style name="H5RegularPrimary" parent="H5RegularDefault">
+        <item name="android:textColor">?attr/colorPrimary</item>
+    </style>
+
+    <style name="H6RegularPrimary" parent="H6RegularDefault">
+        <item name="android:textColor">?attr/colorPrimary</item>
+    </style>
+
+
+    <style name="H1BoldDefault" parent="H1RegularDefault">
+        <item name="fontFamily">@font/bold</item>
+        <item name="android:fontFamily">@font/bold</item>
+    </style>
+
+    <style name="H2BoldDefault" parent="H2RegularDefault">
+        <item name="fontFamily">@font/bold</item>
+        <item name="android:fontFamily">@font/bold</item>
+    </style>
+
+    <style name="H3BoldDefault" parent="H3RegularDefault">
+        <item name="fontFamily">@font/bold</item>
+        <item name="android:fontFamily">@font/bold</item>
+    </style>
+
+    <style name="H4BoldDefault" parent="H4RegularDefault">
+        <item name="fontFamily">@font/bold</item>
+        <item name="android:fontFamily">@font/bold</item>
+    </style>
+
+    <style name="H5BoldDefault" parent="H5RegularDefault">
+        <item name="fontFamily">@font/bold</item>
+        <item name="android:fontFamily">@font/bold</item>
+    </style>
+
+    <style name="H6BoldDefault" parent="H6RegularDefault">
+        <item name="fontFamily">@font/bold</item>
+        <item name="android:fontFamily">@font/bold</item>
+    </style>
+
+
+    <style name="H1BoldDark" parent="H1BoldDefault">
+        <item name="android:textColor">?attr/textColor</item>
+    </style>
+
+    <style name="H2BoldDark" parent="H2BoldDefault">
+        <item name="android:textColor">?attr/textColor</item>
+    </style>
+
+    <style name="H3BoldDark" parent="H3BoldDefault">
+        <item name="android:textColor">?attr/textColor</item>
+    </style>
+
+    <style name="H4BoldDark" parent="H4BoldDefault">
+        <item name="android:textColor">?attr/textColor</item>
+    </style>
+
+    <style name="H5BoldDark" parent="H5BoldDefault">
+        <item name="android:textColor">?attr/textColor</item>
+    </style>
+
+    <style name="H6BoldDark" parent="H6BoldDefault">
+        <item name="android:textColor">?attr/textColor</item>
+    </style>
+
+    <style name="H1BoldLight" parent="H1BoldDefault">
+        <item name="android:textColor">?attr/textColorWhite</item>
+    </style>
+
+    <style name="H2BoldLight" parent="H2BoldDefault">
+        <item name="android:textColor">?attr/textColorWhite</item>
+    </style>
+
+    <style name="H3BoldLight" parent="H3BoldDefault">
+        <item name="android:textColor">?attr/textColorWhite</item>
+    </style>
+
+    <style name="H4BoldLight" parent="H4BoldDefault">
+        <item name="android:textColor">?attr/textColorWhite</item>
+    </style>
+
+    <style name="H5BoldLight" parent="H5BoldDefault">
+        <item name="android:textColor">?attr/textColorWhite</item>
+    </style>
+
+    <style name="H6BoldLight" parent="H6BoldDefault">
+        <item name="android:textColor">?attr/textColorWhite</item>
+    </style>
+
+
+    <style name="H1BoldPrimary" parent="H1BoldDefault">
+        <item name="android:textColor">?attr/colorPrimary</item>
+    </style>
+
+    <style name="H2BoldPrimary" parent="H2BoldDefault">
+        <item name="android:textColor">?attr/colorPrimary</item>
+    </style>
+
+    <style name="H3BoldPrimary" parent="H3BoldDefault">
+        <item name="android:textColor">?attr/colorPrimary</item>
+    </style>
+
+    <style name="H4BoldPrimary" parent="H4BoldDefault">
+        <item name="android:textColor">?attr/colorPrimary</item>
+    </style>
+
+    <style name="H5BoldPrimary" parent="H5BoldDefault">
+        <item name="android:textColor">?attr/colorPrimary</item>
+    </style>
+
+    <style name="H6BoldPrimary" parent="H6BoldDefault">
+        <item name="android:textColor">?attr/colorPrimary</item>
+    </style>
+
+    <style name="ParagraphRegularLargeDefault" parent="">
+        <item name="fontFamily">@font/regular</item>
+        <item name="android:fontFamily">@font/regular</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">?attr/colorDefault</item>
+    </style>
+
+    <style name="ParagraphRegularNormalDefault" parent="ParagraphRegularLargeDefault">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="ParagraphRegularNormalLight" parent="ParagraphRegularNormalDefault">
+        <item name="android:textColor">?attr/colorLight</item>
+    </style>
+
+    <style name="ParagraphRegularSmallDefault" parent="ParagraphRegularLargeDefault">
+        <item name="android:textSize">14sp</item>
+        <item name="android:lineSpacingMultiplier">0</item>
+        <item name="android:lineSpacingExtra">20sp</item>
+    </style>
+
+    <style name="ParagraphRegularExtraSmallDefault" parent="ParagraphRegularLargeDefault">
+        <item name="android:textColor">?attr/colorDefault</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:lineSpacingMultiplier">0</item>
+        <item name="android:lineSpacingExtra">18sp</item>
+    </style>
+
+    <style name="ParagraphRegularExtraSmallLight" parent="ParagraphRegularExtraSmallDefault">
+        <item name="android:textColor">?attr/textColorWhite</item>
+    </style>
+
+    <style name="ParagraphRegularLargeLight" parent="ParagraphRegularLargeDefault">
+        <item name="android:textColor">?attr/colorLight</item>
+    </style>
+
+    <style name="ParagraphRegularLargeDark" parent="ParagraphRegularLargeDefault">
+        <item name="android:textColor">?attr/textColor</item>
+    </style>
+
+    <style name="ParagraphRegularNormalDark" parent="ParagraphRegularNormalDefault">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">?attr/textColor</item>
+    </style>
+
+    <style name="ParagraphRegularSmallDark" parent="ParagraphRegularSmallDefault">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">?attr/textColor</item>
+    </style>
+
+    <style name="ParagraphRegularExtraSmallDark" parent="ParagraphRegularSmallDefault">
+        <item name="android:textSize">12sp</item>
+        <item name="android:lineSpacingMultiplier">0</item>
+        <item name="android:lineSpacingExtra">18sp</item>
+        <item name="android:textColor">?attr/textColor</item>
+    </style>
+
+    <style name="ParagraphBoldLargeDefault" parent="ParagraphRegularLargeDefault">
+        <item name="fontFamily">@font/bold</item>
+        <item name="android:fontFamily">@font/bold</item>
+    </style>
+
+    <style name="ParagraphBoldNormalDefault" parent="ParagraphBoldLargeDefault">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="ParagraphBoldSmallDefault" parent="ParagraphBoldLargeDefault">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+
+    <style name="ParagraphBoldLargeDark" parent="ParagraphBoldLargeDefault">
+        <item name="android:textColor">?attr/textColor</item>
+    </style>
+
+    <style name="ParagraphBoldNormalDark" parent="ParagraphBoldLargeDark">
+        <item name="android:textSize">16sp</item>
+    </style>
+    
+    <style name="ParagraphBoldSmallDark" parent="ParagraphBoldLargeDark">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="ParagraphBoldExtraSmallDark" parent="ParagraphBoldLargeDark">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+</resources>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="inputIconTint" format="color" />
+
+    <!--    Generic Form-->
+    <attr name="geFmTextInputStyle" format="reference" />
+    <attr name="geFmAutoCompleteInputStyle" format="reference" />
+    <attr name="geFmLabelStyle" format="reference" />
+    <attr name="geFmCheckBoxStyle" format="reference" />
+    <attr name="geFmDropdownStyle" format="reference" />
+    <attr name="geFmDropDownSearchStyle" format="reference" />
+    <attr name="geFmRadioStyle" format="reference" />
+    <attr name="geFmSubmitButtonStyle" format="reference" />
+    <attr name="geFmCancelButtonStyle" format="reference" />
+    <attr name="geFmChipStyle" format="reference" />
+    <attr name="geFmAmountCardButtonStyle" format="reference" />
+    <attr name="geFmLabelValueLabelStyle" format="reference" />
+    <attr name="geFmLabelValueValueStyle" format="reference" />
+
+    <!--    form-->
+    <attr name="formWidgetColor" format="reference" />
+
+    <!--    Tabs-->
+    <attr name="tabSelectedBackground" format="color" />
+    <attr name="tabBackgroundColor" format="color" />
+    <attr name="tabSelectedStrokeColor" format="color" />
+    <attr name="tabStrokeColor" format="color" />
+    <attr name="tabTextColor" format="color" />
+    <attr name="tabRadius" format="dimension" />
+    <attr name="tabSelectedTextColor" format="color" />
+
+    <attr name="chipBackgroundColor" format="color" />
+    <attr name="chipRadius" format="dimension" />
+    <attr name="chipSelectedColor" format="color" />
+    <attr name="chipColor" format="color" />
+
+    <attr name="filterChipBackgroundColor" format="color" />
+    <attr name="filterChipRadius" format="dimension" />
+    <attr name="filterChipSelectedColor" format="color" />
+    <attr name="filterChipColor" format="color" />
+
+    <attr name="searchListDivider" format="reference" />
+</resources>

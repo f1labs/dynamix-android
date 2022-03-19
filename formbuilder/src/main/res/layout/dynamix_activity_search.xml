@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:theme="@style/Theme.Dynamix.App.DayNight">
+
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:contentInsetStartWithNavigation="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <EditText
+                android:id="@+id/act_sch_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginEnd="16dp"
+                android:background="@null"
+                android:hint="@string/dynamix_label_search"
+                android:imeOptions="flagNoExtractUi|actionSearch"
+                android:textColorHint="@color/material_on_surface_disabled"
+                tools:ignore="Autofill,TextFields" />
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <View
+            android:id="@+id/act_sch_divider"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="?attr/dividerHorizontal"
+            android:backgroundTint="?attr/borderColor200"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+        <in.myinnos.alphabetsindexfastscrollrecycler.IndexFastScrollRecyclerView
+            android:id="@+id/rvSearch"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:scrollbars="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/act_sch_divider" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

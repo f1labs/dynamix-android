@@ -1,0 +1,26 @@
+{
+    "layout": {
+        
+        "type": "verticalContainer",
+        "width": "match_parent",
+        "height": "match_parent",
+        "childrens": [
+            {
+                "type": "viewpager",
+                "width": "match_parent",
+                "height": "match_parent",
+                "id": "vp",
+                "viewPagerItems": [
+                    {
+                        "title": "Page 1",
+                        "layoutUrl": "http://10.0.2.2/dynamix/recyclerviewlayout.json"
+                    },
+                    {
+                        "title": "Page 2",
+                        "layoutUrl": "http://10.0.2.2/dynamix/list.json"
+                    }
+                ]
+            }
+        ]
+    }
+  }
