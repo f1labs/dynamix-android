@@ -32,7 +32,7 @@ jobs:
     steps:
       - when:
           condition:
-            equal: [ true, << run-build-styles-job >> ]
+            equal: [ true, << pipeline.parameters.run-build-styles-job >> ]
           steps:
             - checkout
             - run: ./gradlew :styles:assembleRelease
@@ -43,7 +43,7 @@ jobs:
     steps:
       - when:
           condition:
-            equal: [ true, << run-build-core-job >> ]
+            equal: [ true, << pipeline.parameters.run-build-core-job >> ]
           steps:
             - checkout
             - run: ./gradlew :core:assembleRelease
@@ -54,7 +54,7 @@ jobs:
     steps:
       - when:
           condition:
-            equal: [ true, << run-modsign-styles-job >> ]
+            equal: [ true, << pipeline.parameters.run-modsign-styles-job >> ]
           steps:
             - checkout
             - run: ./gradlew :modsign:assembleRelease
@@ -65,7 +65,7 @@ jobs:
     steps:
       - when:
           condition:
-            equal: [ true, << run-build-formbuilder-job >> ]
+            equal: [ true, << pipeline.parameters.run-build-formbuilder-job >> ]
           steps:
             - checkout
             - run: ./gradlew :formbuilder:assembleRelease
