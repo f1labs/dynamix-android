@@ -54,7 +54,7 @@ jobs:
     steps:
       - when:
           condition:
-            equal: [ true, << pipeline.parameters.run-modsign-styles-job >> ]
+            equal: [ true, << pipeline.parameters.run-build-modsign-job >> ]
           steps:
             - checkout
             - run: ./gradlew :modsign:assembleRelease
