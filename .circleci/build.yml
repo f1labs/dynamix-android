@@ -41,7 +41,6 @@ jobs:
   build_core:
     executor:
       name: android/android-machine
-    when: << pipeline.parameters.run-build-core-job >>
     resource_class: xlarge
     steps:
       - when:
@@ -54,7 +53,6 @@ jobs:
   build_modsign:
     executor:
       name: android/android-machine
-    when: << pipeline.parameters.run-build-modsign-job >>
     resource_class: xlarge
     steps:
       - when:
@@ -67,7 +65,6 @@ jobs:
   build_formbuilder:
     executor:
       name: android/android-machine
-    when: << pipeline.parameters.run-build-formbuilder-job >>
     resource_class: xlarge
     steps:
       - when:
