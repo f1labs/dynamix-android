@@ -67,11 +67,11 @@ jobs:
 workflows:
   sample: 
     jobs:
-      - build-style
-      - build-core:
+      - build-styles
+      - build-core
         requires:
-          - build-style
-      - build-modsign:
+          - build-styles
+      - build-modsign
         requires:
           - build-core
       - build-formbuilder:
