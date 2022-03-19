@@ -26,7 +26,7 @@ parameters:
 
 
 jobs:
-  build-styles:
+  build_styles:
     executor:
       name: android/android-machine
     when: << pipeline.parameters.run-build-styles-job >>
@@ -35,7 +35,7 @@ jobs:
       - checkout
       - run: ./gradlew :styles:assembleRelease
 
-  build-core:
+  build_core:
     executor:
       name: android/android-machine
     when: << pipeline.parameters.run-build-core-job >>
@@ -44,7 +44,7 @@ jobs:
       - checkout
       - run: ./gradlew :core:assembleRelease
 
-  build-modsign:
+  build_modsign:
     executor:
       name: android/android-machine
     when: << pipeline.parameters.run-build-modsign-job >>
@@ -53,7 +53,7 @@ jobs:
       - checkout
       - run: ./gradlew :formbuilder:assembleRelease
 
-  build-formbuilder:
+  build_formbuilder:
     executor:
       name: android/android-machine
     when: << pipeline.parameters.run-build-formbuilder-job >>
@@ -67,13 +67,13 @@ jobs:
 workflows:
   sample: 
     jobs:
-      - build-styles
-      - build-core:
+      - build_styles
+      - build_core:
         requires:
-          - build-styles
-      - build-modsign:
+          - build_styles
+      - build_modsign:
         requires:
-          - build-core
-      - build-formbuilder:
+          - build_core
+      - build_formbuilder:
         requires:
-          - build-core
+          - build_core
