@@ -1,7 +1,9 @@
 image: shr3jn/android-fastlane:jdk11
 
 stages:
-  - build
+  - build_styles
+  - build_core
+  - build_modules
 
 before_script:
   - export GRADLE_USER_HOME=/gradle
@@ -12,7 +14,34 @@ cache:
   paths:
     - .gradle
 
-build:
-  stage: build
+styles:
+  stage: build_styles
+  rules:
+    changes:
+      - styles/**/*
   script:
-    - ./gradlew assembleDebug
+    - ./gradlew :styles:assembleRelease
+
+core:
+  stage: build_core
+  rules:
+    changes:
+      - core/**/*
+  script:
+    - ./gradlew :core:assembleRelease
+
+modsign:
+  stage: build_modules
+  rules:
+    changes:
+      - modsign/**/*
+  script:
+    - ./gradlew :modsign:assembleRelease
+
+formbuilder:
+  stage: build_modules
+  rules:
+    changes:
+      - formbuilder/**/*
+  script:
+    - ./gradlew :formbuilder:assembleRelease
