@@ -52,7 +52,6 @@ formbuilder:
     - ./gradlew :formbuilder:assembleRelease
 
 sonarcloud-check:
-  image: gradle:jre11-slim
   stage: code_quality
   cache:
     key: "${CI_JOB_NAME}"
