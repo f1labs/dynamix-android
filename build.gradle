@@ -34,6 +34,11 @@ buildscript {
 
 apply from: 'versions.gradle'
 
+plugins {
+  id "org.sonarqube" version "3.3"
+}
+
+
 def loadedModules = [:]
 getSubprojects().forEach {
     loadedModules.put(it.name, it.path)
@@ -60,6 +65,13 @@ allprojects {
             }
         }
     }
+}
+
+sonarqube {
+  properties {
+    property "sonar.projectKey", "d7001_dynamix-android"
+    property "sonar.organization", "dynamix"
+  }
 }
 
 gradle.projectsEvaluated {
