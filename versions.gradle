@@ -2,7 +2,7 @@ ext.dynamix_deps = [:]
 def versions = [:]
 
 versions.core = "1.0.1"
-versions.formbuilder = "1.0.1"
+versions.formbuilder = "1.0.0"
 versions.gate = "1.0.1"
 versions.modsign = "1.0.1"
 versions.styles = "1.0.1"
@@ -60,7 +60,7 @@ versions.advanced_web_view = "v3.2.1"
 
 versions.test_runner = "1.0.2"
 versions.avatar_image_view = "1.2.4"
-versions.barista = "2.10.0"
+versions.barista = "4.2.0"
 
 versions.qrgen_android = "2.5.0"
 versions.fab = "1.6.4"

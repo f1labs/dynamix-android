@@ -17,6 +17,7 @@ import com.dynamix.modsign.model.ModSignVersion
 import com.dynamix.modsign.model.RootView
 import com.google.gson.Gson
 import com.google.gson.JsonObject
+import com.google.gson.internal.LinkedTreeMap
 import com.google.gson.reflect.TypeToken
 import io.reactivex.Observable
 import io.reactivex.schedulers.Schedulers
@@ -31,10 +32,7 @@ class ModSignDataProviderImpl(
 
     @SuppressLint("CheckResult")
     override fun invalidateCacheIfRequired() {
-        apiProvider.getUrl(
-            "${ModsignConfigurations.urlMap["baseUrl"]}version/modsign_version.json",
-            ModSignVersion::class.java
-        )
+        apiProvider.get(ModSignKeyConfigs.MODSIGN_VERSION_DATA, ModSignVersion::class.java)
             .subscribeOn(Schedulers.io())
             .subscribe({
                 var localVersion = -1
@@ -61,7 +59,48 @@ class ModSignDataProviderImpl(
             })
     }
 
-    override fun loadStyles(): Observable<Map<String, Any>> {
+    override fun loadParsedStyles(): Observable<Map<String, Any>> {
+        return Observable.just(
+            permanentGroupCacheProvider.query<JsonObject>(
+                ModSignCacheConfigs.MOD_SIGN_CACHE_COMPILED_STYLES_DATA
+            )
+        ).onErrorReturn { CacheValue(value = null) }.flatMap {
+            if (it.value != null && it.value.toString().isNotEmpty()) {
+                appLoggerProvider.debug("Cached parsed styles data")
+                return@flatMap gson.fromJson(
+                    it.toString(), object : TypeToken<HashMap<String, Any>>() {}.type
+                )
+            }
+            appLoggerProvider.debug("Styles data from data source")
+            return@flatMap Observable.zip(
+                loadStylesData(),
+                loadVariables()
+            ) { styles, variables ->
+                for ((key, value) in styles) {
+                    for ((key1, value1) in value as LinkedTreeMap<String, String>) {
+                        if (value1.startsWith("$")) {
+                            (styles[key] as LinkedTreeMap<String, String>)[key1] =
+                                variables[value1.drop(1)] as String
+                        }
+                    }
+                }
+                val stylesJson: JsonObject =
+                    gson.fromJson(gson.toJson(styles), JsonObject::class.java)
+                permanentGroupCacheProvider.insert(
+                    ModSignCacheConfigs.MOD_SIGN_CACHE_COMPILED_STYLES_DATA,
+                    CacheValue(
+                        value = stylesJson,
+                        groupKey = ModSignCacheConfigs.MOD_SIGN_GROUP_KEY,
+                        key = ModSignCacheConfigs.MOD_SIGN_CACHE_COMPILED_STYLES_DATA,
+                        cacheType = CacheType.CACHE_TYPE_PERMANENT_GROUP
+                    )
+                )
+                styles
+            }
+        }
+    }
+
+    private fun loadStylesData(): Observable<Map<String, Any>> {
         return apiProvider.get(
             ModSignKeyConfigs.MODSIGN_STYLES_DATA, JsonObject::class.java,
             CacheValue(
@@ -70,20 +109,21 @@ class ModSignDataProviderImpl(
                 key = ModSignCacheConfigs.MOD_SIGN_CACHE_STYLES_DATA,
                 cacheType = CacheType.CACHE_TYPE_PERMANENT_GROUP
             )
-        ).map {
-            return@map gson.fromJson(
-                it.toString(), object : TypeToken<HashMap<String, Any>>() {}.type
-            )
-        }
+        ).onErrorReturn { JsonObject() }
+            .map {
+                return@map gson.fromJson(
+                    it.toString(), object : TypeToken<HashMap<String, Any>>() {}.type
+                )
+            }
     }
 
-    override fun loadVariables(): Observable<Map<String, Any>> {
+    private fun loadVariables(): Observable<Map<String, Any>> {
         return apiProvider.get(
             ModSignKeyConfigs.MODSIGN_VARIABLES, JsonObject::class.java,
             CacheValue(
                 value = JsonObject(),
                 groupKey = ModSignCacheConfigs.MOD_SIGN_GROUP_KEY,
-                key = ModSignKeyConfigs.CACHE_VARIABLES_DATA,
+                key = ModSignCacheConfigs.MOD_SIGN_CACHE_VARIABLES_DATA,
                 cacheType = CacheType.CACHE_TYPE_PERMANENT_GROUP
             )
         ).map {
