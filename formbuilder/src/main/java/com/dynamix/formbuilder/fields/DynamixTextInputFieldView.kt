@@ -2,7 +2,6 @@ package com.dynamix.formbuilder.fields
 
 import DynamixFormFieldConstants
 import android.annotation.SuppressLint
-import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.content.Context
 import android.content.res.ColorStateList
@@ -42,6 +41,8 @@ import com.google.android.material.datepicker.*
 import com.google.android.material.textfield.MaterialAutoCompleteTextView
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
+import com.hornet.dateconverter.DateConverter
+import com.hornet.dateconverter.datepicker.DatePickerDialog
 import org.json.JSONArray
 import org.json.JSONObject
 import java.text.ParseException
@@ -134,7 +135,7 @@ class DynamixTextInputFieldView : DynamixBaseFieldView(), DynamixFormDataHandler
         )
     }
 
-    /*@SuppressLint("SetTextI18n")
+    @SuppressLint("SetTextI18n")
     private fun addNepaliDateFieldListeners(formField: DynamixFormField, editText: EditText) {
         val currentDate = DateConverter().todayNepaliDate
         val date =
@@ -155,7 +156,7 @@ class DynamixTextInputFieldView : DynamixBaseFieldView(), DynamixFormDataHandler
                 ctx.getSystemService(AppCompatActivity.INPUT_METHOD_SERVICE) as InputMethodManager
             imm.hideSoftInputFromWindow(editText.windowToken, 0)
         }
-    }*/
+    }
 
     private fun addDateFieldListeners(formField: DynamixFormField, editText: EditText) {
         val myCalendar = Calendar.getInstance()
@@ -424,7 +425,7 @@ class DynamixTextInputFieldView : DynamixBaseFieldView(), DynamixFormDataHandler
                 editText.isFocusable = false
                 setDateStyle(textInputLayout)
                 if (field.isNepaliDate) {
-//                    addNepaliDateFieldListeners(field, editText)
+                    addNepaliDateFieldListeners(field, editText)
                 } else {
                     addDateFieldListeners(field, editText)
                 }
