@@ -10,12 +10,12 @@ agent:
 blocks:
   - name: Build
     run:
-      when: "change_in('/core/')"
+      when: change_in('/core')
     task:
       jobs:
         - name: Hello Android
           commands:
             - checkout
-            - 'java -Dfile.encoding=UTF-8 -jar ci-builder.jar --build-only'
+            - java -Dfile.encoding=UTF-8 -jar ci-builder.jar --build-only
       secrets:
         - name: package registry keys
