@@ -12,10 +12,10 @@ blocks:
     task:
       jobs:
         - name: Hello Android
-        	run:
-      			when: "change_in('styles')"
+          run:
+            when: change_in('styles')
           commands:
             - checkout
-            - ./gradlew :core:assembleRelease
+            - './gradlew :core:assembleRelease'
       secrets:
         - name: package registry keys
