@@ -9,11 +9,11 @@ agent:
       image: 'shr3jn/android-fastlane:jdk11'
 blocks:
   - name: Build
+    run:
+      when: change_in('styles')
     task:
       jobs:
         - name: Hello Android
-          run:
-            when: change_in('styles')
           commands:
             - checkout
             - './gradlew :core:assembleRelease'
