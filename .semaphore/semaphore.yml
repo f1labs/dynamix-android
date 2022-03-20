@@ -8,14 +8,54 @@ agent:
     - name: main
       image: 'shr3jn/android-fastlane:jdk11'
 blocks:
-  - name: Build
+  - name: Styles
     run:
-      when: 'change_in(''/core'', {pipeline_file: ''ignore''})'
+      when: 'change_in(''/styles'', {pipeline_file: ''ignore''})'
     task:
       jobs:
-        - name: Hello Android
+        - name: Build & Release Styles
           commands:
             - checkout
-            - java -Dfile.encoding=UTF-8 -jar ci-builder.jar --build-only
+            - './gradlew :styles:assembleRelease'
       secrets:
         - name: package registry keys
+    dependencies: []
+  - name: Core
+    run:
+      when: 'change_in(''/core'', {pipeline_file: ''ignore''})'
+    dependencies:
+      - Styles
+    task:
+      secrets:
+        - name: package registry keys
+      jobs:
+        - name: Build & Release Core
+          commands:
+            - checkout
+            - './gradlew :core:assembleRelease'
+  - name: Modsign
+    dependencies:
+      - Core
+    run:
+      when: 'change_in(''/modsign'', {pipeline_file: ''ignore''})'
+    task:
+      secrets:
+        - name: package registry keys
+      jobs:
+        - name: Build & Release Modsign
+          commands:
+            - checkout
+            - './gradlew :styles:assembleRelease'
+  - name: FormBuilder
+    dependencies:
+      - Core
+    run:
+      when: 'change_in(''/formbuilder'', {pipeline_file: ''ignore''})'
+    task:
+      secrets:
+        - name: package registry keys
+      jobs:
+        - name: Build & Release Formbuilder
+          commands:
+            - checkout
+            - './gradlew :formbuilder:assembleRelease'
