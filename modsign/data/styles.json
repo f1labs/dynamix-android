@@ -1,0 +1,28 @@
+{
+    "h1BoldDark": {
+        "font": "bold",
+        "color": "#333333",
+        "textSize": "16"
+    },
+    "h2BoldDark": {
+        "font": "regular",
+        "color": "#333333",
+        "textSize": "14"
+    },
+    "paragraph": {
+        "font": "regular",
+        "color": "#333333",
+        "textSize": "12"
+    },
+    "badge": {
+        "font": "regular",
+        "color": "#333333",
+        "textSize": "12"
+    },
+    "h3BoldDark": {
+        "parent": "h1BoldDark",
+        "font": "bold",
+        "color": "#333333",
+        "textSize": "14"
+    }
+}

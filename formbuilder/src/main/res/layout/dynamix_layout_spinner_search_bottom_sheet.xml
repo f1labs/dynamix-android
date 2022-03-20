@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:id="@+id/lt_ct_pk_bs_root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:theme="@style/ThemeOverlay.Dynamix.App.Dialog"
+        tools:theme="@style/Theme.Dynamix.App.DayNight">
+
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/lt_ct_pk_bs_progress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp" />
+
+        <EditText
+            android:id="@+id/lt_sp_sr_bs_search"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginStart="?attr/insetStart"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="?attr/insetEnd"
+            android:background="@drawable/dynamix_cr_bg_round_rect_1dp_medium_emphasis"
+            android:drawablePadding="8dp"
+            android:hint="@string/dynamix_label_search"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:textColorHint="@color/material_on_surface_disabled"
+            tools:ignore="Autofill,TextFields" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/lt_sp_sr_bs_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="16dp"
+                android:clipToPadding="false"
+                android:paddingBottom="?attr/insetBottom"
+                tools:listitem="@layout/dynamix_row_spinner_search" />
+
+            <TextView
+                android:id="@+id/lt_sp_sr_bs_empty_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="16dp"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:text="@string/dynamix_error_no_data_found"
+                android:textAppearance="?attr/textAppearanceHeadline3"
+                android:textColor="@color/material_on_surface_emphasis_medium"
+                android:visibility="gone"
+                tools:visibility="visible" />
+
+        </FrameLayout>
+    </LinearLayout>
+</layout>

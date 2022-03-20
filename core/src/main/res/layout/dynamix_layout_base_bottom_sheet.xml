@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!--    Using constraint layout here will cause the view to render improperly
+    as it's immediate parent is FrameLayout with height wrap_content which adds this view
+     with match_parent height-->
+
+    <LinearLayout
+        android:id="@+id/lt_bs_btm_sh_root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:theme="@style/ThemeOverlay.Dynamix.App.Dialog"
+        tools:theme="@style/Theme.Dynamix.App.DayNight">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="?attr/insetTop"
+            android:gravity="center"
+            android:orientation="horizontal"
+            tools:ignore="UselessParent">
+
+            <TextView
+                android:id="@+id/lt_bs_btm_sh_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="?attr/insetStart"
+                android:layout_marginEnd="16dp"
+                android:layout_weight="1"
+                android:textAllCaps="true"
+                android:textAppearance="?attr/textAppearanceHeadline5"
+                android:textColor="@color/color_7f828b"
+                tools:text="Bottom Sheet Title" />
+
+            <ImageButton
+                android:id="@+id/lt_bs_btm_sh_close"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:layout_gravity="bottom"
+                android:layout_marginEnd="?attr/insetEnd"
+                android:background="?attr/selectableItemBackground"
+                android:padding="6dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/dynamic_ic_clear"
+                android:tint="@color/material_on_surface_emphasis_medium"
+                tools:ignore="ContentDescription" />
+        </LinearLayout>
+    </LinearLayout>
+</layout>

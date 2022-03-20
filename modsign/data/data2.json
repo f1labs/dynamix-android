@@ -1,0 +1,46 @@
+{
+    "data": [
+        {
+            "name": "Load IME Pay",
+            "type": "Payment",
+            "date": "22nd May, 2021",
+            "time": "05:54 PM",
+            "status": "ACTIVE"
+        },
+        {
+            "name": "Load Khalti",
+            "type": "Payment",
+            "date": "25th May, 2021",
+            "time": "05:54 PM",
+            "status": "ACTIVE"
+        },
+        {
+            "name": "Load eSewa",
+            "type": "Schedule Payment",
+            "date": "25th May, 2021",
+            "time": "05:54 AM",
+            "status": "ACTIVE"
+        },
+        {
+            "name": "Load IME Pay",
+            "type": "Payment",
+            "date": "22nd May, 2021",
+            "time": "05:54 PM",
+            "status": "ACTIVE"
+        },
+        {
+            "name": "Load Khalti",
+            "type": "Payment",
+            "date": "25th May, 2021",
+            "time": "05:54 PM",
+            "status": "ACTIVE"
+        },
+        {
+            "name": "Load eSewa",
+            "type": "Schedule Payment",
+            "date": "25th May, 2021",
+            "time": "05:54 AM",
+            "status": "ACTIVE"
+        }
+    ]
+}

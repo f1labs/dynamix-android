@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_60000000"
+        android:theme="@style/ThemeOverlay.Dynamix.App.Dialog"
+        tools:theme="@style/Theme.Dynamix.App.DayNight">
+
+        <ImageView
+            android:id="@+id/fg_ig_pw_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="?attr/insetEnd"
+            android:src="@drawable/dynamix_ic_close"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="?attr/colorSurface"
+            tools:ignore="ContentDescription" />
+
+        <ImageView
+            android:id="@+id/fg_ig_pw_image"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="?attr/insetStart"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="?attr/insetEnd"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toTopOf="@id/fg_ig_pw_download"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fg_ig_pw_close"
+            tools:ignore="ContentDescription" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/fg_ig_pw_download"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            android:text="@string/dynamix_label_download"
+            app:icon="@drawable/dynamix_ic_download_outline"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/fg_ig_pw_image"
+            app:layout_constraintStart_toStartOf="@id/fg_ig_pw_image" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

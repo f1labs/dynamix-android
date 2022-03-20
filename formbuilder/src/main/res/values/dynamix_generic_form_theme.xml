@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.Dynamix.GenericForm" parent="Theme.Dynamix.App.DayNight">
+
+        <!--    Generic Form-->
+        <item name="geFmTextInputStyle">@style/GeFmTextInputStyle</item>
+        <item name="geFmAutoCompleteInputStyle">@style/GeFmAutoCompleteInputStyle</item>
+        <item name="geFmLabelStyle">@style/GeFmLabelStyle</item>
+        <item name="geFmCheckBoxStyle">@style/GeFmCheckBoxStyle</item>
+        <item name="geFmDropdownStyle">@style/GeFmDropdownStyle</item>
+        <item name="geFmDropDownSearchStyle">@style/GeFmDropdownSearchStyle</item>
+        <item name="geFmRadioStyle">@style/GeFmRadioStyle</item>
+        <item name="geFmSubmitButtonStyle">@style/GeFmSubmitButtonStyle</item>
+        <item name="geFmCancelButtonStyle">@style/GeFmCancelButtonStyle</item>
+        <item name="geFmChipStyle">@style/GeFmChipStyle</item>
+        <item name="geFmAmountCardButtonStyle">@style/GeFmAmountCardButtonStyle</item>
+
+        <!--    form-->
+        <item name="formWidgetColor">?attr/colorPrimary</item>
+
+        <item name="tabSelectedBackground">?attr/primaryColor600</item>
+        <item name="tabBackgroundColor">@android:color/transparent</item>
+        <item name="tabSelectedStrokeColor">?attr/primaryColor600</item>
+        <item name="tabStrokeColor">?attr/borderColor400</item>
+        <item name="tabTextColor">?attr/textColor400</item>
+        <item name="tabRadius">4dp</item>
+        <item name="tabSelectedTextColor">?attr/textColorWhite</item>
+
+        <item name="chipBackgroundColor">@color/color_ffffff</item>
+        <item name="chipRadius">4dp</item>
+        <item name="chipSelectedColor">?attr/colorSecondary</item>
+        <item name="chipColor">?attr/textColor400</item>
+
+        <item name="filterChipBackgroundColor">@color/color_ffffff</item>
+        <item name="filterChipRadius">4dp</item>
+        <item name="filterChipSelectedColor">?attr/colorPrimary</item>
+        <item name="filterChipColor">?attr/textColor400</item>
+
+        <item name="searchListDivider">@style/SearchListDivider</item>
+    </style>
+
+    <style name="GeFmTextInputStyle" parent="Widget.App.InputEditTextLayout" />
+
+    <style name="GeFmAutoCompleteInputStyle" parent="Widget.App.DropDownStyle" />
+
+    <style name="GeFmLabelStyle" parent="FieldLabelDark" />
+
+    <style name="GeFmCheckBoxStyle" parent="Widget.App.Checkbox">
+        <item name="android:paddingStart">6dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingEnd">0dp</item>
+        <item name="android:paddingBottom">0dp</item>
+        <item name="android:gravity">start</item>
+    </style>
+
+    <style name="GeFmDropdownStyle" parent="GeFmAutoCompleteInputStyle" />
+
+    <style name="GeFmDropdownSearchStyle" parent="GeFmAutoCompleteInputStyle" />
+
+    <style name="GeFmRadioStyle" parent="Widget.MaterialComponents.CompoundButton.RadioButton" />
+
+    <style name="GeFmSubmitButtonStyle" parent="ButtonPrimaryNormal" />
+
+    <style name="GeFmCancelButtonStyle" parent="ButtonPrimaryTextNormal" />
+
+    <style name="GeFmChipStyle" parent="Widget.MaterialComponents.Chip.Choice" />
+
+    <style name="GeFmAmountCardButtonStyle" parent="ButtonPrimaryOutlinedNormal">
+        <item name="backgroundTint">?attr/primaryColor100</item>
+        <item name="strokeColor">?attr/primaryColor200</item>
+        <item name="android:textColor">?attr/colorPrimary</item>
+    </style>
+
+    <!--    Form buttons-->
+    <style name="ThemeOverlay.Dynamix.Form.Button" parent="">
+        <item name="materialButtonStyle">@style/Widget.Core.ButtonPrimaryFilled</item>
+        <item name="materialButtonOutlinedStyle">@style/Widget.Core.ButtonTertiaryOutline</item>
+        <item name="borderlessButtonStyle">@style/Widget.Core.ButtonPrimaryText</item>
+    </style>
+
+    <style name="DynamixSpinnerItem">
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:paddingRight">0dp</item>
+        <item name="android:paddingBottom">4dp</item>
+        <item name="android:textColor">?attr/textColor300</item>
+        <item name="android:fontFamily">@font/regular</item>
+    </style>
+
+    <style name="ThemeOverlay.Dynamix.GenericForm.Chip" parent="">
+        <item name="android:textSize">11sp</item>
+    </style>
+
+    <style name="SearchListDivider">
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:background">#ededed</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:layout_width">match_parent</item>
+    </style>
+</resources>

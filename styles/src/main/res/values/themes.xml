@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!--    Light variant of the theme-->
+    <style name="Theme.Dynamix.App.DayNight" parent="Theme.Dynamix.Core" />
+
+    <!--    Marker theme that contains attributes needed in theme overlay, we could have just inherited
+            the DayNight theme in theme overlays but that is quite heavy operation-->
+    <style name="ThemeOverlay.Dynamix.App.DayNight" parent="" />
+
+    <!--    Root theme-->
+    <style name="Theme.Dynamix.Core" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
+        <item name="colorAccent">?attr/colorSecondary</item>
+        <item name="colorControlActivated">?attr/textColor400</item>
+        <item name="colorControlHighlight">@android:color/transparent</item>
+        <item name="colorOnSurface">@color/color_000000</item>
+        <item name="colorOnPrimary">@color/color_ffffff</item>
+        <item name="colorOnSecondary">@color/color_ffffff</item>
+        <item name="android:statusBarColor">?attr/colorPrimary</item>
+        <item name="dividerHorizontal">@color/color_9b9b9b</item>
+
+        <!--        Custom attributes-->
+        <item name="colorPrimary">@color/color_005b31</item>
+        <item name="primaryColor900">#010812</item>
+        <item name="primaryColor800">#042247</item>
+        <item name="primaryColor700">#052a59</item>
+        <item name="primaryColor600">#07438e</item>
+        <item name="primaryColor400">#3a76c1</item>
+        <item name="primaryColor300">#6b98d0</item>
+        <item name="primaryColor200">#9dbbe0</item>
+        <item name="primaryColor100">#e6eef7</item>
+
+        <item name="colorSecondary">#fcba1c</item>
+        <item name="secondaryColor900">#322506</item>
+        <item name="secondaryColor800">#644a0b</item>
+        <item name="secondaryColor700">#977011</item>
+        <item name="secondaryColor600">#ca9516</item>
+        <item name="secondaryColor400">#fdc849</item>
+        <item name="secondaryColor300">#fdd677</item>
+        <item name="secondaryColor200">#fee3a4</item>
+        <item name="secondaryColor100">#fef1d2</item>
+
+        <item name="textColor">#191b22</item>
+        <item name="textColor400">#47494e</item>
+        <item name="textColor300">#5e5f64</item>
+        <item name="textColor200">#a3a4a7</item>
+        <item name="textColor100">#e8e8e9</item>
+        <item name="textColorWhite">#ffffff</item>
+
+        <item name="borderColor">#a4a7b0</item>
+        <item name="borderColor400">#b6b9c0</item>
+        <item name="borderColor300">#c8cad0</item>
+        <item name="borderColor200">#dbdcdf</item>
+        <item name="borderColor100">#fafafa</item>
+
+        <item name="successStateColor">#219653</item>
+        <item name="successStateColor900">#071e11</item>
+        <item name="successStateColor800">#0d3c21</item>
+        <item name="successStateColor700">#145a32</item>
+        <item name="successStateColor600">#1a7842</item>
+        <item name="successStateColor400">#4dab75</item>
+        <item name="successStateColor300">#7ac098</item>
+        <item name="successStateColor200">#a6d5ba</item>
+        <item name="successStateColor100">#f2fff7</item>
+
+        <item name="errorStateColor">#ef424c</item>
+        <item name="errorStateColor900">#300d0f</item>
+        <item name="errorStateColor800">#601a1e</item>
+        <item name="errorStateColor700">#8f282e</item>
+        <item name="errorStateColor600">#bf353d</item>
+        <item name="errorStateColor400">#f26870</item>
+        <item name="errorStateColor300">#f58e94</item>
+        <item name="errorStateColor200">#f9b3b7</item>
+        <item name="errorStateColor100">#fff6f6</item>
+
+        <item name="infoStateColor">#285bd4</item>
+        <item name="infoStateColor900">#08122a</item>
+        <item name="infoStateColor800">#102455</item>
+        <item name="infoStateColor700">#18377f</item>
+        <item name="infoStateColor600">#2049aa</item>
+        <item name="infoStateColor400">#537cdd</item>
+        <item name="infoStateColor300">#7e9de5</item>
+        <item name="infoStateColor200">#a9bdee</item>
+        <item name="infoStateColor100">#f5f8ff</item>
+
+        <item name="warningStateColor">#f3ac13</item>
+        <item name="warningStateColor900">#312204</item>
+        <item name="warningStateColor800">#614508</item>
+        <item name="warningStateColor700">#92670b</item>
+        <item name="warningStateColor600">#c28a0f</item>
+        <item name="warningStateColor400">#f5bd42</item>
+        <item name="warningStateColor300">#f8cd71</item>
+        <item name="warningStateColor200">#fadea1</item>
+        <item name="warningStateColor100">#fffcf5</item>
+
+        <item name="defaultStateColor">#52546c</item>
+        <item name="defaultStateColor900">#101116</item>
+        <item name="defaultStateColor800">#21222b</item>
+        <item name="defaultStateColor700">#313241</item>
+        <item name="defaultStateColor600">#424356</item>
+        <item name="defaultStateColor400">#757689</item>
+        <item name="defaultStateColor300">#9798a7</item>
+        <item name="defaultStateColor200">#babbc4</item>
+        <item name="defaultStateColor100">#f6f6f6</item>
+
+        <item name="mainBackground">@color/color_005b31</item>
+        <item name="colorOnMainBackground">@color/color_000000</item>
+        <item name="colorOnMainBackgroundSecondary">@color/color_7f828b</item>
+        <item name="colorControlNormal">@color/color_000000</item>
+
+        <!--        Content Margins-->
+        <item name="insetStart">16dp</item>
+        <item name="insetEnd">16dp</item>
+        <item name="insetTop">16dp</item>
+        <item name="insetBottom">16dp</item>
+
+        <!--        Buttons-->
+        <item name="materialButtonStyle">@style/Widget.Core.ButtonPrimaryFilled</item>
+        <item name="materialButtonOutlinedStyle">@style/Widget.Core.ButtonPrimaryOutline</item>
+        <item name="borderlessButtonStyle">@style/Widget.Core.ButtonPrimaryText</item>
+
+        <!--        Inputs-->
+        <item name="textInputStyle">@style/Widget.Core.InputEditTextLayout</item>
+        <item name="editTextStyle">@style/Widget.Core.InputEditText</item>
+
+        <!--        Typography-->
+        <item name="textAppearanceHeadline6">@style/TextAppearance.Core.Headline6</item>
+        <item name="textAppearanceHeadline5">@style/TextAppearance.Core.Headline5</item>
+        <item name="textAppearanceHeadline4">@style/TextAppearance.Core.Headline4</item>
+        <item name="textAppearanceHeadline3">@style/TextAppearance.Core.Headline3</item>
+        <item name="textAppearanceHeadline2">@style/TextAppearance.Core.Headline2</item>
+        <item name="textAppearanceHeadline1">@style/TextAppearance.Core.Headline1</item>
+
+        <item name="textAppearanceSubtitle1">@style/TextAppearance.Core.Subtitle1</item>
+        <item name="textAppearanceSubtitle2">@style/TextAppearance.Core.Subtitle2</item>
+
+        <item name="textAppearanceBody1">@style/TextAppearance.Core.Body1</item>
+        <item name="textAppearanceBody2">@style/TextAppearance.Core.Body2</item>
+
+        <item name="textAppearanceButton">@style/TextAppearance.Core.Button</item>
+        <item name="textAppearanceCaption">@style/TextAppearance.Core.Caption</item>
+
+        <item name="materialCardViewStyle">@style/Widget.App.CardView</item>
+
+        <item name="colorLight">@color/color_ffffff</item>
+        <item name="colorDark">@color/color_dark</item>
+        <item name="colorDefault">@color/color_default</item>
+
+        <item name="bottomSheetDialogTheme">@style/ThemeOverlay.Core.BottomSheetDialog</item>
+        <item name="linearProgressIndicatorStyle">@style/Widget.App.LinearProgressIndicator</item>
+
+        <!--        Typography-->
+        <item name="h1RegularDefault">@style/H1RegularDefault</item>
+        <item name="h2RegularDefault">@style/H2RegularDefault</item>
+        <item name="h3RegularDefault">@style/H3RegularDefault</item>
+        <item name="h4RegularDefault">@style/H4RegularDefault</item>
+        <item name="h5RegularDefault">@style/H5RegularDefault</item>
+        <item name="h6RegularDefault">@style/H6RegularDefault</item>
+
+        <item name="h1RegularDark">@style/H1RegularDark</item>
+        <item name="h2RegularDark">@style/H2RegularDark</item>
+        <item name="h3RegularDark">@style/H3RegularDark</item>
+        <item name="h4RegularDark">@style/H4RegularDark</item>
+        <item name="h5RegularDark">@style/H5RegularDark</item>
+        <item name="h6RegularDark">@style/H6RegularDark</item>
+
+        <item name="h1RegularLight">@style/H1RegularLight</item>
+        <item name="h2RegularLight">@style/H2RegularLight</item>
+        <item name="h3RegularLight">@style/H3RegularLight</item>
+        <item name="h4RegularLight">@style/H4RegularLight</item>
+        <item name="h5RegularLight">@style/H5RegularLight</item>
+        <item name="h6RegularLight">@style/H6RegularLight</item>
+
+        <item name="h1RegularPrimary">@style/H1RegularPrimary</item>
+        <item name="h2RegularPrimary">@style/H2RegularPrimary</item>
+        <item name="h3RegularPrimary">@style/H3RegularPrimary</item>
+        <item name="h4RegularPrimary">@style/H4RegularPrimary</item>
+        <item name="h5RegularPrimary">@style/H5RegularPrimary</item>
+        <item name="h6RegularPrimary">@style/H6RegularPrimary</item>
+
+
+        <item name="h1BoldDefault">@style/H1BoldDefault</item>
+        <item name="h2BoldDefault">@style/H2BoldDefault</item>
+        <item name="h3BoldDefault">@style/H3BoldDefault</item>
+        <item name="h4BoldDefault">@style/H4BoldDefault</item>
+        <item name="h5BoldDefault">@style/H5BoldDefault</item>
+        <item name="h6BoldDefault">@style/H6BoldDefault</item>
+
+        <item name="h1BoldDark">@style/H1BoldDark</item>
+        <item name="h2BoldDark">@style/H2BoldDark</item>
+        <item name="h3BoldDark">@style/H3BoldDark</item>
+        <item name="h4BoldDark">@style/H4BoldDark</item>
+        <item name="h5BoldDark">@style/H5BoldDark</item>
+        <item name="h6BoldDark">@style/H6BoldDark</item>
+
+        <item name="h1BoldLight">@style/H1BoldLight</item>
+        <item name="h2BoldLight">@style/H2BoldLight</item>
+        <item name="h3BoldLight">@style/H3BoldLight</item>
+        <item name="h4BoldLight">@style/H4BoldLight</item>
+        <item name="h5BoldLight">@style/H5BoldLight</item>
+        <item name="h6BoldLight">@style/H6BoldLight</item>
+
+        <item name="h1BoldPrimary">@style/H1BoldPrimary</item>
+        <item name="h2BoldPrimary">@style/H2BoldPrimary</item>
+        <item name="h3BoldPrimary">@style/H3BoldPrimary</item>
+        <item name="h4BoldPrimary">@style/H4BoldPrimary</item>
+        <item name="h5BoldPrimary">@style/H5BoldPrimary</item>
+        <item name="h6BoldPrimary">@style/H6BoldPrimary</item>
+
+        <item name="headingLargeRegularDefault">@style/HeadingLargeRegularDefault</item>
+        <item name="headingNormalRegularDefault">@style/HeadingNormalRegularDefault</item>
+        <item name="headingSmallRegularDefault">@style/HeadingSmallRegularDefault</item>
+
+        <item name="headingLargeBoldDefault">@style/HeadingLargeBoldDefault</item>
+        <item name="headingNormalBoldDefault">@style/HeadingNormalBoldDefault</item>
+        <item name="headingSmallBoldDefault">@style/HeadingSmallBoldDefault</item>
+
+        <item name="headingLargeBoldLight">@style/HeadingLargeBoldLight</item>
+        <item name="headingNormalBoldLight">@style/HeadingNormalBoldLight</item>
+        <item name="headingSmallBoldLight">@style/HeadingSmallBoldLight</item>
+
+        <item name="headingLargeRegularLight">@style/HeadingLargeRegularLight</item>
+        <item name="headingNormalRegularLight">@style/HeadingNormalRegularLight</item>
+        <item name="headingSmallRegularLight">@style/HeadingSmallRegularLight</item>
+
+
+        <item name="headingLargeRegularDark">@style/HeadingLargeRegularDark</item>
+        <item name="headingNormalRegularDark">@style/HeadingNormalRegularDark</item>
+        <item name="headingSmallRegularDark">@style/HeadingSmallRegularDark</item>
+
+        <item name="headingLargeBoldDark">@style/HeadingLargeBoldDark</item>
+        <item name="headingNormalBoldDark">@style/HeadingNormalBoldDark</item>
+        <item name="headingSmallBoldDark">@style/HeadingSmallBoldDark</item>
+
+        <item name="paragraphRegularLargeDefault">@style/ParagraphRegularLargeDefault</item>
+        <item name="paragraphRegularNormalDefault">@style/ParagraphRegularNormalDefault</item>
+        <item name="paragraphRegularSmallDefault">@style/ParagraphRegularSmallDefault</item>
+        <item name="paragraphRegularExtraSmallDefault">@style/ParagraphRegularExtraSmallDefault</item>
+        <item name="paragraphRegularLargeLight">@style/ParagraphRegularLargeLight</item>
+        <item name="paragraphRegularSmallLight">@style/ParagraphRegularSmallLight</item>
+        <item name="paragraphRegularExtraSmallLight">@style/ParagraphRegularExtraSmallLight</item>
+
+        <item name="paragraphRegularLargeDark">@style/ParagraphRegularLargeDark</item>
+        <item name="paragraphRegularNormalDark">@style/ParagraphRegularNormalDark</item>
+        <item name="paragraphRegularNormalLight">@style/ParagraphRegularNormalLight</item>
+        <item name="paragraphRegularSmallDark">@style/ParagraphRegularSmallDark</item>
+        <item name="paragraphRegularExtraSmallDark">@style/ParagraphRegularExtraSmallDark</item>
+
+        <item name="paragraphBoldLargeDefault">@style/ParagraphBoldLargeDefault</item>
+        <item name="paragraphBoldNormalDefault">@style/ParagraphBoldNormalDefault</item>
+        <item name="paragraphBoldSmallDefault">@style/ParagraphBoldSmallDefault</item>
+
+        <item name="paragraphBoldLargeDark">@style/ParagraphBoldLargeDark</item>
+        <item name="paragraphBoldNormalDark">@style/ParagraphBoldNormalDark</item>
+        <item name="paragraphBoldSmallDark">@style/ParagraphBoldSmallDark</item>
+
+        <item name="paragraphBoldLargeLight">@style/ParagraphBoldLargeLight</item>
+        <item name="paragraphBoldNormalLight">@style/ParagraphBoldNormalLight</item>
+        <item name="paragraphBoldSmallLight">@style/ParagraphBoldSmallLight</item>
+        <item name="paragraphBoldExtraSmallLight">@style/ParagraphBoldExtraSmallLight</item>
+
+        <item name="buttonTextNormalPrimary">@style/ButtonTextNormalPrimary</item>
+
+        <!--        Buttons-->
+        <item name="buttonPrimaryNormal">@style/ButtonPrimaryNormalDefault</item>
+        <item name="buttonPrimaryNormalDefault">@style/ButtonPrimaryNormalDefault</item>
+        <item name="buttonPrimaryLeadingIconNormal">@style/ButtonPrimaryLeadingIconNormal</item>
+        <item name="buttonPrimaryLargeLight">@style/ButtonPrimaryLargeLight</item>
+        <item name="buttonPrimarySmallLight">@style/ButtonPrimarySmallLight</item>
+        <item name="buttonPrimaryXSLight">@style/ButtonPrimaryXSLight</item>
+
+        <item name="buttonSecondaryLargeDefault">@style/ButtonSecondaryLargeDefault</item>
+        <item name="buttonSecondaryNormalDefault">@style/ButtonSecondaryNormalDefault</item>
+        <item name="buttonSecondarySmallDefault">@style/ButtonSecondarySmallDefault</item>
+        <item name="buttonSecondaryXSDefault">@style/ButtonSecondaryXSDefault</item>
+
+        <item name="buttonTextNormalDefault">@style/ButtonTextNormalDefault</item>
+        <item name="buttonTextNormalLight">@style/ButtonTextNormalLight</item>
+        <item name="buttonTextSmallDefault">@style/ButtonTextSmallDefault</item>
+        <item name="buttonTextSmallLight">@style/ButtonTextSmallLight</item>
+        <item name="buttonTextSmallDark">@style/ButtonTextSmallDark</item>
+        <item name="buttonTextExtraSmallDark">@style/ButtonTextExtraSmallDark</item>
+        <item name="buttonTextExtraSmallDefault">@style/ButtonTextExtraSmallDefault</item>
+        <item name="buttonTextExtraSmallLight">@style/ButtonTextExtraSmallLight</item>
+        <item name="buttonPrimaryOutlinedNormal">@style/ButtonPrimaryOutlinedNormal</item>
+        <item name="buttonPrimaryTextNormal">@style/ButtonPrimaryTextNormal</item>
+        <item name="buttonSecondaryNormal">@style/ButtonSecondaryNormal</item>
+        <item name="buttonSecondaryTextNormal">@style/ButtonSecondaryTextNormal</item>
+
+        <item name="tabTextColor">?attr/textColor400</item>
+        <item name="tabSelectedTextColor">?attr/textColorWhite</item>
+
+        <item name="chipBackgroundColor">@color/color_ffffff</item>
+        <item name="inputValuesDark">@style/InputValuesDark</item>
+        <item name="colorInputBorderFocus">?attr/colorPrimary</item>
+    </style>
+
+    <style name="ThemeOverlay.MaterialComponents.EmptyCard" parent="Theme.Dynamix.Core">
+        <item name="textAppearanceHeadline3">@style/TextAppearance.Core.Headline3.Bold</item>
+    </style>
+
+    <style name="Theme.Dynamix.Core.Transparent" parent="Theme.Dynamix.App.DayNight">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+
+    <!--    Theme Overlays-->
+    <!--    Secondary button-->
+    <style name="ThemeOverlay.Dynamix.Core.Button.Secondary" parent="">
+        <item name="materialButtonStyle">@style/Widget.Core.ButtonSecondaryFilled</item>
+        <item name="materialButtonOutlinedStyle">@style/Widget.Core.ButtonSecondaryOutline</item>
+        <item name="borderlessButtonStyle">@style/Widget.Core.ButtonSecondaryText</item>
+    </style>
+
+    <!--    Tertiary button-->
+    <style name="ThemeOverlay.Dynamix.Core.Button.Tertiary" parent="">
+        <item name="materialButtonStyle">@style/Widget.Core.ButtonTertiaryFilled</item>
+        <item name="materialButtonOutlinedStyle">@style/Widget.Core.ButtonTertiaryOutline</item>
+        <item name="borderlessButtonStyle">@style/Widget.Core.ButtonTertiaryText</item>
+    </style>
+
+    <style name="ThemeOverlay.Dynamix.Core.TextInputLayout" parent="">
+        <item name="editTextStyle">@style/Widget.Core.InputEditText</item>
+        <item name="colorControlNormal">@color/color_000000</item>
+    </style>
+
+    <!--    Toolbars-->
+    <style name="ThemeOverlay.Dynamix.Core.Toolbar" parent="">
+        <item name="colorPrimary">@android:color/transparent</item>
+        <item name="colorOnPrimary">@color/color_000000</item>
+        <item name="colorControlNormal">@color/color_000000</item>
+        <item name="mainBackground">@drawable/dynamix_toolbar_bg</item>
+    </style>
+
+    <!--    Cards -->
+    <style name="ThemeOverlayDynamix.Core.Row.Card" parent="">
+        <item name="textAppearanceHeadline5">@style/TextAppearance.App.Headline5.Row</item>
+        <item name="textAppearanceBody2">@style/TextAppearance.App.Body2.Row</item>
+    </style>
+
+    <style name="ThemeOverlay.Dynamix.Core.EmptyView" parent="">
+        <item name="textAppearanceHeadline5">@style/TextAppearance.App.Headline5.Row</item>
+        <item name="textAppearanceBody2">@style/TextAppearance.App.Body2.Row</item>
+    </style>
+
+    <style name="ThemeOverlay.Dynamix.Core.TextAppearance.Headline.Regular" parent="">
+        <item name="textAppearanceHeadline1">@style/TextAppearance.Core.Headline1.Regular</item>
+        <item name="textAppearanceHeadline2">@style/TextAppearance.Core.Headline2.Regular</item>
+        <item name="textAppearanceHeadline3">@style/TextAppearance.Core.Headline3.Regular</item>
+        <item name="textAppearanceHeadline4">@style/TextAppearance.Core.Headline4.Regular</item>
+        <item name="textAppearanceHeadline5">@style/TextAppearance.Core.Headline5.Regular</item>
+        <item name="textAppearanceHeadline6">@style/TextAppearance.Core.Headline6.Regular</item>
+    </style>
+
+    <style name="ThemeOverlay.Dynamix.Core.TextAppearance.Subtitle.Bold" parent="">
+        <item name="textAppearanceSubtitle1">@style/TextAppearance.Core.Subtitle1.Bold</item>
+        <item name="textAppearanceSubtitle2">@style/TextAppearance.Core.Subtitle2.Bold</item>
+    </style>
+
+    <style name="ThemeOverlay.Dynamix.Core.TextAppearance.Body.Bold" parent="">
+        <item name="textAppearanceBody1">@style/TextAppearance.Core.Body1.Bold</item>
+        <item name="textAppearanceBody2">@style/TextAppearance.Core.Body2.Bold</item>
+    </style>
+</resources>

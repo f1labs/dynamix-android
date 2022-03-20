@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/lt_ip_bs_root"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.Dynamix.App.Dialog"
+        tools:theme="@style/Theme.Dynamix.App.DayNight">
+
+        <ImageView
+            android:id="@+id/lt_ip_bs_image"
+            android:layout_width="0dp"
+            android:layout_height="300dp"
+            android:layout_marginStart="?attr/insetStart"
+            android:layout_marginEnd="?attr/insetEnd"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription"
+            tools:src="@drawable/dynamix_ic_form" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/lt_ip_bs_choose_another"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="?attr/insetBottom"
+            android:text="@string/dynamix_choose_another"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/lt_ip_bs_image"
+            app:layout_constraintStart_toStartOf="@id/lt_ip_bs_image"
+            app:layout_constraintTop_toBottomOf="@id/lt_ip_bs_image" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

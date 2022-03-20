@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="dynamix_default_amount_format">NPR %1$s</string>
+    <string name="dynamix_action_cancel">Cancel</string>
+    <string name="dynamix_action_proceed">Proceed</string>
+    <string name="dynamix_action_submit">Submit</string>
+    <string name="dynamix_label_date">Date</string>
+    <string name="dynamix_label_day">Day</string>
+    <string name="dynamix_label_dd">DD</string>
+    <string name="dynamix_label_month">Month</string>
+    <string name="dynamix_label_mm">MM</string>
+    <string name="dynamix_label_year">Year</string>
+    <string name="dyamix_label_yyyy">YYYY</string>
+    <string name="dynamix_label_ad">AD</string>
+    <string name="dynamix_label_bs">BS</string>
+    <string name="dynamix_label_upload_screenshots">Upload Screenshots</string>
+    <string name="dynamix_label_download">Download</string>
+    <string name="dynamix_label_preview_sample">Preview Sample</string>
+    <string name="dynamix_label_search">Search</string>
+    <string name="dynamix_label_no_contacts_found">No Contacts Found</string>
+    <string name="dynamix_label_amount">Amount</string>
+    <string name="dynamix_action_loading">Loading</string>
+    <string name="dynamix_cr_please_select">"Please Select "</string>
+    <string name="dynamix_cr_your_action_could_not_be_completed">Your action could not be completed. Please try by logging in again. Error Code: 1002</string>
+    <string name="dynamix_cr_please_enter_valid">\"Please enter valid \"</string>
+    <string name="dynamix_cr_please_upload_valid">\"Please upload valid \"</string>
+    <string name="dynamix_cr_n">N</string>
+    <string name="dynamix_choose_another">Choose Another</string>
+    <string name="dynamix_error_no_data_found">No Data Found</string>
+</resources>

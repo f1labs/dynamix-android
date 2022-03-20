@@ -1,0 +1,98 @@
+{
+    "layout": {
+        
+        "type": "verticalContainer",
+        "width": "match_parent",
+        "height": "wrap_content",
+
+        "childrens": [
+            {
+                "type": "cardView",
+                "width": "match_parent",
+                "height": "wrap_content",
+                "cardElevation": "4dp",
+                "cardRadius": "4dp",
+                "marginLeft": "16dp",
+                "marginRight": "16dp",
+                "marginTop": "8dp",
+                "marginBottom": "8dp",
+                "childrens": [
+                    {
+                        "type": "verticalContainer",
+                        "padding": "8dp",
+                        "width": "match_parent",
+                        "height": "wrap_content",
+                        "childrens": [
+                            {
+                                "type": "horizontalContainer",
+                                "padding": "0dp",
+                                "margin": "0dp",
+                                "width": "match_parent",
+                                "height": "wrap_content",
+                                "marginTop": "0dp",
+                                "childrens": [
+                                    {
+                                        "type": "imageView",
+                                        "margin": "0dp",
+                                        "width": "50dp",
+                                        "height": "50dp",
+                                        "marginLeft": "8dp",
+                                        "imageUrl": "mobileImagePath",
+                                        "id": "tv5"
+                                    },
+                                    {
+                                        "type": "verticalContainer",
+                                        "marginLeft": "12dp",
+                                        "width": "match_parent",
+                                        "height": "wrap_content",
+                                        "childrens": [
+                                            {
+                                                "type": "horizontalContainer",
+                                                "padding": "0dp",
+                                                "margin": "0dp",
+                                                "width": "match_parent",
+                                                "height": "wrap_content",
+                                                "marginTop": "0dp",
+                                                "relative": true,
+                                                "childrens": [
+                                                    {
+                                                        "type": "textView",
+                                                        "margin": "0dp",
+                                                        "width": "wrap_content",
+                                                        "height": "wrap_content",
+                                                        "text": "name",
+                                                        "style": "h3BoldDark",
+                                                        "id": "tv1"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "type": "horizontalContainer",
+                                                "padding": "0dp",
+                                                "margin": "0dp",
+                                                "width": "match_parent",
+                                                "height": "wrap_content",
+                                                "marginTop": "4dp",
+                                                "childrens": [
+                                                    {
+                                                        "type": "textView",
+                                                        "margin": "0dp",
+                                                        "width": "wrap_content",
+                                                        "height": "wrap_content",
+                                                        "style": "paragraph",
+                                                        "text": "shortDescription",
+                                                        "id": "tv3"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+  }

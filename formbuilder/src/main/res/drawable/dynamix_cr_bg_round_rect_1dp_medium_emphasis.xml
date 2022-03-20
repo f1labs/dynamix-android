@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:shape="rectangle"
+    tools:theme="@style/Theme.Dynamix.App.DayNight">
+    <stroke
+        android:width="1dp"
+        android:color="@color/material_on_surface_disabled" />
+    <corners android:radius="4dp" />
+</shape>

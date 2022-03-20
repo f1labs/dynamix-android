@@ -1,0 +1,95 @@
+version: 2.1
+
+orbs:
+  android: circleci/android@1.0.3
+
+parameters:
+  run-build-styles-job:
+    type: boolean
+    default: false
+  run-build-core-job:
+    type: boolean
+    default: false
+  run-build-modsign-job:
+    type: boolean
+    default: false
+  run-build-formbuilder-job:
+    type: boolean
+    default: false
+
+
+
+jobs:
+  build_styles:
+    executor:
+      name: android/android-machine
+    steps:
+      - when:
+          condition:
+            equal: [ true, << pipeline.parameters.run-build-styles-job >> ]
+          steps:
+            - checkout
+            - run:
+                command: |
+                  ./gradlew :styles:assembleRelease
+                  ./gradlew :styles:publish
+
+  build_core:
+    executor:
+      name: android/android-machine
+    steps:
+      - when:
+          condition:
+            equal: [ true, << pipeline.parameters.run-build-core-job >> ]
+          steps:
+            - checkout
+            - run:
+              command: |
+                ./gradlew :core:assembleRelease
+                ./gradlew :core:publish
+
+  build_modsign:
+    executor:
+      name: android/android-machine
+    steps:
+      - when:
+          condition:
+            equal: [ true, << pipeline.parameters.run-build-modsign-job >> ]
+          steps:
+            - checkout
+            - run:
+                command: |
+                  ./gradlew :modsign:assembleRelease
+                  ./gradlew :modsign:publish
+
+  build_formbuilder:
+    executor:
+      name: android/android-machine
+    steps:
+      - when:
+          condition:
+            equal: [ true, << pipeline.parameters.run-build-formbuilder-job >> ]
+          steps:
+            - checkout
+            - run:
+                command: |
+                  ./gradlew :formbuilder:assembleRelease
+                  ./gradlew :formbuilder:publish
+
+workflows:
+  build:
+    jobs:
+      - build_styles:
+          name: build_styles1
+      - build_core:
+          name: build_core1
+          requires:
+            - build_styles1
+      - build_modsign:
+          name: build_modsign
+          requires:
+            - build_core1
+      - build_formbuilder:
+          name: build_formbuilder
+          requires:
+            - build_core1

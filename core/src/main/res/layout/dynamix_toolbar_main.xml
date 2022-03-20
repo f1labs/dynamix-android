@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!--    Apply elevation to the root layout rather thant the toolbar-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/mainBackground"
+        android:orientation="vertical"
+        android:theme="@style/ThemeOverlay.Dynamix.Core.Toolbar"
+        tools:layout_height="56dp"
+        tools:theme="@style/Theme.Dynamix.Core">
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-7dp"
+            android:layout_marginBottom="-7dp"
+            android:indeterminate="true"
+            android:indeterminateTint="?attr/colorOnPrimary"
+            android:indeterminateTintMode="src_atop"
+            android:max="100"
+            android:progress="10"
+            android:visibility="gone" />
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/my_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="?attr/colorPrimary"
+            android:elevation="0dp"
+            app:navigationIcon="?attr/homeAsUpIndicator"
+            tools:layout_height="56dp">
+
+            <ImageView
+                android:id="@+id/btnLogout"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="end"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:src="@android:drawable/alert_dark_frame"
+                android:visibility="gone"
+                app:tint="?attr/colorOnPrimary"
+                tools:ignore="ContentDescription"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/pageTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:textAppearance="?attr/textAppearanceHeadline3"
+                android:textColor="?attr/colorOnPrimary"
+                tools:text="Title" />
+
+            <LinearLayout
+                android:id="@+id/llDownloadReceipt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/downloadReceipt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:drawablePadding="6dp"
+                    android:drawableTint="?attr/colorOnPrimary"
+                    android:gravity="center"
+                    android:textAppearance="?attr/textAppearanceHeadline3"
+                    android:textColor="?attr/colorOnPrimary"
+                    tools:ignore="UnusedAttribute,UseCompatTextViewDrawableXml" />
+
+            </LinearLayout>
+        </androidx.appcompat.widget.Toolbar>
+    </LinearLayout>
+</layout>

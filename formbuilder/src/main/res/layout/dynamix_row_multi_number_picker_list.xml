@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:theme="@style/ThemeOverlay.Dynamix.App.Dialog"
+        tools:theme="@style/Theme.Dynamix.App.DayNight">
+
+        <ImageView
+            android:id="@+id/rw_mt_nb_pk_lt_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="?attr/insetStart"
+            android:src="@drawable/dynamix_ic_phone_android"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/rw_mt_nb_pk_phone"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="?attr/insetEnd"
+            android:textAppearance="?attr/textAppearanceSubtitle1"
+            android:textColor="@color/material_on_surface_emphasis_high_type"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/rw_mt_nb_pk_lt_icon"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="9869328007" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <item name="imageUrl" type="id" />
+
+    <attr name="textColor" format="color" />
+    <attr name="textColorWhite" format="color" />
+    <attr name="colorDefault" format="color" />
+    <attr name="colorLight" format="color" />
+    <attr name="textColor400" format="color" />
+
+    <attr name="h1RegularDefault" format="reference" />
+    <attr name="h2RegularDefault" format="reference" />
+    <attr name="h3RegularDefault" format="reference" />
+    <attr name="h4RegularDefault" format="reference" />
+    <attr name="h5RegularDefault" format="reference" />
+    <attr name="h6RegularDefault" format="reference" />
+
+    <attr name="h1RegularDark" format="reference" />
+    <attr name="h2RegularDark" format="reference" />
+    <attr name="h3RegularDark" format="reference" />
+    <attr name="h4RegularDark" format="reference" />
+    <attr name="h5RegularDark" format="reference" />
+    <attr name="h6RegularDark" format="reference" />
+
+    <attr name="h1RegularLight" format="reference" />
+    <attr name="h2RegularLight" format="reference" />
+    <attr name="h3RegularLight" format="reference" />
+    <attr name="h4RegularLight" format="reference" />
+    <attr name="h5RegularLight" format="reference" />
+    <attr name="h6RegularLight" format="reference" />
+
+    <attr name="h1RegularPrimary" format="reference" />
+    <attr name="h2RegularPrimary" format="reference" />
+    <attr name="h3RegularPrimary" format="reference" />
+    <attr name="h4RegularPrimary" format="reference" />
+    <attr name="h5RegularPrimary" format="reference" />
+    <attr name="h6RegularPrimary" format="reference" />
+
+    <attr name="h1BoldDefault" format="reference" />
+    <attr name="h2BoldDefault" format="reference" />
+    <attr name="h3BoldDefault" format="reference" />
+    <attr name="h4BoldDefault" format="reference" />
+    <attr name="h5BoldDefault" format="reference" />
+    <attr name="h6BoldDefault" format="reference" />
+
+    <attr name="h1BoldDark" format="reference" />
+    <attr name="h2BoldDark" format="reference" />
+    <attr name="h3BoldDark" format="reference" />
+    <attr name="h4BoldDark" format="reference" />
+    <attr name="h5BoldDark" format="reference" />
+    <attr name="h6BoldDark" format="reference" />
+
+    <attr name="h1BoldLight" format="reference" />
+    <attr name="h2BoldLight" format="reference" />
+    <attr name="h3BoldLight" format="reference" />
+    <attr name="h4BoldLight" format="reference" />
+    <attr name="h5BoldLight" format="reference" />
+    <attr name="h6BoldLight" format="reference" />
+
+    <attr name="h1BoldPrimary" format="reference" />
+    <attr name="h2BoldPrimary" format="reference" />
+    <attr name="h3BoldPrimary" format="reference" />
+    <attr name="h4BoldPrimary" format="reference" />
+    <attr name="h5BoldPrimary" format="reference" />
+    <attr name="h6BoldPrimary" format="reference" />
+
+    <attr name="headingLargeRegularDefault" format="reference" />
+    <attr name="headingNormalRegularDefault" format="reference" />
+    <attr name="headingSmallRegularDefault" format="reference" />
+
+    <attr name="headingLargeRegularLight" format="reference" />
+    <attr name="headingNormalRegularLight" format="reference" />
+    <attr name="headingSmallRegularLight" format="reference" />
+
+    <attr name="headingLargeBoldDefault" format="reference" />
+    <attr name="headingNormalBoldDefault" format="reference" />
+    <attr name="headingSmallBoldDefault" format="reference" />
+
+    <attr name="headingLargeBoldLight" format="reference" />
+    <attr name="headingNormalBoldLight" format="reference" />
+    <attr name="headingSmallBoldLight" format="reference" />
+
+    <attr name="headingLargeRegularDark" format="reference" />
+    <attr name="headingNormalRegularDark" format="reference" />
+    <attr name="headingSmallRegularDark" format="reference" />
+
+    <attr name="headingLargeBoldDark" format="reference" />
+    <attr name="headingNormalBoldDark" format="reference" />
+    <attr name="headingSmallBoldDark" format="reference" />
+
+    <attr name="paragraphRegularLargeDefault" format="reference" />
+    <attr name="paragraphRegularNormalDefault" format="reference" />
+    <attr name="paragraphRegularNormalLight" format="reference" />
+    <attr name="paragraphRegularSmallDefault" format="reference" />
+    <attr name="paragraphRegularExtraSmallDefault" format="reference" />
+
+    <attr name="paragraphRegularLargeLight" format="reference" />
+    <attr name="paragraphRegularSmallLight" format="reference" />
+    <attr name="paragraphRegularExtraSmallLight" format="reference" />
+
+    <attr name="paragraphRegularLargeDark" format="reference" />
+    <attr name="paragraphRegularNormalDark" format="reference" />
+    <attr name="paragraphRegularSmallDark" format="reference" />
+    <attr name="paragraphRegularExtraSmallDark" format="reference" />
+
+    <attr name="paragraphBoldLargeDefault" format="reference" />
+    <attr name="paragraphBoldNormalDefault" format="reference" />
+    <attr name="paragraphBoldSmallDefault" format="reference" />
+
+    <attr name="paragraphBoldLargeDark" format="reference" />
+    <attr name="paragraphBoldNormalDark" format="reference" />
+    <attr name="paragraphBoldSmallDark" format="reference" />
+
+    <attr name="paragraphRegularSmallSuccess" format="reference" />
+    <attr name="paragraphRegularSmallError" format="reference" />
+    <attr name="paragraphRegularSmallInfo" format="reference" />
+
+
+    <!--    Paragraph Bold Light-->
+    <attr name="paragraphBoldLargeLight" format="reference" />
+    <attr name="paragraphBoldNormalLight" format="reference" />
+    <attr name="paragraphBoldSmallLight" format="reference" />
+    <attr name="paragraphBoldExtraSmallLight" format="reference" />
+</resources>

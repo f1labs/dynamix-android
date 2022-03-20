@@ -1,0 +1,157 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'org.sonarqube'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-parcelize'
+    id 'maven-publish'
+    id 'kotlin-kapt'
+}
+// trigger build
+def dynamix_deps = rootProject.ext.dynamix_deps
+
+android {
+    compileSdkVersion 31
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_11.toString()
+    }
+
+    sonarqube {
+        properties {
+            property "sonar.projectName", "dynamix"
+            property "sonar.projectKey", "dynamix"
+            property "sonar.tests", ["src/test/java"]
+            property "sonar.test.inclusions", "**/*Test*/**"
+            property "sonar.sourceEncoding", "UTF-8"
+            property "sonar.sources", "src/main/java"
+            property "sonar.exclusions", '**/*Test*/**,' +
+                    '*.json,' +
+                    '**/*test*/**,' +
+                    '**/.gradle/**,' +
+                    '**/R.class'
+        }
+    }
+    buildFeatures {
+        dataBinding true
+    }
+}
+
+dependencies {
+    implementation dynamix_deps.core
+
+    implementation 'androidx.core:core-ktx:1.6.0'
+    implementation 'androidx.appcompat:appcompat:1.3.1'
+    implementation 'com.google.android.material:material:1.2.1'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
+    implementation 'com.google.code.gson:gson:2.8.9'
+    implementation("androidx.recyclerview:recyclerview:1.2.1")
+    implementation("androidx.cardview:cardview:1.0.0")
+
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.19'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.9.0'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.7.2'
+    implementation 'com.squareup.retrofit2:converter-scalars:2.9.0'
+
+    implementation 'androidx.viewpager2:viewpager2:1.0.0'
+
+    implementation("org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version")
+
+    implementation 'androidx.multidex:multidex:2.0.1'
+
+    implementation 'io.insert-koin:koin-java:2.0.1'
+    implementation 'io.insert-koin:koin-android:2.0.1'
+    implementation 'io.insert-koin:koin-androidx-scope:2.0.1'
+    implementation 'io.insert-koin:koin-androidx-viewmodel:2.0.1'
+    implementation 'io.insert-koin:koin-androidx-ext:2.0.1'
+
+    implementation 'com.github.delight-im:Android-AdvancedWebView:v3.2.1'
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                groupId = 'com.dynamix'
+                artifactId = project.getName()
+                version = dynamix_deps.versions.modsign
+                artifact("$buildDir/outputs/aar/${project.getName()}-release.aar")
+
+                pom.withXml {
+                    final dependenciesNode = asNode().appendNode('dependencies')
+
+                    ext.addDependency = { Dependency dep, String scope ->
+                        if (dep.group == null || dep.version == null || dep.name == null || dep.name == "unspecified")
+                            return // ignore invalid dependencies
+
+                        final dependencyNode = dependenciesNode.appendNode('dependency')
+                        dependencyNode.appendNode('groupId', dep.group)
+                        dependencyNode.appendNode('artifactId', dep.name)
+                        dependencyNode.appendNode('version', dep.version)
+                        dependencyNode.appendNode('scope', scope)
+
+                        if (!dep.transitive) {
+                            // If this dependency is transitive, we should force exclude all its dependencies them from the POM
+                            final exclusionNode = dependencyNode.appendNode('exclusions').appendNode('exclusion')
+                            exclusionNode.appendNode('groupId', '*')
+                            exclusionNode.appendNode('artifactId', '*')
+                        } else if (!dep.properties.excludeRules.empty) {
+                            // Otherwise add specified exclude rules
+                            final exclusionNode = dependencyNode.appendNode('exclusions').appendNode('exclusion')
+                            dep.properties.excludeRules.each { ExcludeRule rule ->
+                                exclusionNode.appendNode('groupId', rule.group ?: '*')
+                                exclusionNode.appendNode('artifactId', rule.module ?: '*')
+                            }
+                        }
+                    }
+
+
+                    // List all "api" dependencies (for new Gradle) as "compile" dependencies
+                    configurations.api.getDependencies().each { dep -> addDependency(dep, "compile") }
+                    // List all "implementation" dependencies (for new Gradle) as "runtime" dependencies
+                    configurations.implementation.getDependencies().each { dep -> addDependency(dep, "runtime") }
+                }
+            }
+        }
+
+        repositories {
+            maven {
+                name = "GitHubPackages"
+                url = uri("https://maven.pkg.github.com/f1labs/dynamix-android")
+
+                credentials {
+                    username = System.getenv("GPR_USER")
+                    password = System.getenv("GPR_API_KEY")
+                }
+            }
+        }
+    }
+}

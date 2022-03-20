@@ -1,0 +1,70 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    ext.kotlin_version = '1.6.10'
+
+    repositories {
+        google()
+        mavenCentral()
+        maven { url "https://raw.github.com/synergian/wagon-git/releases" }
+        maven {
+            url 'http://developer.huawei.com/repo/'
+            allowInsecureProtocol = true
+        }
+        maven { url "https://jitpack.io" }
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:7.0.4'
+        classpath 'com.google.gms:google-services:4.3.10'
+        classpath 'com.ryanharter.gradle-git-repo:gradle-plugin:1.0.1'
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
+        classpath "org.jfrog.buildinfo:build-info-extractor-gradle:4.24.16"
+        classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:3.3"
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+apply from: 'versions.gradle'
+
+
+def loadedModules = [:]
+getSubprojects().forEach {
+    loadedModules.put(it.name, it.path)
+}
+
+def group = 'com.dynamix'
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+    }
+    // replace configurations for all modules
+    configurations.all {
+        // get our own dependencies
+        resolutionStrategy.dependencySubstitution.all { dependency ->
+            if (dependency.requested instanceof ModuleComponentSelector && dependency.requested.group.contains(group) && loadedModules.containsKey(dependency.requested.module)) {
+                def targetProject = findProject(loadedModules.get(dependency.requested.module))
+                if (targetProject != null) {
+                    println("$dependency.requested.displayName ------> ${loadedModules.get(dependency.requested.module)}")
+                    dependency.useTarget targetProject
+                }
+            }
+        }
+    }
+}
+
+gradle.projectsEvaluated {
+    tasks.withType(JavaCompile.class) {
+        options.compilerArgs << "-Xmaxerrs" << "10000"
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
