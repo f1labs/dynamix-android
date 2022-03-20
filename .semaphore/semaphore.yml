@@ -16,6 +16,6 @@ blocks:
         - name: Hello Android
           commands:
             - checkout
-            - './gradlew :core:assembleRelease'
+            - 'java -Dfile.encoding=UTF-8 -jar ci-builder.jar --build-only'
       secrets:
         - name: package registry keys
