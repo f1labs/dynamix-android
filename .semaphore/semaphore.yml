@@ -10,7 +10,7 @@ agent:
 blocks:
   - name: Build
     run:
-      when: change_in('/core')
+      when: 'change_in(''/core'', {pipeline_file: ''ignore''})'
     task:
       jobs:
         - name: Hello Android
