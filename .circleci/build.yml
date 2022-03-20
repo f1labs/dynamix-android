@@ -44,9 +44,9 @@ jobs:
           steps:
             - checkout
             - run:
-              command: |
-                ./gradlew :core:assembleRelease
-                ./gradlew :core:publish
+                command: |
+                  ./gradlew :core:assembleRelease
+                  ./gradlew :core:publish
 
   build_modsign:
     executor:
