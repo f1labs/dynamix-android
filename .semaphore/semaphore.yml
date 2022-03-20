@@ -67,6 +67,8 @@ blocks:
             - checkout
             - './gradlew :styles:assembleRelease'
             - './gradlew :styles:publish'
+      secrets:
+        - name: package registry keys
   - name: Release Core
     dependencies: []
     run:
@@ -78,6 +80,8 @@ blocks:
             - checkout
             - './gradlew :core:assembleRelease'
             - './gradlew :core:publish'
+      secrets:
+        - name: package registry keys
   - name: Release ModSign
     dependencies: []
     run:
@@ -89,6 +93,8 @@ blocks:
             - checkout
             - './gradlew :modsign:assembleRelease'
             - './gradlew :modsign:publish'
+      secrets:
+        - name: package registry keys
   - name: Release FormBuilder
     dependencies: []
     run:
@@ -100,3 +106,5 @@ blocks:
             - checkout
             - './gradlew :formbuilder:assembleRelease'
             - './gradlew :formbuilder:publish'
+      secrets:
+        - name: package registry keys
