@@ -67,8 +67,10 @@ class ModSignDataProviderImpl(
         ).onErrorReturn { CacheValue(value = null) }.flatMap {
             if (it.value != null && it.value.toString().isNotEmpty()) {
                 appLoggerProvider.debug("Cached parsed styles data")
-                return@flatMap gson.fromJson(
-                    it.toString(), object : TypeToken<HashMap<String, Any>>() {}.type
+                return@flatMap Observable.just(
+                    gson.fromJson(
+                        gson.toJson(it.value), object : TypeToken<Map<String, Any>>() {}.type
+                    )
                 )
             }
             appLoggerProvider.debug("Styles data from data source")
@@ -76,16 +78,21 @@ class ModSignDataProviderImpl(
                 loadStylesData(),
                 loadVariables()
             ) { styles, variables ->
-                for ((key, value) in styles) {
+                val filteredMapData: MutableMap<String, Any> = styles.toMutableMap()
+
+                for ((key, value) in filteredMapData) {
                     for ((key1, value1) in value as LinkedTreeMap<String, String>) {
                         if (value1.startsWith("$")) {
-                            (styles[key] as LinkedTreeMap<String, String>)[key1] =
+                            (filteredMapData[key] as LinkedTreeMap<String, String>)[key1] =
                                 variables[value1.drop(1)] as String
                         }
                     }
                 }
+                for ((key, _) in filteredMapData) {
+                    filteredMapData[key] = buildStyle(key, filteredMapData)
+                }
                 val stylesJson: JsonObject =
-                    gson.fromJson(gson.toJson(styles), JsonObject::class.java)
+                    gson.fromJson(gson.toJson(filteredMapData), JsonObject::class.java)
                 permanentGroupCacheProvider.insert(
                     ModSignCacheConfigs.MOD_SIGN_CACHE_COMPILED_STYLES_DATA,
                     CacheValue(
@@ -95,9 +102,27 @@ class ModSignDataProviderImpl(
                         cacheType = CacheType.CACHE_TYPE_PERMANENT_GROUP
                     )
                 )
-                styles
+                filteredMapData
             }
         }
+    }
+
+    private fun buildStyle(style: String, stylesMapData: Map<*, *>): Map<*, *> {
+        val stylesMap = stylesMapData[style] as LinkedTreeMap<String, Any>
+
+        if (stylesMap.containsKey("parent")) {
+            val parentStyles = buildStyle(stylesMap["parent"] as String, stylesMapData)
+
+            val hmIterator: Iterator<*> = parentStyles.entries.iterator()
+
+            while (hmIterator.hasNext()) {
+                val mapElement = hmIterator.next() as Map.Entry<*, *>
+                if (!stylesMap.containsKey(mapElement.key)) {
+                    stylesMap[mapElement.key as String] = mapElement.value
+                }
+            }
+        }
+        return stylesMap
     }
 
     private fun loadStylesData(): Observable<Map<String, Any>> {

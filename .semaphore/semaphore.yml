@@ -1,0 +1,110 @@
+version: v1.0
+name: Dynamix
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+  containers:
+    - name: main
+      image: 'shr3jn/android-fastlane:jdk11'
+blocks:
+  - name: Styles
+    run:
+      when: 'change_in(''/styles'', {pipeline_file: ''ignore''}) AND branch != ''master'''
+    task:
+      jobs:
+        - name: Build Styles
+          commands:
+            - checkout
+            - './gradlew :styles:assembleRelease'
+      secrets:
+        - name: package registry keys
+    dependencies: []
+  - name: Core
+    run:
+      when: 'change_in(''/core'', {pipeline_file: ''ignore''}) AND branch != ''master'''
+    dependencies: []
+    task:
+      secrets:
+        - name: package registry keys
+      jobs:
+        - name: Build Core
+          commands:
+            - checkout
+            - './gradlew :core:assembleRelease'
+  - name: Modsign
+    dependencies: []
+    run:
+      when: 'change_in(''/modsign'', {pipeline_file: ''ignore''}) AND branch != ''master'''
+    task:
+      secrets:
+        - name: package registry keys
+      jobs:
+        - name: Build Modsign
+          commands:
+            - checkout
+            - './gradlew :modsign:assembleRelease'
+  - name: FormBuilder
+    dependencies: []
+    run:
+      when: 'change_in(''/formbuilder'', {pipeline_file: ''ignore''}) AND branch != ''master'''
+    task:
+      secrets:
+        - name: package registry keys
+      jobs:
+        - name: Build Formbuilder
+          commands:
+            - checkout
+            - './gradlew :formbuilder:assembleRelease'
+  - name: Release Styles
+    dependencies: []
+    run:
+      when: 'change_in(''/styles'', {pipeline_file: ''ignore''}) AND branch = ''master'''
+    task:
+      jobs:
+        - name: Release Styles
+          commands:
+            - checkout
+            - './gradlew :styles:assembleRelease'
+            - './gradlew :styles:publish'
+      secrets:
+        - name: package registry keys
+  - name: Release Core
+    dependencies: []
+    run:
+      when: 'change_in(''/styles'', {pipeline_file: ''ignore''}) AND branch = ''master'''
+    task:
+      jobs:
+        - name: Release Core
+          commands:
+            - checkout
+            - './gradlew :core:assembleRelease'
+            - './gradlew :core:publish'
+      secrets:
+        - name: package registry keys
+  - name: Release ModSign
+    dependencies: []
+    run:
+      when: 'change_in(''/styles'', {pipeline_file: ''ignore''}) AND branch = ''master'''
+    task:
+      jobs:
+        - name: Release ModSign
+          commands:
+            - checkout
+            - './gradlew :modsign:assembleRelease'
+            - './gradlew :modsign:publish'
+      secrets:
+        - name: package registry keys
+  - name: Release FormBuilder
+    dependencies: []
+    run:
+      when: 'change_in(''/styles'', {pipeline_file: ''ignore''}) AND branch = ''master'''
+    task:
+      jobs:
+        - name: Release FormBuilder
+          commands:
+            - checkout
+            - './gradlew :formbuilder:assembleRelease'
+            - './gradlew :formbuilder:publish'
+      secrets:
+        - name: package registry keys

@@ -6,8 +6,8 @@ import android.graphics.Color
 import android.text.TextUtils
 import android.widget.TextView
 import androidx.core.content.res.ResourcesCompat
-import com.dynamix.modsign.ModSignController
 import com.dynamix.R
+import com.dynamix.modsign.ModSignController
 import com.dynamix.modsign.core.parser.BaseParser
 import com.dynamix.modsign.model.RootView
 import com.google.gson.internal.LinkedTreeMap
@@ -34,7 +34,7 @@ class TextViewParser(val context: Context, rootView: RootView) : BaseParser(cont
     private fun setupStyles(rootView: RootView, textView: TextView) {
         if (rootView.style != null) {
 
-            val builtStyle = buildStyle(rootView.style, ModSignController.instance.stylesMap)
+            val builtStyle = ModSignController.instance.stylesMap[rootView.style] as Map<*, *>
             val hmIterator: Iterator<*> = builtStyle.entries.iterator()
 
             while (hmIterator.hasNext()) {
