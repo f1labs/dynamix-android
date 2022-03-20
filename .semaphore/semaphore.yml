@@ -10,7 +10,7 @@ agent:
 blocks:
   - name: Build
     run:
-      when: change_in('styles')
+      when: change_in('core/')
     task:
       jobs:
         - name: Hello Android
