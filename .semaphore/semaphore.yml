@@ -72,7 +72,7 @@ blocks:
   - name: Release Core
     dependencies: []
     run:
-      when: 'change_in(''/styles'', {pipeline_file: ''ignore''}) AND branch = ''master'''
+      when: 'change_in(''/core'', {pipeline_file: ''ignore''}) AND branch = ''master'''
     task:
       jobs:
         - name: Release Core
@@ -85,7 +85,7 @@ blocks:
   - name: Release ModSign
     dependencies: []
     run:
-      when: 'change_in(''/styles'', {pipeline_file: ''ignore''}) AND branch = ''master'''
+      when: 'change_in(''/modsign'', {pipeline_file: ''ignore''}) AND branch = ''master'''
     task:
       jobs:
         - name: Release ModSign
@@ -98,7 +98,7 @@ blocks:
   - name: Release FormBuilder
     dependencies: []
     run:
-      when: 'change_in(''/styles'', {pipeline_file: ''ignore''}) AND branch = ''master'''
+      when: 'change_in(''/formbuilder'', {pipeline_file: ''ignore''}) AND branch = ''master'''
     task:
       jobs:
         - name: Release FormBuilder
