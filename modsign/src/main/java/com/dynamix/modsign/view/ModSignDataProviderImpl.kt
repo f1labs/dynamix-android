@@ -80,17 +80,8 @@ class ModSignDataProviderImpl(
             ) { styles, variables ->
                 val filteredMapData: MutableMap<String, Any> = styles.toMutableMap()
 
-                for ((key, value) in filteredMapData) {
-                    for ((key1, value1) in value as LinkedTreeMap<String, String>) {
-                        if (value1.startsWith("$")) {
-                            (filteredMapData[key] as LinkedTreeMap<String, String>)[key1] =
-                                variables[value1.drop(1)] as String
-                        }
-                    }
-                }
-                for ((key, _) in filteredMapData) {
-                    filteredMapData[key] = buildStyle(key, filteredMapData)
-                }
+                mapVariablesAndBuildStyle(filteredMapData, variables.toMutableMap())
+
                 val stylesJson: JsonObject =
                     gson.fromJson(gson.toJson(filteredMapData), JsonObject::class.java)
                 permanentGroupCacheProvider.insert(
@@ -104,6 +95,21 @@ class ModSignDataProviderImpl(
                 )
                 filteredMapData
             }
+        }
+    }
+
+    private fun mapVariablesAndBuildStyle(
+        filteredMapData: MutableMap<String, Any>,
+        variables: MutableMap<String, Any>
+    ) {
+        for ((key, value) in filteredMapData) {
+            for ((key1, value1) in value as LinkedTreeMap<String, String>) {
+                if (value1.startsWith("$")) {
+                    (filteredMapData[key] as LinkedTreeMap<String, String>)[key1] =
+                        variables[value1.drop(1)] as String
+                }
+            }
+            filteredMapData[key] = buildStyle(key, filteredMapData)
         }
     }
 
