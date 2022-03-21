@@ -8,8 +8,7 @@ interface ModSignDataProvider {
 
     fun invalidateCacheIfRequired()
 
-    fun loadStyles(): Observable<Map<String, Any>>
-    fun loadVariables(): Observable<Map<String, Any>>
+    fun loadParsedStyles(): Observable<Map<String, Any>>
 
     fun loadLayout(
         layoutUrl: String,
