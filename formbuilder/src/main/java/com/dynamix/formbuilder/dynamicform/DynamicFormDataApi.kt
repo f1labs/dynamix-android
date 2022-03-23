@@ -2,11 +2,13 @@ package com.dynamix.formbuilder.dynamicform
 
 import android.os.Parcelable
 import com.dynamix.core.event.DynamixEvent
+import com.dynamix.core.init.AppInitializer
 import com.dynamix.core.init.DynamixEnvironmentData
 import com.dynamix.formbuilder.data.DynamixKeyValue
 import com.google.gson.JsonObject
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
+import java.util.regex.Pattern
 
 data class DynamicFormDataApi(
     @SerializedName("success")
@@ -49,7 +51,8 @@ data class DynamicFormField(
     val options: List<DynamixKeyValue> = listOf(),
     val tag: String? = null,
     val payableLimit: DynamicPayableLimit? = null,
-    val dataUrl: String = "",
+    @SerializedName("dataUrl")
+    private var _dataUrl: String? = null,
     val minDate: Long = 0,
     val maxDate: Long = 0,
     val enableDaysAfter: Long = 0,
@@ -112,6 +115,32 @@ data class DynamicFormField(
             }
             return _description
         }
+
+    fun getDataUrl(): String? {
+        if (_dataUrl == null) {
+            return null
+        }
+        _dataUrl = getDataUrl(_dataUrl!!)
+
+        return _dataUrl
+    }
+
+    private fun getDataUrl(url: String): String {
+        var finalUrl = url
+
+        val pattern = Pattern.compile("\\{\\{([^}]*)\\}\\}")
+        val matcher = pattern.matcher(url)
+        while (matcher.find()) {
+            if(AppInitializer.urlMap.containsKey(matcher.group(1))) {
+                finalUrl = finalUrl.replace(
+                    "{{" + matcher.group(1) + "}}",
+                    AppInitializer.urlMap[matcher.group(1)] as String,
+                    true
+                )
+            }
+        }
+        return finalUrl
+    }
 }
 
 @Parcelize
