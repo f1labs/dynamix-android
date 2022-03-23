@@ -32,31 +32,33 @@ class ModSignDataProviderImpl(
 
     @SuppressLint("CheckResult")
     override fun invalidateCacheIfRequired() {
-        apiProvider.get(ModSignKeyConfigs.MODSIGN_VERSION_DATA, ModSignVersion::class.java)
-            .subscribeOn(Schedulers.io())
-            .subscribe({
-                var localVersion = -1
-                val localVersionJson =
-                    permanentGroupCacheProvider.query<JsonObject>(ModSignCacheConfigs.MOD_SIGN_VERSION)
-                val modSignVersion =
-                    gson.fromJson(localVersionJson.value.toString(), ModSignVersion::class.java)
+        if (!ModsignConfigurations.cacheDisabled) {
+            apiProvider.get(ModSignKeyConfigs.MODSIGN_VERSION_DATA, ModSignVersion::class.java)
+                .subscribeOn(Schedulers.io())
+                .subscribe({
+                    var localVersion = -1
+                    val localVersionJson =
+                        permanentGroupCacheProvider.query<JsonObject>(ModSignCacheConfigs.MOD_SIGN_VERSION)
+                    val modSignVersion =
+                        gson.fromJson(localVersionJson.value.toString(), ModSignVersion::class.java)
 
-                if (modSignVersion != null) {
-                    localVersion = modSignVersion.version
-                }
+                    if (modSignVersion != null) {
+                        localVersion = modSignVersion.version
+                    }
 
-                if (it.version > localVersion) {
-                    appLoggerProvider.info("ModSign cache data clearing")
-                    permanentGroupCacheProvider.removeGroup(ModSignCacheConfigs.MOD_SIGN_GROUP_KEY)
+                    if (it.version > localVersion) {
+                        appLoggerProvider.info("ModSign cache data clearing")
+                        permanentGroupCacheProvider.removeGroup(ModSignCacheConfigs.MOD_SIGN_GROUP_KEY)
 
-                    permanentGroupCacheProvider.insert(
-                        ModSignCacheConfigs.MOD_SIGN_VERSION,
-                        CacheValue(it)
-                    )
-                }
-            }, {
-                appLoggerProvider.error(it)
-            })
+                        permanentGroupCacheProvider.insert(
+                            ModSignCacheConfigs.MOD_SIGN_VERSION,
+                            CacheValue(it)
+                        )
+                    }
+                }, {
+                    appLoggerProvider.error(it)
+                })
+        }
     }
 
     override fun loadParsedStyles(): Observable<Map<String, Any>> {
@@ -90,7 +92,8 @@ class ModSignDataProviderImpl(
                         value = stylesJson,
                         groupKey = ModSignCacheConfigs.MOD_SIGN_GROUP_KEY,
                         key = ModSignCacheConfigs.MOD_SIGN_CACHE_COMPILED_STYLES_DATA,
-                        cacheType = CacheType.CACHE_TYPE_PERMANENT_GROUP
+                        cacheType = CacheType.CACHE_TYPE_PERMANENT_GROUP,
+                        retrieveCache = !ModsignConfigurations.cacheDisabled
                     )
                 )
                 filteredMapData
@@ -138,7 +141,8 @@ class ModSignDataProviderImpl(
                 value = JsonObject(),
                 groupKey = ModSignCacheConfigs.MOD_SIGN_GROUP_KEY,
                 key = ModSignCacheConfigs.MOD_SIGN_CACHE_STYLES_DATA,
-                cacheType = CacheType.CACHE_TYPE_PERMANENT_GROUP
+                cacheType = CacheType.CACHE_TYPE_PERMANENT_GROUP,
+                retrieveCache = !ModsignConfigurations.cacheDisabled
             )
         ).onErrorReturn { JsonObject() }
             .map {
@@ -155,7 +159,8 @@ class ModSignDataProviderImpl(
                 value = JsonObject(),
                 groupKey = ModSignCacheConfigs.MOD_SIGN_GROUP_KEY,
                 key = ModSignCacheConfigs.MOD_SIGN_CACHE_VARIABLES_DATA,
-                cacheType = CacheType.CACHE_TYPE_PERMANENT_GROUP
+                cacheType = CacheType.CACHE_TYPE_PERMANENT_GROUP,
+                retrieveCache = !ModsignConfigurations.cacheDisabled
             )
         ).map {
             return@map gson.fromJson(
@@ -171,7 +176,7 @@ class ModSignDataProviderImpl(
                 groupKey = ModSignCacheConfigs.MOD_SIGN_GROUP_KEY,
                 key = layoutUrl,
                 cacheType = CacheType.CACHE_TYPE_PERMANENT_GROUP,
-                //retrieveCache = false
+                retrieveCache = !ModsignConfigurations.cacheDisabled
             )
         ).onErrorReturn { JsonObject() }
             .map {
@@ -190,7 +195,8 @@ class ModSignDataProviderImpl(
                 value = JsonObject(),
                 groupKey = ModSignCacheConfigs.MOD_SIGN_GROUP_KEY,
                 key = ModSignCacheConfigs.MOD_SIGN_CACHE_INITIAL_DATA,
-                cacheType = CacheType.CACHE_TYPE_PERMANENT_GROUP
+                cacheType = CacheType.CACHE_TYPE_PERMANENT_GROUP,
+                retrieveCache = !ModsignConfigurations.cacheDisabled
             )
         ).map { json ->
             return@map gson.fromJson(json.toString(), DynamixInitialDataApi::class.java)
@@ -203,7 +209,8 @@ class ModSignDataProviderImpl(
                         JsonObject(),
                         key = layoutCode,
                         groupKey = ModSignCacheConfigs.MOD_SIGN_GROUP_KEY,
-                        cacheType = CacheType.CACHE_TYPE_PERMANENT_GROUP
+                        cacheType = CacheType.CACHE_TYPE_PERMANENT_GROUP,
+                        retrieveCache = !ModsignConfigurations.cacheDisabled
                     )
                 ).onErrorReturn { JsonObject() }
                     .map { layoutJson ->
