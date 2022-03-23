@@ -13,6 +13,7 @@ object ModsignConfigurations {
 
     private val modSignDataProvider: ModSignDataProvider by inject(ModSignDataProvider::class.java)
     var urlMap: Map<String, String> = HashMap()
+    internal var cacheDisabled = false
 
     // This context is application context and be careful to use it.
     fun init(context: Context): ModsignConfigurations {
@@ -21,6 +22,11 @@ object ModsignConfigurations {
 
     fun setUrls(_urlMap: Map<String, String>): ModsignConfigurations {
         urlMap = _urlMap
+        return this
+    }
+
+    fun setCacheDisabled(cacheDisabled: Boolean): ModsignConfigurations {
+        this.cacheDisabled = cacheDisabled
         return this
     }
 
