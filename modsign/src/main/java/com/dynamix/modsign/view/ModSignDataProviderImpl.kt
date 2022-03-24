@@ -112,6 +112,8 @@ class ModSignDataProviderImpl(
                         variables[value1.drop(1)] as String
                 }
             }
+        }
+        for ((key, _) in filteredMapData) {
             filteredMapData[key] = buildStyle(key, filteredMapData)
         }
     }
