@@ -243,10 +243,21 @@ class PostInflateViewParser(
                     event2.setRouteUrl(event.navLink)
                 }
                 if(event.name != null && event.name!!.isNotEmpty()) {
-                    event2 = view.onClick.copy(
-                        routeTitle = event.name!!
-                    )
+                    if(event.routeCode != null) {
+                        event2 = view.onClick.copy(
+                            routeTitle = event.name!!,
+                            routeCode = event.routeCode
+                        )
+                    } else {
+                        event2 = view.onClick.copy(
+                            routeTitle = event.name!!,
+//                        routeCode = event.routeCode
+                        )
+                    }
+
                 }
+
+
 
                 navigation.navigate(event2, data)
             } else if (view.onClick.action == DynamixEventAction.WEB_VIEW) {

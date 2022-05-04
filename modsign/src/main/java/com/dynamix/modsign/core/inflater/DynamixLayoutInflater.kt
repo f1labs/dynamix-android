@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.View
 import android.widget.LinearLayout
 import androidx.fragment.app.FragmentActivity
+import com.dynamix.core.logger.LoggerProviderUtils
 import com.dynamix.modsign.core.RootViewTypes
 import com.dynamix.modsign.core.events.DynamixLayoutEvent
 import com.dynamix.modsign.core.parser.engine.HorizontalContainerParser
@@ -24,7 +25,7 @@ class DynamixLayoutInflater(val callback: Any) {
             val renderedView = viewInflater(context, layout, parent)
             postInflater(context, renderedView, layout.layout!!, data)
         } catch (e: IllegalArgumentException) {
-
+            LoggerProviderUtils.error(e)
         }
     }
 
