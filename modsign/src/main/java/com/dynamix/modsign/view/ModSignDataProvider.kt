@@ -2,6 +2,7 @@ package com.dynamix.modsign.view
 
 import com.dynamix.core.event.DynamixEvent
 import com.dynamix.modsign.model.LayoutWrapper
+import com.google.gson.JsonObject
 import io.reactivex.Observable
 
 interface ModSignDataProvider {
@@ -19,4 +20,8 @@ interface ModSignDataProvider {
         layoutCode: String,
         event: DynamixEvent = DynamixEvent()
     ): Observable<LayoutWrapper>
+
+    fun loadData(
+        dataUrl: String
+    ): Observable<JsonObject>
 }

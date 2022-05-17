@@ -291,4 +291,16 @@ class ModSignDataProviderImpl(
         }
         return Observable.just(layout)
     }
+
+    override fun loadData(dataUrl: String): Observable<JsonObject> {
+        return apiProvider.getUrl(
+            dataUrl, JsonObject::class.java, CacheValue(
+                value = JsonObject(),
+                groupKey = ModSignCacheConfigs.MOD_SIGN_GROUP_KEY,
+                key = dataUrl,
+                cacheType = CacheType.CACHE_TYPE_PERMANENT_GROUP,
+                retrieveCache = !ModsignConfigurations.cacheDisabled
+            )
+        ).onErrorReturn { JsonObject() }
+    }
 }

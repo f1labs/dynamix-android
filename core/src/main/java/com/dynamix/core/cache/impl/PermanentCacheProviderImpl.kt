@@ -12,9 +12,22 @@ class PermanentCacheProviderImpl(
     private val sharedPreferences: SharedPreferences
 ) : CacheImpl(), PermanentCacheProvider {
 
+    private val PERMANENT_CACHE_PROVIDER = "PERMANENT_CACHE_PROVIDER"
+
     override fun <T : Any> insert(key: Any, value: CacheValue<T>) {
         val jsonString = gson.toJson(value)
         sharedPreferences.edit().putString(key.toString(), jsonString).apply()
+
+        val keys: MutableSet<String>? =
+            sharedPreferences.getStringSet(PERMANENT_CACHE_PROVIDER, mutableSetOf())
+        val allKeySets: MutableSet<String> = mutableSetOf()
+        if (keys != null) {
+            allKeySets.addAll(keys.toMutableSet())
+            allKeySets.add(key.toString())
+        } else {
+            allKeySets.add(key.toString())
+        }
+        sharedPreferences.edit().putStringSet(PERMANENT_CACHE_PROVIDER, allKeySets).apply()
     }
 
     override fun <T : Any> query(key: Any): CacheValue<T> {
@@ -39,6 +52,10 @@ class PermanentCacheProviderImpl(
     }
 
     override fun clear() {
-
+        val keys: MutableSet<String>? =
+            sharedPreferences.getStringSet(PERMANENT_CACHE_PROVIDER, mutableSetOf())
+        keys?.forEach {
+            remove(it)
+        }
     }
 }

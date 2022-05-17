@@ -110,7 +110,7 @@ class RecyclerViewParser(
                 val storageKey = dataUrl.replace(ModSignKeyConfigs.ADAPT_STORAGE_DATA, "")
                 return Observable.just(dataStorage.getStoredData(storageKey))
             } else {
-                return apiProvider.getUrl(dataUrl, JsonObject::class.java)
+                return modSignDataProvider.loadData(dataUrl)
                     .onErrorReturn { JsonObject() }
                     .map {
                         return@map gson.fromJson<Map<String, Any>?>(
@@ -153,11 +153,11 @@ class RecyclerViewParser(
                 layout,
                 callback
             )
-            if(view.radioId != "") {
+            if (view.radioId != "") {
                 rvAdapter.setSingleItemSelectionId(view.radioId!!)
             }
 
-            if(view.maxItems != 0) {
+            if (view.maxItems != 0) {
                 rvAdapter.setMaxItems(view.maxItems)
             }
 
