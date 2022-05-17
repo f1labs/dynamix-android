@@ -3,6 +3,7 @@ package com.dynamix.modsign
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.dynamix.core.cache.provider.PermanentGroupCacheProvider
 import com.dynamix.core.navigation.NavigationComponents
 import com.dynamix.core.navigation.NavigationConstants
 import com.dynamix.modsign.view.ModSignActivity
@@ -12,6 +13,7 @@ import org.koin.java.KoinJavaComponent.inject
 object ModsignConfigurations {
 
     private val modSignDataProvider: ModSignDataProvider by inject(ModSignDataProvider::class.java)
+    private val permanentGroupCacheProvider: PermanentGroupCacheProvider by inject(PermanentGroupCacheProvider:: class.java);
     var urlMap: Map<String, String> = HashMap()
     internal var cacheDisabled = false
 

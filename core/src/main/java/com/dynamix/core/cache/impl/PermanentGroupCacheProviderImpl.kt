@@ -3,8 +3,10 @@ package com.dynamix.core.cache.impl
 import android.content.SharedPreferences
 import com.dynamix.core.cache.CacheValue
 import com.dynamix.core.cache.provider.PermanentGroupCacheProvider
+import com.dynamix.core.logger.LoggerProviderUtils
 import com.google.gson.Gson
 import com.google.gson.JsonObject
+import com.google.gson.JsonSyntaxException
 import com.google.gson.reflect.TypeToken
 import org.json.JSONArray
 import org.json.JSONException
@@ -15,10 +17,23 @@ class PermanentGroupCacheProviderImpl(
     private val sharedPreferences: SharedPreferences
 ) : CacheImpl(), PermanentGroupCacheProvider {
 
+    private val PERMANENT_GROUP_CACHE_PROVIDER = "PERMANENT_GROUP_CACHE_PROVIDER"
+
     //Store whole object
     override fun <T : Any> insert(key: Any, value: CacheValue<T>) {
         val jsonString = gson.toJson(value)
         sharedPreferences.edit().putString(key.toString(), jsonString).apply()
+
+        val keys: MutableSet<String>? =
+            sharedPreferences.getStringSet(PERMANENT_GROUP_CACHE_PROVIDER, mutableSetOf())
+        val allKeySets: MutableSet<String> = mutableSetOf()
+        if (keys != null) {
+            allKeySets.addAll(keys.toMutableSet())
+            allKeySets.add(key.toString())
+        } else {
+            allKeySets.add(key.toString())
+        }
+        sharedPreferences.edit().putStringSet(PERMANENT_GROUP_CACHE_PROVIDER, allKeySets).apply()
     }
 
     //Search for value based on key and return that
@@ -42,11 +57,15 @@ class PermanentGroupCacheProviderImpl(
     override fun remove(key: Any) {
         for ((preferenceKey, preferenceValue) in sharedPreferences.all) {
             if (preferenceValue is String) {
-                val cacheValue = gson.fromJson(preferenceValue, CacheValue::class.java)
-                if (cacheValue.groupKey.toString().isNotEmpty() &&
-                    preferenceKey.equals(key.toString(), ignoreCase = true)
-                ) {
-                    sharedPreferences.edit().putString(key.toString(), null).apply()
+                try {
+                    val cacheValue = gson.fromJson(preferenceValue, CacheValue::class.java)
+                    if (cacheValue.groupKey.toString().isNotEmpty() &&
+                        preferenceKey.equals(key.toString(), ignoreCase = true)
+                    ) {
+                        sharedPreferences.edit().putString(key.toString(), null).apply()
+                    }
+                } catch (ex: JsonSyntaxException) {
+                    LoggerProviderUtils.error(ex)
                 }
             }
         }
@@ -96,8 +115,12 @@ class PermanentGroupCacheProviderImpl(
         return true
     }
 
-
     override fun clear() {
-
+        val keys: MutableSet<String>? =
+            sharedPreferences.getStringSet(PERMANENT_GROUP_CACHE_PROVIDER, mutableSetOf())
+        keys?.forEach {
+            remove(it)
+            sharedPreferences.edit().putString(it, null).apply()
+        }
     }
 }
