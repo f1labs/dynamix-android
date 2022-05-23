@@ -7,9 +7,9 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.dynamix.core.event.DynamixActionConstants
 import com.dynamix.core.event.DynamixEvent
-import com.dynamix.core.logger.AppLoggerProvider
 import com.dynamix.core.gate.DynamixGate
 import com.dynamix.core.gate.DynamixGateController
+import com.dynamix.core.logger.AppLoggerProvider
 import java.io.Serializable
 
 class NavigationProviderImpl(
@@ -18,7 +18,7 @@ class NavigationProviderImpl(
 ) : NavigationProvider {
 
     private var data = Bundle()
-    private var mDataMap : Map<String, Any> = HashMap()
+    private var mDataMap: Map<String, Any> = HashMap()
 
     override fun init(data: Bundle): NavigationProvider {
         this.data = data
@@ -52,7 +52,7 @@ class NavigationProviderImpl(
         if (!data.isEmpty) {
             intent.putExtra(NavigationConstants.NAV_DATA, data)
         }
-        if(mDataMap.isNotEmpty()) {
+        if (mDataMap.isNotEmpty()) {
             intent.putExtra(NavigationConstants.DATA_MAP, mDataMap as Serializable)
         }
         context.startActivity(intent)
@@ -182,6 +182,17 @@ class NavigationProviderImpl(
     override fun navigate(event: DynamixEvent, data: Map<String, Any>) {
         event.routeCode?.let {
 
+            if (event.menuType.isNotEmpty() && event.menuType.equals("WV", ignoreCase = true)) {
+                navigate(
+                    Navigator(
+                        navLink = event.getRouteUrl()!!,
+                        name = event.routeTitle,
+                        type = event.menuType
+                    ),
+                    dataMap = data
+                )
+                return
+            }
             if (event.gateType.isNotEmpty()) {
                 handleGate(
                     DynamixGate(
@@ -211,17 +222,6 @@ class NavigationProviderImpl(
                     )
                 )
             }
-        }
-
-        if(event.menuType.equals("WV")) {
-            navigate(
-                Navigator(
-                    navLink = event.getRouteUrl()!!,
-                    name = event.routeTitle,
-                    type = event.menuType
-                ),
-                dataMap = data
-            )
         }
     }
 
