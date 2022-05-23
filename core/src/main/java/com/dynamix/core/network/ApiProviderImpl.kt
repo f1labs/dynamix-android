@@ -42,7 +42,7 @@ class ApiProviderImpl(
             .flatMap { route ->
                 apiEndpoint.get(route.url)
                     .map {
-                        if (it.isSuccessful && it.body() != null) {
+                        if (it.isSuccessful && it.body() != null && it.body()!!.size() > 0) {
                             val response = gson.fromJson(it.body(), clazz)
                             cacheData(cacheValue.copy(response))
                             return@map response
@@ -73,7 +73,7 @@ class ApiProviderImpl(
         }
         return apiEndpoint.get(url)
             .map {
-                if (it.isSuccessful && it.body() != null) {
+                if (it.isSuccessful && it.body() != null && it.body()!!.size() > 0) {
                     val response = gson.fromJson(it.body(), clazz)
                     cacheData(cacheValue.copy(response))
                     return@map response
@@ -111,7 +111,7 @@ class ApiProviderImpl(
             .flatMap { route ->
                 apiEndpoint.get(route.url + "/" + path)
                     .map {
-                        if (it.isSuccessful && it.body() != null) {
+                        if (it.isSuccessful && it.body() != null && it.body()!!.size() > 0) {
                             val response = gson.fromJson(it.body(), clazz)
                             cacheData(cacheValue.copy(response))
                             return@map response
@@ -154,7 +154,7 @@ class ApiProviderImpl(
             .flatMap { route ->
                 apiEndpoint.get(route.url, params)
                     .map {
-                        if (it.isSuccessful && it.body() != null) {
+                        if (it.isSuccessful && it.body() != null && it.body()!!.size() > 0) {
                             val response = gson.fromJson(it.body(), clazz)
                             cacheData(cacheValue.copy(response))
                             return@map response
@@ -202,7 +202,7 @@ class ApiProviderImpl(
             .flatMap { route ->
                 apiEndpoint.post(route.url)
                     .map {
-                        if (it.isSuccessful && it.body() != null) {
+                        if (it.isSuccessful && it.body() != null && it.body()!!.size() > 0) {
                             val response = gson.fromJson(it.body(), clazz)
                             cacheData(cacheValue.copy(response))
                             return@map response
@@ -259,7 +259,7 @@ class ApiProviderImpl(
             .flatMap { route ->
                 apiEndpoint.post(route.url, params)
                     .map {
-                        if (it.isSuccessful && it.body() != null) {
+                        if (it.isSuccessful && it.body() != null && it.body()!!.size() > 0) {
                             val response = gson.fromJson(it.body(), clazz)
                             cacheData(cacheValue.copy(response))
                             return@map response
