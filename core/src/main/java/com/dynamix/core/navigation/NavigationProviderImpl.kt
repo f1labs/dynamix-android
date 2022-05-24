@@ -185,7 +185,7 @@ class NavigationProviderImpl(
             if (event.menuType.isNotEmpty() && event.menuType.equals("WV", ignoreCase = true)) {
                 navigate(
                     Navigator(
-                        navLink = event.getRouteUrl()!!,
+                        navLink = event.getRouteUrl() ?: event.navLink,
                         name = event.routeTitle,
                         type = event.menuType
                     ),
