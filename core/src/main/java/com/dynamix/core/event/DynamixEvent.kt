@@ -27,6 +27,7 @@ data class DynamixEvent(
     val requestCode: Int = -1,
     var menuType: String = "",
     var navLink: String = "",
+    val condition: RouteCondition? = null
 ) : Parcelable {
 
     fun setRouteUrl(routeUrl: String) {

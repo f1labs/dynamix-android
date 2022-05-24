@@ -4,7 +4,10 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.drawable.Drawable
 import android.view.View
-import android.widget.*
+import android.widget.ImageView
+import android.widget.RelativeLayout
+import android.widget.TextView
+import android.widget.Toast
 import androidx.core.text.HtmlCompat
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
@@ -12,15 +15,15 @@ import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.transition.Transition
-import com.dynamix.core.navigation.NavigationProvider
-import com.dynamix.core.navigation.NavigationType
-import com.dynamix.core.navigation.Navigator
 import com.dynamix.R
 import com.dynamix.core.cache.AppEnvironment
 import com.dynamix.core.event.DynamixEvent
 import com.dynamix.core.event.DynamixEventAction
 import com.dynamix.core.extensions.tintWithPrimary
 import com.dynamix.core.logger.AppLoggerProvider
+import com.dynamix.core.navigation.NavigationProvider
+import com.dynamix.core.navigation.NavigationType
+import com.dynamix.core.navigation.Navigator
 import com.dynamix.core.network.ApiProvider
 import com.dynamix.modsign.ModSignKeyConfigs
 import com.dynamix.modsign.ModsignConfigurations
@@ -42,7 +45,6 @@ import org.koin.core.KoinComponent
 import org.koin.core.inject
 import org.koin.core.parameter.parametersOf
 import java.util.regex.Pattern
-import kotlin.collections.HashMap
 
 class PostInflateViewParser(
     val context: Context,
@@ -223,42 +225,39 @@ class PostInflateViewParser(
                     gson.toJson(data),
                     DynamixEvent::class.java
                 )
+                val routeCode = getRouteCode(event)
+
                 event = event.copy(
-                    routeCode = event.code ?: event.routeCode,
+                    routeCode = routeCode,
                     routeTitle = event.name ?: event.routeTitle,
                     menuType = event.menuType
                 )
                 if (data.containsKey(ModSignKeyConfigs.GATE_TYPE)) {
-
-
                     navigation.navigate(event, data)
                     return@setOnClickListener
                 }
 
                 var event2 = view.onClick
-
+                val onClickRouteCode = getRouteCode(event2)
 
                 event2.menuType = event.menuType
                 if(event.navLink.isNotEmpty()) {
                     event2.setRouteUrl(event.navLink)
                 }
                 if(event.name != null && event.name!!.isNotEmpty()) {
-                    if(event.routeCode != null) {
+                    if(routeCode != null && routeCode.isNotEmpty()) {
                         event2 = view.onClick.copy(
                             routeTitle = event.name!!,
-                            routeCode = event.routeCode
+                            routeCode = routeCode
                         )
                     } else {
                         event2 = view.onClick.copy(
+                            routeCode = onClickRouteCode,
                             routeTitle = event.name!!,
 //                        routeCode = event.routeCode
                         )
                     }
-
                 }
-
-
-
                 navigation.navigate(event2, data)
             } else if (view.onClick.action == DynamixEventAction.WEB_VIEW) {
                 val navigator = Navigator(
@@ -270,6 +269,19 @@ class PostInflateViewParser(
                 navigation.navigate(navigator, data)
             }
         }
+    }
+
+    private fun getRouteCode(event: DynamixEvent): String? {
+        if(event.condition == null || event.condition!!.routeCode == null || event.condition!!.routeCode!!.isEmpty()) {
+            return event.code ?: event.routeCode
+        }
+        val key = event.condition!!.key.replace("env:", "")
+        val value = event.condition!!.value
+
+        if(AppEnvironment.instance.get(key) == value) {
+            return event.condition!!.routeCode
+        }
+        return event.code ?: event.routeCode
     }
 
     fun parseRelativeLayout(view: RootView) {
