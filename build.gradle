@@ -7,10 +7,6 @@ buildscript {
         google()
         mavenCentral()
         maven { url "https://raw.github.com/synergian/wagon-git/releases" }
-        maven {
-            url 'http://developer.huawei.com/repo/'
-            allowInsecureProtocol = true
-        }
         maven { url "https://jitpack.io" }
     }
 
