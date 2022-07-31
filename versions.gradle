@@ -2,10 +2,10 @@ ext.dynamix_deps = [:]
 def versions = [:]
 
 // @dynamix@ module versions
-versions.core = "1.0.7"
-versions.formbuilder = "1.0.3"
-versions.modsign = "1.0.8"
-versions.styles = "1.0.2"
+versions.core = "1.0.8"
+versions.formbuilder = "1.0.4"
+versions.modsign = "1.0.9"
+versions.styles = "1.0.3"
 // @dynamix@
 
 // dynamix dependencies versions
@@ -84,9 +84,6 @@ versions.kotlin_stdlib_jdk7 = ext.kotlin_version
 versions.kotlin_stdlib = ext.kotlin_version
 
 versions.koin = "2.0.1"
-
-versions.agconnect_core = "1.2.1.301"
-versions.hms_maps = "4.0.1.300"
 
 versions.viewpager_dots_indicator = "4.2"
 versions.shimmer_recycler_view = "v1.3"
