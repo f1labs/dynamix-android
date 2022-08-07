@@ -18,8 +18,8 @@ class TextViewParser(val context: Context, rootView: RootView) : BaseParser(cont
         val textView = TextView(context)
         setupLayout(textView)
 
-        textView.setTag(R.id.imageUrl, mRootView.text)
-        textView.text = mRootView.text
+        textView.setTag(R.id.imageUrl, mRootView.getText(context.resources.configuration.locale.language))
+        textView.text = mRootView.getText(context.resources.configuration.locale.language)
 
         setupStyles(mRootView, textView)
         setMaxLines(mRootView, textView)
