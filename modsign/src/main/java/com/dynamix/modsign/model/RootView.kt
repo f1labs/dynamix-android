@@ -153,6 +153,7 @@ data class RootView(
         return _imageUrl
     }
 
+    // Get text based on localization value
     fun getText(localeKey: String): String {
         if(ModsignConfigurations.localizationEnabled) {
             if(localeKey.equals("en", ignoreCase = true)) {

@@ -33,6 +33,7 @@ object ModsignConfigurations {
         return this
     }
 
+    // Used to provide information for localization enabled or not
     fun setLocalizationEnabled(localizationEnabled: Boolean): ModsignConfigurations {
         this.localizationEnabled = localizationEnabled
         return this
