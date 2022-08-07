@@ -13,9 +13,10 @@ import org.koin.java.KoinJavaComponent.inject
 object ModsignConfigurations {
 
     private val modSignDataProvider: ModSignDataProvider by inject(ModSignDataProvider::class.java)
-    private val permanentGroupCacheProvider: PermanentGroupCacheProvider by inject(PermanentGroupCacheProvider:: class.java);
+    private val permanentGroupCacheProvider: PermanentGroupCacheProvider by inject(PermanentGroupCacheProvider::class.java)
     var urlMap: Map<String, String> = HashMap()
     internal var cacheDisabled = false
+    internal var localizationEnabled = false
 
     // This context is application context and be careful to use it.
     fun init(context: Context): ModsignConfigurations {
@@ -29,6 +30,11 @@ object ModsignConfigurations {
 
     fun setCacheDisabled(cacheDisabled: Boolean): ModsignConfigurations {
         this.cacheDisabled = cacheDisabled
+        return this
+    }
+
+    fun setLocalizationEnabled(localizationEnabled: Boolean): ModsignConfigurations {
+        this.localizationEnabled = localizationEnabled
         return this
     }
 
