@@ -7,7 +7,7 @@ plugins {
     id 'kotlin-kapt'
     id "org.sonarqube"
 }
-// trigger build //////
+// trigger build ////////
 def dynamix_deps = rootProject.ext.dynamix_deps
 
 android {
