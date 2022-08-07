@@ -50,7 +50,8 @@ data class RootView(
     val rightOf: String? = "",
     @SerializedName("relative")
     val isRelative: Boolean = false,
-    val text: String = "",
+    private val text: String = "",
+    val unicodeText: String = "",
     val id: String? = "",
     val children: List<RootView>? = emptyList(),
     val style: String? = null,
@@ -150,5 +151,16 @@ data class RootView(
         }
 
         return _imageUrl
+    }
+
+    // Get text based on localization value
+    fun getText(localeKey: String): String {
+        if(ModsignConfigurations.localizationEnabled) {
+            if(localeKey.equals("en", ignoreCase = true)) {
+                return  text
+            }
+            return unicodeText
+        }
+        return  text
     }
 }
