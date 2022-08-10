@@ -18,8 +18,8 @@ class TextViewParser(val context: Context, rootView: RootView) : BaseParser(cont
         val textView = TextView(context)
         setupLayout(textView)
 
-        textView.setTag(R.id.imageUrl, mRootView.getText(context.resources.configuration.locale.language))
-        textView.text = mRootView.getText(context.resources.configuration.locale.language)
+        textView.setTag(R.id.imageUrl, mRootView.getText())
+        textView.text = mRootView.getText()
 
         setupStyles(mRootView, textView)
         setMaxLines(mRootView, textView)
@@ -54,7 +54,7 @@ class TextViewParser(val context: Context, rootView: RootView) : BaseParser(cont
 
     private fun setFonts(context: Context, fontName: String, textView: TextView) {
 
-        val typeface = when(fontName.lowercase(Locale.getDefault())) {
+        val typeface = when (fontName.lowercase(Locale.getDefault())) {
             "bold" -> ResourcesCompat.getFont(context, R.font.bold)
             "regular_bold" -> ResourcesCompat.getFont(context, R.font.regular)
             else -> ResourcesCompat.getFont(context, R.font.regular)
@@ -64,7 +64,7 @@ class TextViewParser(val context: Context, rootView: RootView) : BaseParser(cont
     }
 
     private fun setMaxLines(rootView: RootView, textView: TextView) {
-        if(rootView.maxLines > 0) {
+        if (rootView.maxLines > 0) {
             textView.maxLines = rootView.maxLines
         }
     }
@@ -72,7 +72,7 @@ class TextViewParser(val context: Context, rootView: RootView) : BaseParser(cont
     private fun setTextAlignment(rootView: RootView, textView: TextView) {
         rootView.textAlignment?.let {
             textView.textAlignment = when (rootView.textAlignment) {
-                "center" ->  TextView.TEXT_ALIGNMENT_CENTER
+                "center" -> TextView.TEXT_ALIGNMENT_CENTER
                 "right" -> TextView.TEXT_ALIGNMENT_VIEW_END
                 else -> TextView.TEXT_ALIGNMENT_VIEW_START
             }
@@ -88,14 +88,14 @@ class TextViewParser(val context: Context, rootView: RootView) : BaseParser(cont
     private fun buildStyle(style: String, styles: Map<*, *>): Map<*, *> {
         val stylesMap = styles[style] as LinkedTreeMap<String, Any>
 
-        if(stylesMap.containsKey("parent")) {
+        if (stylesMap.containsKey("parent")) {
             val parentStyles = buildStyle(stylesMap["parent"] as String, styles)
 
             val hmIterator: Iterator<*> = parentStyles.entries.iterator()
 
-            while(hmIterator.hasNext()) {
+            while (hmIterator.hasNext()) {
                 val mapElement = hmIterator.next() as Map.Entry<*, *>
-                if(!stylesMap.containsKey(mapElement.key)) {
+                if (!stylesMap.containsKey(mapElement.key)) {
                     stylesMap[mapElement.key as String] = mapElement.value
                 }
             }

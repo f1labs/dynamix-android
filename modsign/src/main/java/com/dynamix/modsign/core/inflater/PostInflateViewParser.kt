@@ -20,6 +20,8 @@ import com.dynamix.core.cache.AppEnvironment
 import com.dynamix.core.event.DynamixEvent
 import com.dynamix.core.event.DynamixEventAction
 import com.dynamix.core.extensions.tintWithPrimary
+import com.dynamix.core.init.DynamixEnvironmentData
+import com.dynamix.core.locale.DynamixLocaleStrings
 import com.dynamix.core.logger.AppLoggerProvider
 import com.dynamix.core.navigation.NavigationProvider
 import com.dynamix.core.navigation.NavigationType
@@ -44,6 +46,7 @@ import io.reactivex.schedulers.Schedulers
 import org.koin.core.KoinComponent
 import org.koin.core.inject
 import org.koin.core.parameter.parametersOf
+import java.lang.Exception
 import java.util.regex.Pattern
 
 class PostInflateViewParser(
@@ -93,8 +96,9 @@ class PostInflateViewParser(
             parseRelativeLayout(view)
         }
 
-        if(view.visibility != null) {
-            inflatedView.findViewWithTag<View>(view.id).isVisible = getVisibility(view.visibility, viewData)
+        if (view.visibility != null) {
+            inflatedView.findViewWithTag<View>(view.id).isVisible =
+                getVisibility(view.visibility, viewData)
         }
 
         when (view.type) {
@@ -113,18 +117,11 @@ class PostInflateViewParser(
                     val textView = inflatedView.findViewWithTag<TextView>(view.id)
                     var text = textView.getTag(R.id.imageUrl) as String
 
-                    val pattern = Pattern.compile("\\{\\{([^}]*)\\}\\}")
-                    val matcher = pattern.matcher(text)
-                    while (matcher.find()) {
-                        text = text.replace(
-                            "{{" + matcher.group(1) + "}}",
-                            data[matcher.group(1)] as String,
-                            true
-                        )
-                    }
+                    text = getParsedText(text, data)
 
-                    if(view.stripHtmlTags != null && view.stripHtmlTags) {
-                        text = HtmlCompat.fromHtml(text, HtmlCompat.FROM_HTML_MODE_LEGACY).toString()
+                    if (view.stripHtmlTags != null && view.stripHtmlTags) {
+                        text =
+                            HtmlCompat.fromHtml(text, HtmlCompat.FROM_HTML_MODE_LEGACY).toString()
                     }
 
                     textView.text = text
@@ -134,7 +131,7 @@ class PostInflateViewParser(
             RootViewTypes.IMAGE -> {
                 val imageView = inflatedView.findViewWithTag<ImageView>(view.id)
                 val imageUrlTag = imageView.getTag(R.id.imageUrl) as String
-                if(data.containsKey("tint") && data["tint"] == true && view.tintMode != null) {
+                if (data.containsKey("tint") && data["tint"] == true && view.tintMode != null) {
                     imageView.tintWithPrimary()
                 }
                 if (!imageUrlTag.startsWith("http")) {
@@ -144,7 +141,7 @@ class PostInflateViewParser(
                     val pattern = Pattern.compile("\\{\\{([^}]*)\\}\\}")
                     val matcher = pattern.matcher(imageUrl)
                     while (matcher.find()) {
-                        if(ModsignConfigurations.urlMap.containsKey(matcher.group(1))) {
+                        if (ModsignConfigurations.urlMap.containsKey(matcher.group(1))) {
                             imageUrl = imageUrl.replace(
                                 "{{" + matcher.group(1) + "}}",
                                 ModsignConfigurations.urlMap[matcher.group(1)] as String,
@@ -172,10 +169,63 @@ class PostInflateViewParser(
             }
             RootViewTypes.BUTTON -> {
                 val button: MaterialButton = inflatedView.findViewWithTag(view.id)
-                if(view.onClick == null) {
+                if (view.onClick == null) {
                     ButtonParser.postInflate(callback, button, view)
                 }
             }
+        }
+    }
+
+    private fun getParsedText(text: String, data: Map<String, Any>): String {
+        if (ModsignConfigurations.localizationEnabled
+            && DynamixEnvironmentData.locale.equals(DynamixLocaleStrings.NEPALI, ignoreCase = true) &&
+            data.containsKey("locale")
+        ) {
+            return getLocalizedParsedText(text, data)
+        }
+        return getDefaultParsedText(text, data)
+    }
+
+    private fun getDefaultParsedText(text: String, data: Map<String, Any>): String {
+        var parsedText = text
+        val pattern = Pattern.compile("\\{\\{([^}]*)\\}\\}")
+        val matcher = pattern.matcher(parsedText)
+        while (matcher.find()) {
+            parsedText = parsedText.replace(
+                "{{" + matcher.group(1) + "}}",
+                data[matcher.group(1)] as String,
+                true
+            )
+        }
+        return parsedText
+    }
+
+    private fun getLocalizedParsedText(
+        text: String,
+        data: Map<String, Any>
+    ): String {
+        try {
+            val locale: Map<String, Map<String, String>> =
+                data["locale"] as Map<String, Map<String, String>>
+
+            val filteredLocaleMap: MutableMap<String, String> = mutableMapOf()
+            locale.forEach { (key, value) ->
+                filteredLocaleMap[key] = value[DynamixEnvironmentData.locale]!!
+            }
+            var parsedText = text
+            val pattern = Pattern.compile("\\{\\{([^}]*)\\}\\}")
+            val matcher = pattern.matcher(parsedText)
+            while (matcher.find()) {
+                parsedText = parsedText.replace(
+                    "{{" + matcher.group(1) + "}}",
+                    filteredLocaleMap[matcher.group(1)] as String,
+                    true
+                )
+            }
+            return parsedText
+        } catch (ex: Exception) {
+            appLoggerProvider.error(ex)
+            return getParsedText(text, data)
         }
     }
 
@@ -241,11 +291,11 @@ class PostInflateViewParser(
                 val onClickRouteCode = getRouteCode(event2)
 
                 event2.menuType = event.menuType
-                if(event.navLink.isNotEmpty()) {
+                if (event.navLink.isNotEmpty()) {
                     event2.setRouteUrl(event.navLink)
                 }
-                if(event.name != null && event.name!!.isNotEmpty()) {
-                    if(routeCode != null && routeCode.isNotEmpty()) {
+                if (event.name != null && event.name!!.isNotEmpty()) {
+                    if (routeCode != null && routeCode.isNotEmpty()) {
                         event2 = view.onClick.copy(
                             routeTitle = event.name!!,
                             routeCode = routeCode
@@ -272,13 +322,13 @@ class PostInflateViewParser(
     }
 
     private fun getRouteCode(event: DynamixEvent): String? {
-        if(event.condition == null || event.condition!!.routeCode == null || event.condition!!.routeCode!!.isEmpty()) {
+        if (event.condition == null || event.condition!!.routeCode == null || event.condition!!.routeCode!!.isEmpty()) {
             return event.code ?: event.routeCode
         }
         val key = event.condition!!.key.replace("env:", "")
         val value = event.condition!!.value
 
-        if(AppEnvironment.instance.get(key) == value) {
+        if (AppEnvironment.instance.get(key) == value) {
             return event.condition!!.routeCode
         }
         return event.code ?: event.routeCode
@@ -332,17 +382,17 @@ class PostInflateViewParser(
     fun getVisibility(visibility: ModSignVisibility, data: HashMap<String, Any>): Boolean {
         val operator = visibility.operator
         var result = true
-        if(operator == "OR") {
+        if (operator == "OR") {
             result = false
         }
 
         visibility.conditions?.let {
 
             for (v in it) {
-                result = if(v.operator != null) {
+                result = if (v.operator != null) {
                     getVisibility(v, data)
                 } else {
-                    if(operator.equals("AND")) {
+                    if (operator.equals("AND")) {
                         result && getVisibilityCondition(v, data)
                     } else {
                         result || getVisibilityCondition(v, data)
@@ -359,19 +409,19 @@ class PostInflateViewParser(
 
         var key = visibility.key
 
-        if(visibility.key!!.startsWith("env")) {
+        if (visibility.key!!.startsWith("env")) {
             key = AppEnvironment.instance.get(visibility.key.replace("env:", "")) as String
-        } else if(visibility.key.startsWith("data")) {
+        } else if (visibility.key.startsWith("data")) {
             key = data[visibility.key]!! as String
         }
 
-        if(visibility.value!!.startsWith("env")) {
+        if (visibility.value!!.startsWith("env")) {
             key = AppEnvironment.instance.get(visibility.value.replace("env:", "")) as String
-        } else if(visibility.value.startsWith("data")) {
+        } else if (visibility.value.startsWith("data")) {
             key = data[visibility.value]!! as String
         }
 
-        val comparator: ModSignComparator = when(visibility.compareType) {
+        val comparator: ModSignComparator = when (visibility.compareType) {
             "boolean" -> {
                 ModSignComparatorFactory<Boolean>().getComparator(Boolean::class.java)
             }
@@ -386,7 +436,7 @@ class PostInflateViewParser(
             }
         }
 
-        when(visibility.condition) {
+        when (visibility.condition) {
             "=" -> {
                 return comparator.equalsIgnoreCase(key!!, visibility.value!!)
             }

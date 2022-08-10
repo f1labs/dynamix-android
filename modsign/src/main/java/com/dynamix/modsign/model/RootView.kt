@@ -1,6 +1,8 @@
 package com.dynamix.modsign.model
 
 import com.dynamix.core.event.DynamixEvent
+import com.dynamix.core.init.DynamixEnvironmentData
+import com.dynamix.core.locale.DynamixLocaleStrings
 import com.dynamix.modsign.ModSignController
 import com.dynamix.modsign.ModsignConfigurations
 import com.google.gson.annotations.SerializedName
@@ -51,7 +53,7 @@ data class RootView(
     @SerializedName("relative")
     val isRelative: Boolean = false,
     private val text: String = "",
-    val unicodeText: String = "",
+    val unicodeText: String? = null,
     val id: String? = "",
     val children: List<RootView>? = emptyList(),
     val style: String? = null,
@@ -99,7 +101,7 @@ data class RootView(
     }
 
     fun getDataUrl(): String? {
-        if(_dataUrl == null) {
+        if (_dataUrl == null) {
             return null
         }
 
@@ -154,13 +156,12 @@ data class RootView(
     }
 
     // Get text based on localization value
-    fun getText(localeKey: String): String {
-        if(ModsignConfigurations.localizationEnabled) {
-            if(localeKey.equals("en", ignoreCase = true)) {
-                return  text
-            }
-            return unicodeText
+    fun getText(): String {
+        if (ModsignConfigurations.localizationEnabled &&
+            DynamixEnvironmentData.locale.equals(DynamixLocaleStrings.NEPALI, true)
+        ) {
+            return unicodeText ?: text
         }
-        return  text
+        return text
     }
 }
