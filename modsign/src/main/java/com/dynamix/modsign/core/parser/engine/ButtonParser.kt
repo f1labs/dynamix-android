@@ -18,7 +18,7 @@ class ButtonParser(val context: Context, rootView: RootView) : BaseParser(contex
             MaterialButton(ContextThemeWrapper(context, R.style.Widget_MaterialComponents_Button))
         setupLayout(button)
 
-        button.text = mRootView.getText(context.resources.configuration.locale.language)
+        button.text = mRootView.getText()
         //setupStyles(mRootView, button)
         //setTextAlignment(mRootView, button)
         button.tag = mRootView.id

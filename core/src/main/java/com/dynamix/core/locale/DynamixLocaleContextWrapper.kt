@@ -26,7 +26,7 @@ class DynamixLocaleContextWrapper(base: Context) : ContextWrapper(base) {
                 configuration.setLocale(newLocale)
                 currentContext.createConfigurationContext(configuration)
             }
-            resources.updateConfiguration(configuration, resources.displayMetrics)
+            //resources.updateConfiguration(configuration, resources.displayMetrics)
 
             return ContextWrapper(currentContext)
         }
