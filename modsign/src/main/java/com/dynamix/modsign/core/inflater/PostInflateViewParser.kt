@@ -225,7 +225,7 @@ class PostInflateViewParser(
             return parsedText
         } catch (ex: Exception) {
             appLoggerProvider.error(ex)
-            return getParsedText(text, data)
+            return getDefaultParsedText(text, data)
         }
     }
 
