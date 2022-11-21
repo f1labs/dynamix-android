@@ -40,10 +40,10 @@ class RecyclerViewParser(
             val layoutManager = LinearLayoutManager(mContext)
             layoutManager.orientation = HORIZONTAL
             recyclerView.layoutManager = layoutManager
-            recyclerView.setHasFixedSize(true)
         } else {
             recyclerView.layoutManager = LinearLayoutManager(mContext)
         }
+        recyclerView.setHasFixedSize(true)
 
         setupLayout(recyclerView)
         recyclerView.tag = mRootView.id
