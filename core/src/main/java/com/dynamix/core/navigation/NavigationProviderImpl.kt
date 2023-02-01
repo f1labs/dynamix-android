@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.dynamix.core.event.DynamixActionConstants
 import com.dynamix.core.event.DynamixEvent
@@ -107,6 +108,17 @@ class NavigationProviderImpl(
 
     fun _navigate(navigator: Navigator, dataMap: Map<String, Any>? = null) {
         if (navigator.type == NavigationType.WEB_VIEW) {
+            var menuCode = navigator.code
+
+            if (menuCode.isEmpty() && dataMap != null && dataMap.containsKey("code")) {
+                menuCode = dataMap["code"].toString()
+            }
+            if (menuCode.endsWith("_NWV")) {
+                data.putString(NavigationConstants.PAGE_TITLE, navigator.name)
+                data.putString(NavigationConstants.WEBVIEW_URL, navigator.navLink)
+                upTo(NavigationComponents.getActivityFromCode(NavigationConstants.DYNAMIX_DOWNLOAD_WEB_VIEW_ACTIVITY))
+                return
+            }
             data.putString(NavigationConstants.PAGE_TITLE, navigator.name)
             data.putString(NavigationConstants.WEBVIEW_URL, navigator.navLink)
             upTo(NavigationComponents.getActivityFromCode(NavigationConstants.DYNAMIX_WEB_VIEW_ACTIVITY))

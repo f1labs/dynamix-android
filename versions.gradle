@@ -2,10 +2,10 @@ ext.dynamix_deps = [:]
 def versions = [:]
 
 // @dynamix@ module versions
-versions.core = "1.0.14"
-versions.formbuilder = "1.0.14"
-versions.modsign = "1.0.14"
-versions.styles = "1.0.14"
+versions.core = "1.0.15"
+versions.formbuilder = "1.0.15"
+versions.modsign = "1.0.15"
+versions.styles = "1.0.15"
 // @dynamix@
 
 // dynamix dependencies versions
