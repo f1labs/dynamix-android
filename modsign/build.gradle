@@ -11,11 +11,11 @@ plugins {
 def dynamix_deps = rootProject.ext.dynamix_deps
 
 android {
-    compileSdkVersion 31
+    compileSdkVersion 33
 
     defaultConfig {
         minSdkVersion 21
-        targetSdkVersion 30
+        targetSdkVersion 33
         versionCode 1
         versionName "1.0"
 
