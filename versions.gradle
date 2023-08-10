@@ -43,7 +43,7 @@ versions.firebase_messaging = "20.2.1"
 versions.appcompat = "1.3.1"
 versions.support_appcompat = "28.0.0"
 
-versions.lifecycle = "2.2.0"
+versions.lifecycle = "2.4.0"
 
 versions.glide = "4.12.0"
 versions.gson = "2.8.6"
@@ -96,7 +96,7 @@ versions.firebase_analytics = "17.4.3"
 
 versions.core_library_desugaring = "1.1.5"
 versions.commons_io = "2.6"
-versions.commons_lang3 = "3.6"
+versions.commons_lang3 = "3.11"
 
 versions.annotation_java5 = "15.0"
 
@@ -106,7 +106,7 @@ versions.compressor = "2.1.1"
 versions.androidx_exif = "1.3.2"
 versions.work_manager = "2.5.0"
 
-versions.emv_qrcode = "0.1.1"
+versions.emv_qrcode = "0.1.2"
 
 def deps = [:]
 
@@ -147,11 +147,11 @@ okhttp.logging_interceptor = "com.squareup.okhttp3:logging-interceptor:$versions
 deps.okhttp = okhttp
 
 def lifecycle = [:]
-lifecycle.viewmodel = "androidx.lifecycle:lifecycle-viewmodel:$versions.lifecycle"
-lifecycle.viewmodel_ktx = "androidx.lifecycle:lifecycle-viewmodel-ktx:$versions.lifecycle"
+lifecycle.viewmodel = "androidx.lifecycle:lifecycle-viewmodel:2.4.0"
+lifecycle.viewmodel_ktx = "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0"
 lifecycle.common_java8 = "androidx.lifecycle:lifecycle-common-java8:$versions.lifecycle"
 lifecycle.reactive_streams = "androidx.lifecycle:lifecycle-reactivestreams:$versions.lifecycle"
-lifecycle.extension = "androidx.lifecycle:lifecycle-extensions:$versions.lifecycle"
+lifecycle.extension = "androidx.lifecycle:lifecycle-extensions:2.2.0"
 deps.lifecycle = lifecycle
 
 def glide = [:]
