@@ -99,7 +99,6 @@ dependencies {
 
     implementation 'com.github.myinnos:AlphabetIndex-Fast-Scroll-RecyclerView:1.0.95'
 
-    implementation 'org.apache.commons:commons-lang3:3.11'
     implementation 'com.github.yalantis:ucrop:2.2.6'
 }
 
