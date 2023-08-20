@@ -2,10 +2,10 @@ ext.dynamix_deps = [:]
 def versions = [:]
 
 // @dynamix@ module versions
-versions.core = "2.0.0"
-versions.formbuilder = "2.0.0"
-versions.modsign = "2.0.0"
-versions.styles = "2.0.0"
+versions.core = "2.1.0"
+versions.formbuilder = "2.1.0"
+versions.modsign = "2.1.0"
+versions.styles = "2.1.0"
 // @dynamix@
 
 // dynamix dependencies versions
@@ -95,8 +95,6 @@ versions.firebase_crashlytics = "17.1.0"
 versions.firebase_analytics = "17.4.3"
 
 versions.core_library_desugaring = "1.1.5"
-versions.commons_io = "2.6"
-versions.commons_lang3 = "3.11"
 
 versions.annotation_java5 = "15.0"
 
@@ -105,8 +103,6 @@ versions.threetenabp = "1.3.0"
 versions.compressor = "2.1.1"
 versions.androidx_exif = "1.3.2"
 versions.work_manager = "2.5.0"
-
-versions.emv_qrcode = "0.1.2"
 
 def deps = [:]
 
@@ -202,8 +198,6 @@ deps.kotlin_stdlib_jdk7 = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kot
 deps.kotlin_stdlib = "org.jetbrains.kotlin:kotlin-stdlib:$versions.kotlin_stdlib"
 
 deps.core_library_desugaring = "com.android.tools:desugar_jdk_libs:$versions.core_library_desugaring"
-deps.commons_io = "commons-io:commons-io:$versions.commons_io"
-deps.commons_lang3 = "org.apache.commons:commons-lang3:$versions.commons_lang3"
 
 deps.annotation_java5 = "org.jetbrains:annotations-java5:$versions.annotation_java5"
 

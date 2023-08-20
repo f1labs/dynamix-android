@@ -14,7 +14,7 @@ import com.dynamix.core.view.DynamixNoChangingBackgroundTextInputLayout
 import com.dynamix.formbuilder.data.DynamixFieldType
 import com.dynamix.formbuilder.data.DynamixFormFieldView
 import com.google.android.material.textfield.TextInputLayout
-import org.apache.commons.lang3.StringUtils
+import java.util.Locale
 
 object DynamixFormBuilderValidationUtils {
 
@@ -79,7 +79,7 @@ object DynamixFormBuilderValidationUtils {
                             " आवश्यक छ"
                 } else {
                     textInputLayout.error =
-                        StringUtils.capitalize(fieldView.formField.label.lowercase()) +
+                        fieldView.formField.label.lowercase().firstLetterCapitalizeDynamix() +
                                 " is required"
                 }
                 if (focusable) textInputLayout.requestFocus()
@@ -115,7 +115,7 @@ object DynamixFormBuilderValidationUtils {
                         textInputLayout.error = fieldView.formField.label + " मिलेन"
                     } else {
                         textInputLayout.error = "Invalid " +
-                                StringUtils.capitalize(fieldView.formField.label!!.lowercase())
+                                fieldView.formField.label.lowercase().firstLetterCapitalizeDynamix()
                     }
                 } else {
                     textInputLayout.error = fieldView.formField.validatorMessage
@@ -143,7 +143,7 @@ object DynamixFormBuilderValidationUtils {
                     textInputLayout.error = fieldView.formField.validatorMessage
                 } else {
                     textInputLayout.error =
-                        StringUtils.capitalize(fieldView.formField.label.lowercase()) +
+                        fieldView.formField.label.lowercase().firstLetterCapitalizeDynamix() +
                                 " cannot be less than " + fieldView.formField.minValue
                 }
                 if (focusable) textInputLayout.requestFocus()
@@ -189,3 +189,6 @@ object DynamixFormBuilderValidationUtils {
         }
     }
 }
+
+fun String.firstLetterCapitalizeDynamix(): String =
+    this.substring(0, 1).uppercase(Locale.getDefault()) + this.substring(1).lowercase()
