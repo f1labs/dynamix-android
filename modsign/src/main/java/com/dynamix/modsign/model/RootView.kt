@@ -86,6 +86,7 @@ data class RootView(
     val maxItems: Int = 0,
     val radioId: String? = "",
     val radioRequired: Boolean = false,
+    val filterCriteria: String? = null,
 
     val visibility: ModSignVisibility? = null,
 

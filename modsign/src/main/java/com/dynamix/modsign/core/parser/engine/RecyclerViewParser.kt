@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.dynamix.core.cache.DynamixDataStorage
 import com.dynamix.core.logger.LoggerProviderUtils
 import com.dynamix.core.network.ApiProvider
+import com.dynamix.core.utils.DynamixCommonUtils.applyFilterCriteria
 import com.dynamix.modsign.ModSignKeyConfigs
 import com.dynamix.modsign.core.components.recyclerview.RvAdapter
 import com.dynamix.modsign.core.events.DynamixRvEvent
@@ -147,9 +148,17 @@ class RecyclerViewParser(
             recyclerView: RecyclerView,
             callback: Any
         ) {
+            val rawData = getData(view.dataObject, data) as ArrayList<Map<String, Any>>
+            val filteredData = if (!view.filterCriteria.isNullOrEmpty()) {
+                rawData.filter { item ->
+                    applyFilterCriteria(item, view.filterCriteria)
+                } as ArrayList<Map<String, Any>>
+            } else {
+                rawData
+            }
             val rvAdapter = RvAdapter(
                 context,
-                getData(view.dataObject, data) as ArrayList<Map<String, Any>>,
+                filteredData,
                 layout,
                 callback
             )
