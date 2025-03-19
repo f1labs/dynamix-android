@@ -156,4 +156,31 @@ object DynamixCommonUtils {
         }
         return rFinal
     }
+
+    fun applyFilterCriteria(item: Map<String, Any>, filter: String): Boolean {
+        val operators = listOf("!=", "==", ">=", "<=", ">", "<")
+
+        for (op in operators) {
+            if (filter.contains(op)) {
+                val parts = filter.split(op)
+                if (parts.size == 2) {
+                    val key = parts[0].trim()
+                    val value = parts[1].trim()
+
+                    val itemValue = item[key]?.toString() ?: return false
+
+                    return when (op) {
+                        "!=" -> itemValue != value
+                        "==" -> itemValue == value
+                        ">" -> itemValue.toDoubleOrNull()?.let { it > value.toDouble() } ?: false
+                        "<" -> itemValue.toDoubleOrNull()?.let { it < value.toDouble() } ?: false
+                        ">=" -> itemValue.toDoubleOrNull()?.let { it >= value.toDouble() } ?: false
+                        "<=" -> itemValue.toDoubleOrNull()?.let { it <= value.toDouble() } ?: false
+                        else -> true
+                    }
+                }
+            }
+        }
+        return true
+    }
 }
