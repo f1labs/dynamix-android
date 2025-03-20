@@ -3,7 +3,7 @@ name: Dynamix
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
   containers:
     - name: main
       image: 'shr3jn/android-fastlane:jdk11'
