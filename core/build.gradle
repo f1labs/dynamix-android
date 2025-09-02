@@ -62,6 +62,11 @@ dependencies {
     implementation dynamix_deps.core_ktx
     implementation dynamix_deps.appcompat
     implementation dynamix_deps.material
+    implementation dynamix_deps.lifecycle.viewmodel
+    implementation dynamix_deps.lifecycle.viewmodel_ktx
+    implementation dynamix_deps.lifecycle.common_java8
+    implementation dynamix_deps.lifecycle.reactive_streams
+    implementation dynamix_deps.lifecycle.extension
 
     implementation 'androidx.activity:activity-ktx:1.4.0'
     testImplementation 'junit:junit:4.13.2'
