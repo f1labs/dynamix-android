@@ -10,11 +10,12 @@ plugins {
 def dynamix_deps = rootProject.ext.dynamix_deps
 
 android {
-    compileSdkVersion 33
+    namespace "com.dynamix.styles"
+    compileSdkVersion 36
 
     defaultConfig {
         minSdk 21
-        targetSdkVersion 33
+        targetSdkVersion 36
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -27,11 +28,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_11
-        targetCompatibility JavaVersion.VERSION_11
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_11.toString()
+        jvmTarget = JavaVersion.VERSION_17.toString()
     }
 }
 
