@@ -11,11 +11,12 @@ plugins {
 def dynamix_deps = rootProject.ext.dynamix_deps
 
 android {
-    compileSdkVersion 33
+    namespace "com.dynamix.core"
+    compileSdkVersion 36
 
     defaultConfig {
         minSdk 21
-        targetSdkVersion 33
+        targetSdkVersion 36
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -31,11 +32,11 @@ android {
         // Flag to enable support for the new language APIs
         coreLibraryDesugaringEnabled true
 
-        sourceCompatibility JavaVersion.VERSION_11
-        targetCompatibility JavaVersion.VERSION_11
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_11.toString()
+        jvmTarget = JavaVersion.VERSION_17.toString()
     }
 
     configurations.all {
@@ -62,6 +63,11 @@ dependencies {
     implementation dynamix_deps.core_ktx
     implementation dynamix_deps.appcompat
     implementation dynamix_deps.material
+    implementation dynamix_deps.lifecycle.viewmodel
+    implementation dynamix_deps.lifecycle.viewmodel_ktx
+    implementation dynamix_deps.lifecycle.common_java8
+    implementation dynamix_deps.lifecycle.reactive_streams
+    implementation dynamix_deps.lifecycle.extension
 
     implementation 'androidx.activity:activity-ktx:1.4.0'
     testImplementation 'junit:junit:4.13.2'

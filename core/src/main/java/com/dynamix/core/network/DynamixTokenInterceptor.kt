@@ -215,7 +215,7 @@ class DynamixTokenInterceptor(
                 0
             );
             deviceDetails = deviceDetails.copy(
-                appVersionName = pInfo.versionName,
+                appVersionName = pInfo.versionName ?: "",
                 appVersionCode = pInfo.versionCode.toString(),
             )
         } catch (e: PackageManager.NameNotFoundException) {
