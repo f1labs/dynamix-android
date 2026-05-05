@@ -2,10 +2,14 @@ package com.dynamix.core.view.base
 
 import android.content.Context
 import android.content.res.Configuration
+import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
 import android.view.View
+import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
+import androidx.activity.SystemBarStyle
+import androidx.activity.enableEdgeToEdge
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -20,6 +24,7 @@ import com.dynamix.core.init.DynamixEnvironmentData
 import com.dynamix.core.locale.DynamixLocaleContextWrapper
 import com.dynamix.core.logger.AppLoggerProvider
 import com.dynamix.core.navigation.NavigationProvider
+import com.dynamix.core.utils.DynamixCommonUtils
 import io.reactivex.disposables.CompositeDisposable
 import org.koin.android.ext.android.inject
 import org.koin.core.parameter.parametersOf
@@ -48,8 +53,20 @@ abstract class DynamixActivity<B : ViewDataBinding> : AppCompatActivity(), Lifec
         get() = super.lifecycle
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.VANILLA_ICE_CREAM) {
+            enableEdgeToEdge(
+                statusBarStyle = SystemBarStyle.auto(Color.TRANSPARENT, Color.TRANSPARENT),
+                navigationBarStyle = SystemBarStyle.auto(Color.TRANSPARENT, Color.TRANSPARENT)
+            )
+        }
         super.onCreate(savedInstanceState)
         inflateLayout()
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.VANILLA_ICE_CREAM) {
+            val root = findViewById<ViewGroup>(android.R.id.content).getChildAt(0)
+            if (root != null) {
+                DynamixCommonUtils.applyGlobalInsets(root)
+            }
+        }
         setUp()
     }
 

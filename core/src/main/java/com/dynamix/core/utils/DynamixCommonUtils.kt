@@ -3,7 +3,10 @@ package com.dynamix.core.utils
 import android.content.Context
 import android.graphics.drawable.Drawable
 import android.util.TypedValue
+import android.view.View
 import androidx.core.content.res.ResourcesCompat
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import com.dynamix.core.logger.LoggerProviderUtils
 import java.text.ParseException
 import java.text.SimpleDateFormat
@@ -155,5 +158,16 @@ object DynamixCommonUtils {
             i++
         }
         return rFinal
+    }
+
+    fun applyGlobalInsets(view: View) {
+        ViewCompat.setOnApplyWindowInsetsListener(view) { v, windowInsets ->
+            val insets = windowInsets.getInsets(
+                WindowInsetsCompat.Type.systemBars() or
+                        WindowInsetsCompat.Type.displayCutout()
+            )
+            v.setPadding(insets.left, insets.top, insets.right, insets.bottom)
+            WindowInsetsCompat.CONSUMED
+        }
     }
 }
