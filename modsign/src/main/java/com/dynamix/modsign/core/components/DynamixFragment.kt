@@ -113,9 +113,8 @@ open class DynamixFragment : Fragment(), LifecycleOwner, DynamixLayoutEvent, Dyn
         println("Adapter is set wohoooo")
     }
 
-    override fun getLifecycle(): Lifecycle {
-        return super.getLifecycle()
-    }
+    override val lifecycle: Lifecycle
+        get() = super.lifecycle
 
     override fun onButtonClicked(view: RootView) {
 

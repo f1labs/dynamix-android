@@ -44,9 +44,8 @@ abstract class DynamixActivity<B : ViewDataBinding> : AppCompatActivity(), Lifec
     @get:LayoutRes
     abstract val layoutId: Int
 
-    override fun getLifecycle(): Lifecycle {
-        return super.getLifecycle()
-    }
+    override val lifecycle: Lifecycle
+        get() = super.lifecycle
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
